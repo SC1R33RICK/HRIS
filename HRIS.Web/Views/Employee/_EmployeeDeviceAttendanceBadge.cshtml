@@ -1,0 +1,36 @@
+﻿@using HRIS.Model.Sys;
+@using HRIS.Model.MasterFile;
+@model int?
+
+@{
+
+    Html.Kendo().Grid<EmployeeDeviceAttendanceBadgeModel>()
+        .Name("grdBadges")
+        .Columns(col =>
+        {
+
+            col.Bound(x => x.description);
+            col.Bound(x => x.badgeNumber).Width(150);
+        })
+        .ToolBar(tb =>
+        {
+            tb.Save();
+        })
+        .Editable(editable => editable.Mode(GridEditMode.InCell))
+        .SetDefaultSettings()
+        .DataSource(source =>
+        {
+            source
+                .Ajax()
+                .Model(m =>
+                {
+                    m.Id(f => f.deviceAttendanceId);
+                    m.Field(f => f.description).Editable(false);
+                })
+                .Read(read => read.Action("GetEmployeeDeviceBadgeList", "Employee", new { employeeId = Model }))
+                .Update(crud => crud.Action("DeviceBadgeUpdate", "Employee", new { employeeId = Model }))
+                ;
+        })
+    .Render();
+
+}
