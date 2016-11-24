@@ -92,6 +92,6 @@ function error_handler(e) {
                 });
             }
         });
-        swal("Warning", message, "error");
+        swal("Warning", message, "errorx");
     }
 }
