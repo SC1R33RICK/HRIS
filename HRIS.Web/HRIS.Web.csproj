@@ -3012,7 +3012,7 @@
     <Content Include="assets\sweetalert\sweetalert-dev.js" />
     <Content Include="assets\sweetalert\sweetalert.css" />
     <Content Include="assets\sweetalert\sweetalert.min.js" />
-    <Content Include="bin\Kendo.Mvc.dll" />
+    <Content Include="DLL Files\Kendo.Mvc.dll" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\App\employee.js" />
     <Content Include="Scripts\hris.js" />
