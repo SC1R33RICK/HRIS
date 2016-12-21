@@ -42,6 +42,20 @@ namespace Repository
             return await _repository.GetAsync(_filter, _orderByQuerable, _includeProperties, _page, _pageSize);
         }
 
+        public IQueryable<IGrouping<TKey, TEntity>> GetGroupBy<TKey>(Expression<Func<TEntity, TKey>> keySelector)
+        {
+            return _repository.GetGroupBy(keySelector, _filter, _orderByQuerable, _includeProperties, _page, _pageSize);
+        }
+
+        public IQueryable<IGrouping<TKey, TEntity>> GetGroupByPage<TKey>(Expression<Func<TEntity, TKey>> keySelector, int page, int pageSize, out int totalCount)
+        {
+            _page = page;
+            _pageSize = pageSize;
+            totalCount = _repository.GetGroupBy(keySelector, _filter).Count();
+
+            return _repository.GetGroupBy(keySelector, _filter, _orderByQuerable, _includeProperties, _page, _pageSize);
+        }
+
         public IEnumerable<TEntity> GetPage(int page, int pageSize, out int totalCount)
         {
             _page = page;

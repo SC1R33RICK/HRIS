@@ -10,19 +10,23 @@ namespace Repository
     {
         RepositoryQuery<TEntity> Filter(Expression<Func<TEntity, bool>> filter);
 
-        RepositoryQuery<TEntity> OrderBy(Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy);
+        IQueryable<TEntity> Get();
 
-        RepositoryQuery<TEntity> Include(Expression<Func<TEntity, object>> expression);
+        Task<IEnumerable<TEntity>> GetAsync();
+
+        IQueryable<IGrouping<TKey, TEntity>> GetGroupBy<TKey>(Expression<Func<TEntity, TKey>> keySelector);
+
+        IQueryable<IGrouping<TKey, TEntity>> GetGroupByPage<TKey>(Expression<Func<TEntity, TKey>> keySelector, int page, int pageSize, out int totalCount);
 
         IEnumerable<TEntity> GetPage(int page, int pageSize, out int totalCount);
 
-        IQueryable<TEntity> Get();
+        RepositoryQuery<TEntity> Include(Expression<Func<TEntity, object>> expression);
+
+        RepositoryQuery<TEntity> OrderBy(Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy);
 
         IQueryable<TEntity> Select();
 
         IQueryable<TResult> Select<TResult>(Expression<Func<TEntity, TResult>> selector);
-
-        Task<IEnumerable<TEntity>> GetAsync();
 
         IQueryable<TEntity> SqlQuery(string query, params object[] parameters);
     }
