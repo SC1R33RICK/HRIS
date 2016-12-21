@@ -213,6 +213,41 @@ namespace Repository
             return query;
         }
 
+        internal IQueryable<IGrouping<TKey, TEntity>> GetGroupBy<TKey>(
+            Expression<Func<TEntity, TKey>> keySelector,
+            List<Expression<Func<TEntity, bool>>> filter = null,
+            Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
+            List<Expression<Func<TEntity, object>>> includeProperties = null,
+            int? page = null,
+            int? pageSize = null)
+        {
+            IQueryable<TEntity> query = _dbSet;
+
+            if (includeProperties != null)
+                includeProperties.ForEach(i => query = query.Include(i));
+
+            if (filter != null)
+                filter.ForEach(f =>
+                {
+                    query = query.Where(f);
+                });
+
+            if (orderBy != null)
+                query = orderBy(query);
+
+            if (page != null && pageSize != null)
+            {
+                return query.GroupBy(keySelector)
+                    .Skip((page.Value - 1) * pageSize.Value)
+                    .Take(pageSize.Value);
+            }
+            else
+            {
+                return query.GroupBy(keySelector);
+            }
+
+        }
+
         internal async Task<IEnumerable<TEntity>> GetAsync(
             List<Expression<Func<TEntity, bool>>> filter = null,
             Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
