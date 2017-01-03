@@ -5,16 +5,12 @@
 
     ViewBag.Title = "Employee Time and Attendance";
 
-    var deviceAttendanceService = DependencyResolver.Current.GetService<IDeviceAttendanceService>();
-    var devices = deviceAttendanceService.GetQuery().Select(x => new ReferenceModel() { value = x.id.Value, description = x.description }).ToList();
-
 }
 
 @section bottom{
     <script type="text/javascript">
 
         $(function () {
-            checkDeviceInUse();
         })
 
         function getParam() {
@@ -22,7 +18,6 @@
                 employeeId: $("#employee").data("kendoDropDownList").value(),
                 startDate: $("#startDate").data("kendoDateTimePicker").value(),
                 endDate: $("#endDate").data("kendoDateTimePicker").value(),
-                deviceId: $("#device").data("kendoDropDownList").value()
             }
         }
 
@@ -46,82 +41,10 @@
             }
         }
 
-        function downloadDeviceLogs() {
-            $("#winImportTimeLog").data("kendoWindow").open();
-            checkDeviceStatus($("#deviceId").data("kendoDropDownList").value());
-        }
-
-        function deviceIdOnChange(e) {
-            var index = this.selectedIndex, dataItem;
-            if (this.options.optionLabel && index > 0) {
-                index = index - 1;
-            }
-            var dataItem = this.dataItem(e.item);
-            checkDeviceStatus(dataItem.value);
-        }
-
-        function checkDeviceStatus(deviceId) {
-            $("div.import-logs button").attr("disabled", "disabled");
-            $("div.biometric-note").html("");
-
-            if (deviceId == "" || deviceId == undefined || deviceId == null) {
-                return;
-            }
-            $.ajax({
-                url: "@Url.Action("CheckDeviceStatus")/" + deviceId,
-                success: function (result) {
-                    if (result.success) {
-                        if (result.inUse) {
-                            $("div.import-logs button").attr("disabled", "disabled");
-                            $("div.biometric-note").html("<p><strong>Selected Device is currently in use... Try again later...</strong></p>");
-                        }
-                        else {
-                            $("div.import-logs button").removeAttr("disabled");
-                        }
-                    }
-                    else {
-                        swal("Device", result.msg, "Error");
-                    }
-                }
-            });
-        }
-
-        function startImportAttendance() {
-            var deviceId = $("#downloadDeviceId").data("kendoDropDownList").value();
-            //console.log(deviceId);
-            $("div.import-logs button").attr("disabled", "disabled");
-
-            if (deviceId == "" || deviceId == undefined || deviceId == null) {
-                return;
-            }
-            swal("Device", "Importing time logs has been in progress.", "success");
-            $("#winImportTimeLog").data("kendoWindow").close();
-            $.ajax({
-                url: "@Url.Action("StartImportAttendance")/" + deviceId,
-                success: function (result) {
-                    if (result.success) {
-                        swal("Device", "Importing time logs is done.", "success");
-                    }
-                    else {
-                        swal("Device", result.msg, "error");
-                    }
-                }
-            });
-        }
-
         function newManualTimeLog() {
             $("#winManualTimeLog").data("kendoWindow").open();
         }
 
-        function checkDeviceInUse(repeat) {
-            $("div.device-in-use").load("@Url.Action("_DeviceInUse")", null, function () {
-                if (repeat == undefined || repeat == true) {
-                    setTimeout(function () {
-                        checkDeviceInUse();
-                    }, 5000);
-                }
-            });
-        }
     </script>
 }
 
@@ -129,16 +52,8 @@
         <button type="button" class="k-button pull-right" onclick="newManualTimeLog()">Add Missing Time Logs</button>
         <button type="button" class="k-button pull-right hris-margin-right-5" onclick="downloadDeviceLogs()">Download Logs</button>
 </text>)
-<div class="col-md-12 device-in-use">
-</div>
 <div class="col-md-12">
     <div class="form-horizontal" role="form">
-        <div class="form-group">
-            <label class="control-label col-md-2" for="endDate">Biometric Device</label>
-            <div class="col-md-4">
-                @Html.Kendo().DropDownList().Name("device").SetReferenceSettings().BindTo(devices).OptionLabel("All Biometric Devices")
-            </div>
-        </div>
         <div class="form-group">
             <label class="control-label col-md-2" for="startDate">Start Date</label>
             <div class="col-md-4">
@@ -192,7 +107,6 @@
                     .Name("grdAttendance")
                     .Columns(col =>
                     {
-                        col.Bound(x => x.device).Width(150);
                         col.Bound(x => x.employeeName);
                         col.Bound(x => x.workDate).Width(150);
                         col.Bound(x => x.timeLog).Width(150);
@@ -235,36 +149,6 @@
         .Visible(false)
         .Render();
 
-    Html.Kendo()
-        .Window()
-        .Name("winImportTimeLog")
-        .Title("Import Time Logs")
-        .Width(600)
-        .Content(@<text>
-            <div class="col-md-12">
-                <div class="form-horizontal import-logs">
-                    <div class="form-group">
-                        <label class="control-label col-md-3" for="endDate">Biometric Device</label>
-                        <div class="col-md-9">
-                            @Html.Kendo().DropDownList().Name("downloadDeviceId").Events(events => events.Change("deviceIdOnChange")).SetReferenceSettings().BindTo(devices.ToList()).OptionLabel("select Biometric Device")
-                            <div class="help-block">
-                                Once you start to Import, the device will be disabled until importing is done.
-                                <div class="biometric-note"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-offset-3 col-md-9">
-                            <button type="button" class="k-button" disabled="disabled" onclick="startImportAttendance()">Start Import</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </text>)
-        .Modal(true)
-        .Events(events => events.Open("HRIS.centerKendoWindow"))
-        .Draggable()
-        .Visible(false)
-        .Render();
+   
 
 }

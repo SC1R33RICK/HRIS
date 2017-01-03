@@ -1,8 +1,0 @@
-﻿@model IEnumerable<HRIS.Model.Attendance.DeviceAttendanceModel>
-
-@if (Model.Any())
-{
-    <div class="alert alert-info">
-        <strong>@string.Join(", ", Model.Select(x => x.description))</strong> Device currently in use, downloading of attendance log is not permitted.
-    </div>
-}

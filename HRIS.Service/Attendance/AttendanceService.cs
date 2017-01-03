@@ -21,19 +21,15 @@ namespace HRIS.Service.Attendance
         private readonly IRepository<ta_CutOffAttendance> _repoCutOffAttendance;
         private readonly IRepository<ta_CutOffAttendanceSummary> _repoCutOffAttendanceSummary;
         private readonly IRepository<ta_CutOffAttendanceSummaryDetail> _repoCutOffAttendanceSummaryDetail;
-        private readonly IRepository<mf_DeviceAttendance> _repoDeviceAttendance;
         private readonly IRepository<mf_Employee> _repoEmployee;
         private readonly IRepository<ta_EmployeeAttendance> _repoEmployeeAttendance;
-        private readonly IRepository<mf_EmployeeDeviceBadge> _repoEmployeeDeviceBadge;
         private readonly IRepository<mf_WorkDay> _repoWorkDay;
         private readonly IUnitOfWork _unitOfWork;
 
         public AttendanceService(
             IEnumReferenceService enumReferenceService
             , IHolidayService holidayService
-            , IRepository<mf_DeviceAttendance> repoDeviceAttendance
             , IRepository<mf_Employee> repoEmployee
-            , IRepository<mf_EmployeeDeviceBadge> repoEmployeeDeviceBadge
             , IRepository<mf_WorkDay> repoWorkDay
             , IRepository<ta_CutOffAttendance> repoCutOffAttendance
             , IRepository<ta_CutOffAttendanceSummary> repoCutOffAttendanceSummary
@@ -47,10 +43,8 @@ namespace HRIS.Service.Attendance
             this._repoCutOffAttendance = repoCutOffAttendance;
             this._repoCutOffAttendanceSummary = repoCutOffAttendanceSummary;
             this._repoCutOffAttendanceSummaryDetail = repoCutOffAttendanceSummaryDetail;
-            this._repoDeviceAttendance = repoDeviceAttendance;
             this._repoEmployee = repoEmployee;
             this._repoEmployeeAttendance = repoEmployeeAttendance;
-            this._repoEmployeeDeviceBadge = repoEmployeeDeviceBadge;
             this._repoWorkDay = repoWorkDay;
             this._unitOfWork = unitOfWork;
         }
@@ -241,130 +235,6 @@ namespace HRIS.Service.Attendance
             this._unitOfWork.Save();
         }
 
-        public void DownloadLogs(int deviceId)
-        {
-            //this.Log("AttendanceService.DownloadLogs: Download Log Starting", EventLogEntryType.Information);
-            //int userId = this.GetCurrentUserId();
-            //try
-            //{
-            //    this.Log("AttendanceService.DownloadLogs: Updating Device In use", EventLogEntryType.Information);
-
-            //    this._repoDeviceAttendance.FindAndUpdateFromModel(userId, deviceId)
-            //        .SetValue(x => x.updatedBy, userId)
-            //        .SetValue(x => x.inProgressImporting, true)
-            //        .Update();
-            //    this._unitOfWork.Save();
-
-            //    this.Log("AttendanceService.DownloadLogs: Connecting to Device", EventLogEntryType.Information);
-            //    List<EmployeeDeviceLogInformationModel> logs = new List<EmployeeDeviceLogInformationModel>();
-            //    zkemkeeper.CZKEMClass axCZKEM1 = new zkemkeeper.CZKEMClass();
-            //    var device = this._repoDeviceAttendance.Query().Filter(x => x.id == deviceId).Select().FirstOrDefault();
-            //    if (device == null) throw new Exception("Unable to load selected device.");
-
-            //    bool bIsConnected = axCZKEM1.Connect_Net(device.ipAddress, device.port ?? 0);
-            //    if (!bIsConnected)
-            //    {
-            //        int idwErrorCode = 0;
-            //        axCZKEM1.GetLastError(ref idwErrorCode);
-            //        throw new Exception("Unable to connect the device,ErrorCode=" + idwErrorCode.ToString() + ". Please contact Administrator.");
-            //    }
-            //    this.Log("AttendanceService.DownloadLogs: Connected", EventLogEntryType.Information);
-            //    int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
-            //    axCZKEM1.RegEvent(iMachineNumber, 65535);
-            //    axCZKEM1.EnableDevice(iMachineNumber, false);//disable the device
-            //    try
-            //    {
-            //        this.Log("AttendanceService.DownloadLogs: ReadGeneralLogData({0})", EventLogEntryType.Information, iMachineNumber);
-            //        if (axCZKEM1.ReadGeneralLogData(iMachineNumber))//read all the attendance records to the memory
-            //        {
-            //            string sdwEnrollNumber;
-            //            int idwVerifyMode, idwInOutMode, idwYear, idwMonth, idwDay, idwHour, idwMinute, idwSecond, idwWorkcode = 0;
-            //            while (axCZKEM1.SSR_GetGeneralLogData(iMachineNumber, out sdwEnrollNumber, out idwVerifyMode,
-            //                        out idwInOutMode, out idwYear, out idwMonth, out idwDay, out idwHour, out idwMinute, out idwSecond, ref idwWorkcode))//get records from the memory
-            //            {
-            //                logs.Add(new EmployeeDeviceLogInformationModel()
-            //                {
-            //                    badgeNo = sdwEnrollNumber,
-            //                    InOutMode = (TIME_LOG_TYPE)idwInOutMode,
-            //                    date = new DateTime(idwYear, idwMonth, idwDay, idwHour, idwMinute, idwSecond),
-            //                });
-            //            }
-            //        }
-            //        else
-            //        {
-            //            int idwErrorCode = 0;
-            //            axCZKEM1.GetLastError(ref idwErrorCode);
-            //            if (idwErrorCode != 0)
-            //            {
-            //                throw new Exception("Reading data from terminal failed,ErrorCode: " + idwErrorCode.ToString());
-            //            }
-            //            else
-            //            {
-            //                throw new Exception("No data from terminal returns!");
-            //            }
-            //        }
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        this.Log(ex);
-            //        throw;
-            //    }
-            //    finally
-            //    {
-            //        axCZKEM1.EnableDevice(iMachineNumber, true);//enable the device
-            //        axCZKEM1.Disconnect();
-            //        this.Log("AttendanceService.DownloadLogs: axCZKEM1.EnableDevice({0}, true)", EventLogEntryType.Information, iMachineNumber);
-            //    }
-
-            //    this.Log("AttendanceService.DownloadLogs: Download Attendance from Device is done.", EventLogEntryType.Information);
-            //    if (logs.Any())
-            //    {
-            //        this.Log("AttendanceService.DownloadLogs: Inserting {0} Attendance to database.", EventLogEntryType.Information, logs.Count);
-            //        bool hasChange = false;
-            //        foreach (var log in logs)
-            //        {
-            //            int? employeeId = this._repoEmployeeDeviceBadge.Query().Filter(x => x.deviceAttendanceId == deviceId && x.badgeNumber == log.badgeNo).Get().Select(x => x.employeeId).FirstOrDefault();
-            //            if (employeeId.HasValue)
-            //            {
-            //                int logType = (int)log.InOutMode;
-            //                bool isLogExist = this._repoEmployeeAttendance.Query().Filter(x => x.deviceAttendanceId == deviceId && x.badgeNo == log.badgeNo && x.timeLogType == logType && x.timeLog == log.date).Get().Any();
-            //                if (!isLogExist)
-            //                {
-            //                    this._repoEmployeeAttendance.Insert(new ta_EmployeeAttendance()
-            //                    {
-            //                        employeeId = employeeId.Value,
-            //                        deviceAttendanceId = deviceId,
-            //                        badgeNo = log.badgeNo,
-            //                        timeLogType = (int)log.InOutMode,
-            //                        workDate = log.date.Date,
-            //                        timeLog = log.date,
-            //                        updatedBy = userId,
-            //                    });
-            //                    hasChange = true;
-            //                }
-            //            }
-            //        }
-            //        if (hasChange)
-            //        {
-            //            this._unitOfWork.Save();
-            //        }
-            //    }
-            //}
-            //catch (Exception ex2)
-            //{
-            //    this.Log(ex2);
-            //    throw;
-            //}
-            //finally
-            //{
-            //    this._repoDeviceAttendance.FindAndUpdateFromModel(userId, deviceId)
-            //        .SetValue(x => x.updatedBy, userId)
-            //        .SetValue(x => x.inProgressImporting, false)
-            //        .Update();
-            //    this._unitOfWork.Save();
-            //}
-        }
-
         public void GenerateCutOffAttendance(GenerateCutOffAttendance model, out int cutOffAttendanceId)
         {
             int userId = this.GetCurrentUserId();
@@ -406,18 +276,13 @@ namespace HRIS.Service.Attendance
             cutOffAttendanceId = cutOffAttendance.id;
         }
 
-        public IQueryable<EmployeeAttendanceModel> GetEmployeeAttendance(int? payrollId, int? deviceId, int? employeeId, DateTime? startDate, DateTime? endDate)
+        public IQueryable<EmployeeAttendanceModel> GetEmployeeAttendance(int? payrollId, int? employeeId, DateTime? startDate, DateTime? endDate)
         {
             var prepare = this._repoEmployeeAttendance.Query();
 
             if (employeeId.HasValue)
             {
                 prepare.Filter(x => x.employeeId == employeeId);
-            }
-
-            if (deviceId.HasValue)
-            {
-                prepare.Filter(x => x.deviceAttendanceId == deviceId);
             }
 
             if (payrollId.HasValue)
@@ -440,7 +305,6 @@ namespace HRIS.Service.Attendance
                 .Select(x => new EmployeeAttendanceModel()
                 {
                     id = x.Attendance.id,
-                    device = x.Attendance.mf_DeviceAttendance.description + "(" + x.Attendance.mf_DeviceAttendance.machineNumber + ")",
                     employeeName = x.Attendance.mf_Employee.lastName + ", " + x.Attendance.mf_Employee.firstName,
                     workDate = x.Attendance.workDate,
                     timeLog = x.Attendance.timeLog,
@@ -469,18 +333,9 @@ namespace HRIS.Service.Attendance
 
         public void SaveManualTimeLog(ManualTimeLogModel model)
         {
-            string badgeNo = this._repoEmployeeDeviceBadge.Query().Filter(x => x.employeeId == model.employeeId && x.deviceAttendanceId == model.deviceId)
-                .Get()
-                .Select(x => x.badgeNumber)
-                .FirstOrDefault();
-
-            if (string.IsNullOrEmpty(badgeNo))
-                throw new Exception("Please update Badge Number of selected Employee base on Biometric Device.");
-
+          
             this._repoEmployeeAttendance.Insert(new ta_EmployeeAttendance()
             {
-                deviceAttendanceId = model.deviceId,
-                badgeNo = badgeNo,
                 employeeId = model.employeeId,
                 timeLogType = model.logType,
                 workDate = model.timeLog.Date,

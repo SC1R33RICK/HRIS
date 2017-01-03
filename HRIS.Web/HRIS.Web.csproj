@@ -3094,7 +3094,6 @@
     <Compile Include="Controllers\PenaltyTypeController.cs" />
     <Compile Include="Controllers\PayrollGroupController.cs" />
     <Compile Include="Controllers\OffenseController.cs" />
-    <Compile Include="Controllers\DeviceAttendanceController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\HolidayController.cs" />
     <Compile Include="Controllers\HolidayTypeController.cs" />
@@ -3249,9 +3248,7 @@
     <Content Include="Views\Attendance\Index.cshtml" />
     <Content Include="Views\Menu\Index.cshtml" />
     <Content Include="Views\Menu\EditorTemplates\DropDownMenuList.cshtml" />
-    <Content Include="Views\DeviceAttendance\Index.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\IntegerTextBox.cshtml" />
-    <Content Include="Views\Employee\_EmployeeDeviceAttendanceBadge.cshtml" />
     <Content Include="Views\Offense\Index.cshtml" />
     <Content Include="Views\Employee\_EmployeeOffense.cshtml" />
     <Content Include="Views\Employee\EditorTemplates\DropDownOffense.cshtml" />
@@ -3263,7 +3260,6 @@
     <Content Include="Views\Employee\_EmployeeTraining.cshtml" />
     <Content Include="Views\Attendance\_ManualTimeLog.cshtml" />
     <Content Include="Views\Employee\_EmployeeDetails.cshtml" />
-    <Content Include="Views\Attendance\_DeviceInUse.cshtml" />
     <Content Include="Views\PenaltyType\Index.cshtml" />
     <Content Include="Views\EmploymentStatus\Index.cshtml" />
     <Content Include="Views\EmploymentType\Index.cshtml" />

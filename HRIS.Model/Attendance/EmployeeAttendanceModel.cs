@@ -13,9 +13,6 @@ namespace HRIS.Model.Attendance
     {
         public int id { get; set; }
 
-        [DisplayName("Device")]
-        public string device { get; set; }
-
         [DisplayFormat(DataFormatString = "{0: MM/dd/yyyy hh:mm tt}")]
         [DisplayName("Time Log")]
         public DateTime timeLog { get; set; }

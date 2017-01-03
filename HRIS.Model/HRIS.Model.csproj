@@ -100,10 +100,8 @@
     <Compile Include="Attendance\CutOffAttendanceModel.cs" />
     <Compile Include="Attendance\CutOffAttendanceSummaryDetailModel.cs" />
     <Compile Include="Attendance\CutOffAttendanceSummaryModel.cs" />
-    <Compile Include="Attendance\DeviceAttendanceModel.cs" />
     <Compile Include="Attendance\EmployeeAttendanceModel.cs" />
     <Compile Include="Attendance\EmployeeCutOffAttendanceListModel.cs" />
-    <Compile Include="Attendance\EmployeeDeviceLogInformationModel.cs" />
     <Compile Include="Attendance\GenerateCutOffAttendanceModel.cs" />
     <Compile Include="Attendance\GenerateCutOffAttendance.cs" />
     <Compile Include="Attendance\GenerateCutOffModel.cs" />
@@ -138,7 +136,6 @@
     <Compile Include="MasterFile\EmployeeOffenseModel.cs" />
     <Compile Include="MasterFile\EmployeeTrainingModel.cs" />
     <Compile Include="MasterFile\EmployeeSkillModel.cs" />
-    <Compile Include="MasterFile\EmployeeDeviceAttendanceBadgeModel.cs" />
     <Compile Include="MasterFile\EmployeeWorkDayModel.cs" />
     <Compile Include="MasterFile\EmployeeWorkHistoryModel.cs" />
     <Compile Include="MasterFile\SkillProficiency.cs" />

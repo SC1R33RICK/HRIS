@@ -6,18 +6,17 @@ namespace HRIS.Service.MasterFile
 {
     public interface IEmployeeService
     {
-
-        void DeductionDelete(int employeeDeductionId);
-
-        IQueryable<EmployeeDeductionModel> DeductionList(int employeeId);
-
-        void DeductionUpdate(int employeeId, EmployeeDeductionModel model);
-
         void AllowanceDelete(int employeeAllowanceId);
 
         IQueryable<EmployeeAllowanceModel> AllowanceList(int employeeId);
 
         void AllowanceUpdate(int employeeId, EmployeeAllowanceModel model);
+
+        void BalanceLeaveDelete(int employeeBalanceLeaveId);
+
+        IQueryable<EmployeeBalanceLeaveModel> BalanceLeaveList(int employeeId);
+
+        void BalanceLeaveUpdate(int employeeId, EmployeeBalanceLeaveModel model);
 
         void BasicInfoCreate(EmployeeBasicInfoModel model, out int employeeId);
 
@@ -31,13 +30,13 @@ namespace HRIS.Service.MasterFile
 
         void BasicPayUpdate(int employeeId, EmployeeBasicPayModel model);
 
+        void DeductionDelete(int employeeDeductionId);
+
+        IQueryable<EmployeeDeductionModel> DeductionList(int employeeId);
+
+        void DeductionUpdate(int employeeId, EmployeeDeductionModel model);
+
         void Delete(int employeeId);
-
-        void DeviceBadgeDelete(int employeeId, int deviceAttendanceId);
-
-        IEnumerable<EmployeeDeviceAttendanceBadgeModel> DeviceBadgeList(int employeeId);
-
-        void DeviceBadgeUpdate(int employeeId, int deviceAttendanceId, string badgeNumber);
 
         Employee201Model Employee201FileGetByEmployeeId(int employeeId);
 
@@ -92,11 +91,5 @@ namespace HRIS.Service.MasterFile
         IQueryable<EmployeeWorkHistoryModel> WorkHistoryList(int employeeId);
 
         void WorkHistoryUpdate(int employeeId, EmployeeWorkHistoryModel model);
-
-        void BalanceLeaveDelete(int employeeBalanceLeaveId);
-
-        IQueryable<EmployeeBalanceLeaveModel> BalanceLeaveList(int employeeId);
-
-        void BalanceLeaveUpdate(int employeeId, EmployeeBalanceLeaveModel model);
     }
 }

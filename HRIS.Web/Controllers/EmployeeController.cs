@@ -415,41 +415,6 @@ namespace HRIS.Web.Controllers
 
         #endregion WorkDay
 
-        #region Badge
-
-        public ActionResult DeviceBadgeUpdate([DataSourceRequest] DataSourceRequest request, int employeeId, EmployeeDeviceAttendanceBadgeModel model)
-        {
-            if (model != null && ModelState.IsValid)
-            {
-                try
-                {
-                    this._employeeService.DeviceBadgeUpdate(employeeId, model.deviceAttendanceId, model.badgeNumber);
-                    model = this._employeeService.DeviceBadgeList(employeeId).FirstOrDefault(x => x.deviceAttendanceId == model.deviceAttendanceId);
-                }
-                catch (Exception ex)
-                {
-                    this.AddModelError(ex);
-                }
-            }
-
-            return Json(new[] { model }.ToDataSourceResult(request, ModelState));
-        }
-
-        public ActionResult GetDeviceAttendanceBadge(int id)
-        {
-            return PartialView("_EmployeeDeviceAttendanceBadge", id);
-        }
-
-        [HttpPost]
-        public ActionResult GetEmployeeDeviceBadgeList([DataSourceRequest] DataSourceRequest request, int employeeId)
-        {
-            var data = this._employeeService.DeviceBadgeList(employeeId);
-            var result = data.ToDataSourceResult(request);
-            return Json(result, JsonRequestBehavior.AllowGet);
-        }
-
-        #endregion Badge
-
         #region IdentificationDocument
 
         [HttpPost]

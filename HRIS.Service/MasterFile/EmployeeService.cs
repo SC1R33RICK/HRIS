@@ -15,13 +15,11 @@ namespace HRIS.Service.MasterFile
     public class EmployeeService : BaseService, IEmployeeService
     {
         private readonly IEnumReferenceService _enumReferenceService;
-        private readonly IRepository<mf_DeviceAttendance> _repoDeviceAttendance;
         private readonly IRepository<mf_Employee> _repoEmployee;
         private readonly IRepository<mf_Employee201> _repoEmployee201;
         private readonly IRepository<mf_EmployeeAddress> _repoEmployeeAddress;
         private readonly IRepository<mf_EmployeeAllowance> _repoEmployeeAllowance;
         private readonly IRepository<mf_EmployeeDeduction> _repoEmployeeDeduction;
-        private readonly IRepository<mf_EmployeeDeviceBadge> _repoEmployeeDeviceBadge;
         private readonly IRepository<mf_EmployeeIdentificationDocument> _repoEmployeeIdentificationDocument;
         private readonly IRepository<mf_EmployeeOffense> _repoEmployeeOffense;
         private readonly IRepository<mf_EmployeeSkill> _repoEmployeeSkill;
@@ -38,7 +36,6 @@ namespace HRIS.Service.MasterFile
         public EmployeeService(
             IEnumReferenceService enumReferenceService
             , IRepository<mf_ApplicationRequestType> repoApplicationRequestType
-            , IRepository<mf_DeviceAttendance> repoDeviceAttendance
             , IRepository<mf_Employee> repoEmployee
             , IRepository<mf_Employee201> repoEmployee201
             , IRepository<mf_EmployeeAddress> repoEmployeeAddress
@@ -46,7 +43,6 @@ namespace HRIS.Service.MasterFile
             , IRepository<mf_EmployeeBalanceLeave> repoEmployeeBalanceLeave
             , IRepository<mf_EmployeeBasicPay> repoEmployeeBasicPay
             , IRepository<mf_EmployeeDeduction> repoEmployeeDeduction
-            , IRepository<mf_EmployeeDeviceBadge> repoEmployeeDeviceBadge
             , IRepository<mf_EmployeeIdentificationDocument> repoEmployeeIdentificationDocument
             , IRepository<mf_EmployeeOffense> repoEmployeeOffense
             , IRepository<mf_EmployeeSkill> repoEmployeeSkill
@@ -60,7 +56,6 @@ namespace HRIS.Service.MasterFile
         {
             this._enumReferenceService = enumReferenceService;
             this._repoApplicationRequestType = repoApplicationRequestType;
-            this._repoDeviceAttendance = repoDeviceAttendance;
             this._repoEmployee = repoEmployee;
             this._repoEmployee201 = repoEmployee201;
             this._repoEmployeeAddress = repoEmployeeAddress;
@@ -68,7 +63,6 @@ namespace HRIS.Service.MasterFile
             this._repoEmployeeBalanceLeave = repoEmployeeBalanceLeave;
             this._repoEmployeeBasicPay = repoEmployeeBasicPay;
             this._repoEmployeeDeduction = repoEmployeeDeduction;
-            this._repoEmployeeDeviceBadge = repoEmployeeDeviceBadge;
             this._repoEmployeeIdentificationDocument = repoEmployeeIdentificationDocument;
             this._repoEmployeeOffense = repoEmployeeOffense;
             this._repoEmployeeSkill = repoEmployeeSkill;
@@ -513,68 +507,6 @@ namespace HRIS.Service.MasterFile
         }
 
         #endregion Work Days
-
-        #region Badge
-
-        public void DeviceBadgeDelete(int employeeId, int deviceAttendanceId)
-        {
-            this._repoEmployeeDeviceBadge.Query().Filter(x => x.employeeId == employeeId && x.deviceAttendanceId == deviceAttendanceId && !x.deleted).Get().ToList().ForEach(data =>
-            {
-                data.updatedBy = this.GetCurrentUserId();
-                data.updatedDate = DateTime.Now;
-                data.deleted = true;
-                this._repoEmployeeDeviceBadge.Update(data);
-            });
-            this._unitOfWork.Save();
-        }
-
-        public IEnumerable<EmployeeDeviceAttendanceBadgeModel> DeviceBadgeList(int employeeId)
-        {
-            var data = this._repoDeviceAttendance
-                .Query().Filter(x => !x.deleted)
-                .Get()
-                .Select(x => new
-                {
-                    device = x,
-                    badge = x.mf_EmployeeDeviceBadges.FirstOrDefault(ewd => ewd.employeeId == employeeId && !ewd.deleted)
-                })
-                .Select(x => new EmployeeDeviceAttendanceBadgeModel()
-                {
-                    deviceAttendanceId = x.device.id,
-                    badgeNumber = x.badge.badgeNumber,
-                    description = x.device.description,
-                    updatedBy = x.badge.sys_User.username,
-                    updatedDate = x.badge.updatedDate,
-                });
-            return data;
-        }
-
-        public void DeviceBadgeUpdate(int employeeId, int deviceAttendanceId, string badgeNumber)
-        {
-            var getList = this._repoEmployeeDeviceBadge.Query().Filter(x => x.employeeId == employeeId && x.deviceAttendanceId == deviceAttendanceId && !x.deleted).Get();
-            int userId = this.GetCurrentUserId();
-            if (!getList.Any())
-            {
-                this._repoEmployeeDeviceBadge.Insert(new mf_EmployeeDeviceBadge()
-                {
-                    deviceAttendanceId = deviceAttendanceId,
-                    badgeNumber = badgeNumber,
-                    employeeId = employeeId,
-                    updatedBy = userId,
-                });
-            }
-            else
-            {
-                var upt = getList.First();
-                upt.badgeNumber = badgeNumber;
-                upt.updatedBy = userId;
-                upt.updatedDate = DateTime.Now;
-                this._repoEmployeeDeviceBadge.Update(upt);
-            }
-            this._unitOfWork.Save();
-        }
-
-        #endregion Badge
 
         #region Skill
 

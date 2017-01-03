@@ -16,10 +16,6 @@ namespace HRIS.Model.Attendance
         }
 
         [Required]
-        [DisplayName("Biometric Device")]
-        public int deviceId { get; set; }
-
-        [Required]
         [DisplayName("Employee")]
         public int employeeId { get; set; }
 

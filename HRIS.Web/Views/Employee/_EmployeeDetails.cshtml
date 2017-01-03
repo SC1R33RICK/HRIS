@@ -6,7 +6,6 @@
         .Items(tab =>
         {
             tab.Add().Text("Job Information").LoadContentFrom("GetEmployee201File", "Employee", new { id = Model.Value }).Selected(true);
-            tab.Add().Text("Biometric Badge").LoadContentFrom("GetDeviceAttendanceBadge", "Employee", new { id = Model.Value });
             tab.Add().Text("Work Days").LoadContentFrom("GetEmployeeWorkDays", "Employee", new { id = Model.Value });
             tab.Add().Text("Basic Pay").LoadContentFrom("GetEmployeeBasicPays", "Employee", new { id = Model.Value });
             tab.Add().Text("Balance Leave").LoadContentFrom("GetEmployeeBalanceLeaves", "Employee", new { id = Model.Value });

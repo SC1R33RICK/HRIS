@@ -26,11 +26,9 @@ namespace HRIS.Service.Attendance
 
         void CutOffAttendanceUpdateStatus(int id, CUT_OFF_ATTENDANCE status, string remarks);
 
-        void DownloadLogs(int deviceId);
-
         void GenerateCutOffAttendance(GenerateCutOffAttendance model, out int cutOffAttendanceId);
 
-        IQueryable<EmployeeAttendanceModel> GetEmployeeAttendance(int? payrollId, int? deviceId, int? employeeId, DateTime? startDate, DateTime? endDate);
+        IQueryable<EmployeeAttendanceModel> GetEmployeeAttendance(int? payrollId, int? employeeId, DateTime? startDate, DateTime? endDate);
 
         IQueryable<EmployeeCutOffAttendanceListModel> GetEmployeeCutOffAttendanceList();
 

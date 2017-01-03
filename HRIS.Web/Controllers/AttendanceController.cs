@@ -14,18 +14,10 @@ namespace HRIS.Web.Controllers
     public class AttendanceController : BaseController
     {
         private readonly IAttendanceService _attendanceService;
-        private readonly IDeviceAttendanceService _deviceAttendanceService;
 
-        public AttendanceController(IAttendanceService attendanceService, IDeviceAttendanceService deviceAttendanceService)
+        public AttendanceController(IAttendanceService attendanceService)
         {
-            this._deviceAttendanceService = deviceAttendanceService;
             this._attendanceService = attendanceService;
-        }
-
-        public ActionResult _DeviceInUse()
-        {
-            var model = this._deviceAttendanceService.GetQuery().Where(x => x.inProgressImporting).ToList();
-            return PartialView(model);
         }
 
         public ActionResult _ManualTimeLog()
@@ -83,19 +75,6 @@ namespace HRIS.Web.Controllers
             return this.JsonResultWithModelStateInfo(successMsg: "New Time Log has been save.");
         }
 
-        public ActionResult CheckDeviceStatus(int id)
-        {
-            try
-            {
-                bool inUse = this._deviceAttendanceService.IsDeviceInUse(id);
-                return this.JsonResultSuccess(new { inUse });
-            }
-            catch (Exception ex)
-            {
-                return this.JsonResultError(ex);
-            }
-        }
-
         public ActionResult CutOffAttendanceListModelGetQuery([DataSourceRequest] DataSourceRequest request
             , DateTime? generatedDate
             , int? status
@@ -151,12 +130,11 @@ namespace HRIS.Web.Controllers
         public ActionResult GetEmployeeAttendance([DataSourceRequest] DataSourceRequest request
             , int? payrollId
             , int? employeeId
-            , int? deviceId
             , DateTime? startDate
             , DateTime? endDate
             )
         {
-            var data = this._attendanceService.GetEmployeeAttendance(payrollId, deviceId, employeeId, startDate, endDate);
+            var data = this._attendanceService.GetEmployeeAttendance(payrollId, employeeId, startDate, endDate);
             var result = data.ToDataSourceResult(request);
             return Json(result, JsonRequestBehavior.AllowGet);
         }
@@ -172,24 +150,6 @@ namespace HRIS.Web.Controllers
         public ActionResult Index()
         {
             return View();
-        }
-
-        /// <summary>
-        ///
-        /// </summary>
-        /// <param name="id">Device Id</param>
-        /// <returns></returns>
-        public ActionResult StartImportAttendance(int id)
-        {
-            try
-            {
-                this._attendanceService.DownloadLogs(id);
-                return this.JsonResultSuccess();
-            }
-            catch (Exception ex)
-            {
-                return this.JsonResultError(ex);
-            }
         }
 
         public ActionResult UpdateWorkDayAttendance()
