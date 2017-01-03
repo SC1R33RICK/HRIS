@@ -138,10 +138,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\HRIS_DB.mdf" />
-    <Content Include="App_Data\HRIS_DB_log.ldf">
-      <DependentUpon>HRIS_DB.mdf</DependentUpon>
-    </Content>
     <Content Include="assets\css\test.css" />
     <Content Include="assets\css\admin.css" />
     <Content Include="assets\css\common.css" />
@@ -3335,6 +3331,7 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="Views\Payroll\" />
   </ItemGroup>
   <PropertyGroup>
