@@ -3,21 +3,11 @@
 @using HRIS.Service.Attendance;
 @model ManualTimeLogModel
 @{
-
-    var deviceAttendanceService = DependencyResolver.Current.GetService<IDeviceAttendanceService>();
-    var devices = deviceAttendanceService.GetQuery().Select(x => new ReferenceModel() { value = x.id.Value, description = x.description }).ToList();
-
 }
 <div class="col-md-12">
     @using (Html.BeginForm("AjaxSaveManualTimeLog", "Attendance", FormMethod.Post, new { id="frmManualAttendance" }))
     {
         <div class="form-horizontal" role="form">
-            <div class="form-group">
-                @Html.LabelFor(model => model.deviceId, new { @class = "control-label col-md-3" })
-                <div class="col-md-6">
-                    @Html.Kendo().DropDownListFor(model => model.deviceId).SetReferenceSettings().BindTo(devices).OptionLabel("select")
-                </div>
-            </div>
             <div class="form-group">
                 @Html.LabelFor(model => model.employeeId, new { @class = "control-label col-md-3" })
                 <div class="col-md-6">

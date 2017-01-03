@@ -104,7 +104,7 @@ namespace HRIS.Service.Configuration
         {
             return this._repoApplicationRequestType
                 .Query()
-                .Filter(x => x.hasLeavePoints)
+                .Filter(x => x.requiredLeavePoints)
                 .Get()
                 .Select(x => new ReferenceModel()
                 {

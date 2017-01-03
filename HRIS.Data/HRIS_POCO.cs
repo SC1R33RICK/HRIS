@@ -247,7 +247,7 @@ namespace HRIS.Data
     {
         public string code { get; set; }
         public string description { get; set; }
-        public bool hasLeavePoints { get; set; }
+        public bool requiredLeavePoints { get; set; }
         public int updatedBy { get; set; }
         public DateTime updatedDate { get; set; }
 
@@ -259,7 +259,7 @@ namespace HRIS.Data
         
         public mf_ApplicationRequestType()
         {
-            hasLeavePoints = false;
+            requiredLeavePoints = false;
             updatedDate = System.DateTime.Now;
             deleted = false;
             mf_DepartmentSectionRequestApprovers = new List<mf_DepartmentSectionRequestApprover>();
@@ -1935,7 +1935,7 @@ namespace HRIS.Data
             Property(x => x.id).HasColumnName("id").IsRequired().HasColumnType("int").HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(x => x.code).HasColumnName("code").IsRequired().HasColumnType("nvarchar").HasMaxLength(50);
             Property(x => x.description).HasColumnName("description").IsRequired().HasColumnType("nvarchar").HasMaxLength(250);
-            Property(x => x.hasLeavePoints).HasColumnName("hasLeavePoints").IsRequired().HasColumnType("bit");
+            Property(x => x.requiredLeavePoints).HasColumnName("requiredLeavePoints").IsRequired().HasColumnType("bit");
             Property(x => x.updatedBy).HasColumnName("updatedBy").IsRequired().HasColumnType("int");
             Property(x => x.updatedDate).HasColumnName("updatedDate").IsRequired().HasColumnType("datetime");
             Property(x => x.deleted).HasColumnName("deleted").IsRequired().HasColumnType("bit");

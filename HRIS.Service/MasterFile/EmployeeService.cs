@@ -1025,7 +1025,7 @@ namespace HRIS.Service.MasterFile
 
         public IQueryable<EmployeeBalanceLeaveModel> BalanceLeaveList(int employeeId)
         {
-            var leaveType = this._repoApplicationRequestType.Query().Filter(x => x.hasLeavePoints)
+            var leaveType = this._repoApplicationRequestType.Query().Filter(x => x.requiredLeavePoints)
                 .Select(x => new ReferenceModel()
                 {
                     value = x.id,
