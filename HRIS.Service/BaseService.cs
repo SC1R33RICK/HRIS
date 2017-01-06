@@ -1,4 +1,5 @@
-﻿using HRIS.Service.Sys;
+﻿using HRIS.Model.Sys;
+using HRIS.Service.Sys;
 using System;
 using System.Diagnostics;
 using System.Web.Mvc;
@@ -7,33 +8,36 @@ namespace HRIS.Service
 {
     public class BaseService
     {
-        public void Log(Exception ex, EventLogEntryType entryType = EventLogEntryType.Warning)
+        public void Log(string info, Exception ex, LoggedType loggedType = LoggedType.Warning)
         {
             try
             {
-                string source = "HRIS";
-                if (!EventLog.SourceExists(source))
-                    EventLog.CreateEventSource(source, "Application");
+                //string source = "HRIS";
+                //if (!EventLog.SourceExists(source))
+                //    EventLog.CreateEventSource(source, "Application");
 
-                string errorMessage = string.Format("Message: {0}", ex.Message);
-                if (ex.InnerException != null && !string.IsNullOrEmpty(ex.InnerException.Message))
-                {
-                    errorMessage += string.Format("\nInnerException: {0}", ex.InnerException.Message);
-                }
+                //string errorMessage = string.Format("Message: {0}", ex.Message);
+                //if (ex.InnerException != null && !string.IsNullOrEmpty(ex.InnerException.Message))
+                //{
+                //    errorMessage += string.Format("\nInnerException: {0}", ex.InnerException.Message);
+                //}
 
-                EventLog.WriteEntry(source, errorMessage, entryType);
+                //EventLog.WriteEntry(source, errorMessage, loggedType);
+
+               var loggerService =  DependencyResolver.Current.GetService<ILoggerService>();
+                loggerService.Log(loggedType, info, ex.Message, ex.InnerException == null ? "" : ex.InnerException.Message);
             }
             catch { }
         }
 
-        public void Log(string msg, EventLogEntryType entryType = EventLogEntryType.Warning)
+        public void Log(string info, string msg, LoggedType loggedType = LoggedType.Warning)
         {
-            this.Log(new Exception(msg));
+            this.Log(info, new Exception(msg), loggedType);
         }
 
-        public void Log(string msg, EventLogEntryType entryType = EventLogEntryType.Warning, params object[] args)
+        public void Log(string info, string msg, LoggedType loggedType = LoggedType.Warning, params object[] args)
         {
-            this.Log(new Exception(string.Format(msg, args)));
+            this.Log(info, new Exception(string.Format(msg, args)), loggedType);
         }
 
         public int GetCurrentCompanyId()

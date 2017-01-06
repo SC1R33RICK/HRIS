@@ -1,1497 +1,1014 @@
 ﻿USE [HRIS]
 GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_ta_EmployeeAttendance_sys_User]') AND parent_object_id = OBJECT_ID(N'[dbo].[ta_EmployeeAttendance]'))
-ALTER TABLE [dbo].[ta_EmployeeAttendance] DROP CONSTRAINT [FK_ta_EmployeeAttendance_sys_User]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_ta_EmployeeAttendance_mf_WorkDays]') AND parent_object_id = OBJECT_ID(N'[dbo].[ta_EmployeeAttendance]'))
-ALTER TABLE [dbo].[ta_EmployeeAttendance] DROP CONSTRAINT [FK_ta_EmployeeAttendance_mf_WorkDays]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_ta_EmployeeAttendance_mf_Employee]') AND parent_object_id = OBJECT_ID(N'[dbo].[ta_EmployeeAttendance]'))
-ALTER TABLE [dbo].[ta_EmployeeAttendance] DROP CONSTRAINT [FK_ta_EmployeeAttendance_mf_Employee]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_ta_CutOffAttendanceSummaryDetail_ta_CutOffAttendanceSummary]') AND parent_object_id = OBJECT_ID(N'[dbo].[ta_CutOffAttendanceSummaryDetail]'))
-ALTER TABLE [dbo].[ta_CutOffAttendanceSummaryDetail] DROP CONSTRAINT [FK_ta_CutOffAttendanceSummaryDetail_ta_CutOffAttendanceSummary]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_ta_CutOffAttendanceSummaryDetail_sys_User]') AND parent_object_id = OBJECT_ID(N'[dbo].[ta_CutOffAttendanceSummaryDetail]'))
-ALTER TABLE [dbo].[ta_CutOffAttendanceSummaryDetail] DROP CONSTRAINT [FK_ta_CutOffAttendanceSummaryDetail_sys_User]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_ta_CutOffAttendanceSummaryDetail_mf_HolidayType]') AND parent_object_id = OBJECT_ID(N'[dbo].[ta_CutOffAttendanceSummaryDetail]'))
-ALTER TABLE [dbo].[ta_CutOffAttendanceSummaryDetail] DROP CONSTRAINT [FK_ta_CutOffAttendanceSummaryDetail_mf_HolidayType]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_ta_CutOffAttendanceSummary_ta_CutOffAttendance]') AND parent_object_id = OBJECT_ID(N'[dbo].[ta_CutOffAttendanceSummary]'))
-ALTER TABLE [dbo].[ta_CutOffAttendanceSummary] DROP CONSTRAINT [FK_ta_CutOffAttendanceSummary_ta_CutOffAttendance]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_ta_CutOffAttendanceSummary_sys_User]') AND parent_object_id = OBJECT_ID(N'[dbo].[ta_CutOffAttendanceSummary]'))
-ALTER TABLE [dbo].[ta_CutOffAttendanceSummary] DROP CONSTRAINT [FK_ta_CutOffAttendanceSummary_sys_User]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_ta_CutOffAttendanceSummary_mf_Employee]') AND parent_object_id = OBJECT_ID(N'[dbo].[ta_CutOffAttendanceSummary]'))
-ALTER TABLE [dbo].[ta_CutOffAttendanceSummary] DROP CONSTRAINT [FK_ta_CutOffAttendanceSummary_mf_Employee]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_ta_CutOffAttendance_sys_User1]') AND parent_object_id = OBJECT_ID(N'[dbo].[ta_CutOffAttendance]'))
-ALTER TABLE [dbo].[ta_CutOffAttendance] DROP CONSTRAINT [FK_ta_CutOffAttendance_sys_User1]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_ta_CutOffAttendance_sys_User]') AND parent_object_id = OBJECT_ID(N'[dbo].[ta_CutOffAttendance]'))
-ALTER TABLE [dbo].[ta_CutOffAttendance] DROP CONSTRAINT [FK_ta_CutOffAttendance_sys_User]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_ta_CutOffAttendance_sys_Company]') AND parent_object_id = OBJECT_ID(N'[dbo].[ta_CutOffAttendance]'))
-ALTER TABLE [dbo].[ta_CutOffAttendance] DROP CONSTRAINT [FK_ta_CutOffAttendance_sys_Company]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_ta_CutOffAttendance_mf_PayrollGroup]') AND parent_object_id = OBJECT_ID(N'[dbo].[ta_CutOffAttendance]'))
-ALTER TABLE [dbo].[ta_CutOffAttendance] DROP CONSTRAINT [FK_ta_CutOffAttendance_mf_PayrollGroup]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_ta_ApplicationRequestLeave_ta_ApplicationRequest]') AND parent_object_id = OBJECT_ID(N'[dbo].[ta_ApplicationRequestLeave]'))
-ALTER TABLE [dbo].[ta_ApplicationRequestLeave] DROP CONSTRAINT [FK_ta_ApplicationRequestLeave_ta_ApplicationRequest]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_ta_ApplicationRequestGatePass_ta_ApplicationRequest]') AND parent_object_id = OBJECT_ID(N'[dbo].[ta_ApplicationRequestGatePass]'))
-ALTER TABLE [dbo].[ta_ApplicationRequestGatePass] DROP CONSTRAINT [FK_ta_ApplicationRequestGatePass_ta_ApplicationRequest]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_ta_ApplicationRequestApprover_ta_ApplicationRequest]') AND parent_object_id = OBJECT_ID(N'[dbo].[ta_ApplicationRequestApprover]'))
-ALTER TABLE [dbo].[ta_ApplicationRequestApprover] DROP CONSTRAINT [FK_ta_ApplicationRequestApprover_ta_ApplicationRequest]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_ta_ApplicationRequestApprover_sys_User1]') AND parent_object_id = OBJECT_ID(N'[dbo].[ta_ApplicationRequestApprover]'))
-ALTER TABLE [dbo].[ta_ApplicationRequestApprover] DROP CONSTRAINT [FK_ta_ApplicationRequestApprover_sys_User1]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_ta_ApplicationRequestApprover_sys_User]') AND parent_object_id = OBJECT_ID(N'[dbo].[ta_ApplicationRequestApprover]'))
-ALTER TABLE [dbo].[ta_ApplicationRequestApprover] DROP CONSTRAINT [FK_ta_ApplicationRequestApprover_sys_User]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_ta_ApplicationRequest_sys_User2]') AND parent_object_id = OBJECT_ID(N'[dbo].[ta_ApplicationRequest]'))
-ALTER TABLE [dbo].[ta_ApplicationRequest] DROP CONSTRAINT [FK_ta_ApplicationRequest_sys_User2]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_ta_ApplicationRequest_sys_User1]') AND parent_object_id = OBJECT_ID(N'[dbo].[ta_ApplicationRequest]'))
-ALTER TABLE [dbo].[ta_ApplicationRequest] DROP CONSTRAINT [FK_ta_ApplicationRequest_sys_User1]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_ta_ApplicationRequest_sys_User]') AND parent_object_id = OBJECT_ID(N'[dbo].[ta_ApplicationRequest]'))
-ALTER TABLE [dbo].[ta_ApplicationRequest] DROP CONSTRAINT [FK_ta_ApplicationRequest_sys_User]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_ta_ApplicationRequest_mf_ApplicationRequestType]') AND parent_object_id = OBJECT_ID(N'[dbo].[ta_ApplicationRequest]'))
-ALTER TABLE [dbo].[ta_ApplicationRequest] DROP CONSTRAINT [FK_ta_ApplicationRequest_mf_ApplicationRequestType]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_sys_UserSession_sys_User]') AND parent_object_id = OBJECT_ID(N'[dbo].[sys_UserSession]'))
-ALTER TABLE [dbo].[sys_UserSession] DROP CONSTRAINT [FK_sys_UserSession_sys_User]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_sys_UserSession_sys_Company]') AND parent_object_id = OBJECT_ID(N'[dbo].[sys_UserSession]'))
-ALTER TABLE [dbo].[sys_UserSession] DROP CONSTRAINT [FK_sys_UserSession_sys_Company]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_sys_UserRole_sys_User2]') AND parent_object_id = OBJECT_ID(N'[dbo].[sys_UserRole]'))
-ALTER TABLE [dbo].[sys_UserRole] DROP CONSTRAINT [FK_sys_UserRole_sys_User2]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_sys_UserRole_sys_User]') AND parent_object_id = OBJECT_ID(N'[dbo].[sys_UserRole]'))
-ALTER TABLE [dbo].[sys_UserRole] DROP CONSTRAINT [FK_sys_UserRole_sys_User]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_sys_UserRole_sys_Role]') AND parent_object_id = OBJECT_ID(N'[dbo].[sys_UserRole]'))
-ALTER TABLE [dbo].[sys_UserRole] DROP CONSTRAINT [FK_sys_UserRole_sys_Role]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_sys_User_sys_User1]') AND parent_object_id = OBJECT_ID(N'[dbo].[sys_User]'))
-ALTER TABLE [dbo].[sys_User] DROP CONSTRAINT [FK_sys_User_sys_User1]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_sys_User_sys_Company]') AND parent_object_id = OBJECT_ID(N'[dbo].[sys_User]'))
-ALTER TABLE [dbo].[sys_User] DROP CONSTRAINT [FK_sys_User_sys_Company]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_sys_User_mf_Employee]') AND parent_object_id = OBJECT_ID(N'[dbo].[sys_User]'))
-ALTER TABLE [dbo].[sys_User] DROP CONSTRAINT [FK_sys_User_mf_Employee]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_sys_RolePermission_sys_User]') AND parent_object_id = OBJECT_ID(N'[dbo].[sys_RolePermission]'))
-ALTER TABLE [dbo].[sys_RolePermission] DROP CONSTRAINT [FK_sys_RolePermission_sys_User]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_sys_RolePermission_sys_Role]') AND parent_object_id = OBJECT_ID(N'[dbo].[sys_RolePermission]'))
-ALTER TABLE [dbo].[sys_RolePermission] DROP CONSTRAINT [FK_sys_RolePermission_sys_Role]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_sys_RolePermission_sys_Permission]') AND parent_object_id = OBJECT_ID(N'[dbo].[sys_RolePermission]'))
-ALTER TABLE [dbo].[sys_RolePermission] DROP CONSTRAINT [FK_sys_RolePermission_sys_Permission]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_sys_RoleMenu_sys_User]') AND parent_object_id = OBJECT_ID(N'[dbo].[sys_RoleMenu]'))
-ALTER TABLE [dbo].[sys_RoleMenu] DROP CONSTRAINT [FK_sys_RoleMenu_sys_User]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_sys_RoleMenu_sys_RoleMenu]') AND parent_object_id = OBJECT_ID(N'[dbo].[sys_RoleMenu]'))
-ALTER TABLE [dbo].[sys_RoleMenu] DROP CONSTRAINT [FK_sys_RoleMenu_sys_RoleMenu]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_sys_RoleMenu_sys_Role]') AND parent_object_id = OBJECT_ID(N'[dbo].[sys_RoleMenu]'))
-ALTER TABLE [dbo].[sys_RoleMenu] DROP CONSTRAINT [FK_sys_RoleMenu_sys_Role]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_sys_RoleMenu_sys_Menu]') AND parent_object_id = OBJECT_ID(N'[dbo].[sys_RoleMenu]'))
-ALTER TABLE [dbo].[sys_RoleMenu] DROP CONSTRAINT [FK_sys_RoleMenu_sys_Menu]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_sys_Role_sys_User1]') AND parent_object_id = OBJECT_ID(N'[dbo].[sys_Role]'))
-ALTER TABLE [dbo].[sys_Role] DROP CONSTRAINT [FK_sys_Role_sys_User1]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_sys_Role_sys_Company]') AND parent_object_id = OBJECT_ID(N'[dbo].[sys_Role]'))
-ALTER TABLE [dbo].[sys_Role] DROP CONSTRAINT [FK_sys_Role_sys_Company]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_sys_Permission_sys_User1]') AND parent_object_id = OBJECT_ID(N'[dbo].[sys_Permission]'))
-ALTER TABLE [dbo].[sys_Permission] DROP CONSTRAINT [FK_sys_Permission_sys_User1]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_sys_Permission_sys_Company]') AND parent_object_id = OBJECT_ID(N'[dbo].[sys_Permission]'))
-ALTER TABLE [dbo].[sys_Permission] DROP CONSTRAINT [FK_sys_Permission_sys_Company]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_sys_Menu_sys_User]') AND parent_object_id = OBJECT_ID(N'[dbo].[sys_Menu]'))
-ALTER TABLE [dbo].[sys_Menu] DROP CONSTRAINT [FK_sys_Menu_sys_User]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_sys_Location_sys_User1]') AND parent_object_id = OBJECT_ID(N'[dbo].[sys_Location]'))
-ALTER TABLE [dbo].[sys_Location] DROP CONSTRAINT [FK_sys_Location_sys_User1]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_sys_Location_sys_Company]') AND parent_object_id = OBJECT_ID(N'[dbo].[sys_Location]'))
-ALTER TABLE [dbo].[sys_Location] DROP CONSTRAINT [FK_sys_Location_sys_Company]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_sys_IdentificationDocument_sys_User]') AND parent_object_id = OBJECT_ID(N'[dbo].[sys_IdentificationDocument]'))
-ALTER TABLE [dbo].[sys_IdentificationDocument] DROP CONSTRAINT [FK_sys_IdentificationDocument_sys_User]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_sys_ErrorLogs_sys_User]') AND parent_object_id = OBJECT_ID(N'[dbo].[sys_ErrorLogs]'))
-ALTER TABLE [dbo].[sys_ErrorLogs] DROP CONSTRAINT [FK_sys_ErrorLogs_sys_User]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_sys_EnumReference_sys_Company]') AND parent_object_id = OBJECT_ID(N'[dbo].[sys_EnumReference]'))
-ALTER TABLE [dbo].[sys_EnumReference] DROP CONSTRAINT [FK_sys_EnumReference_sys_Company]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_sys_CompanySetting_sys_User]') AND parent_object_id = OBJECT_ID(N'[dbo].[sys_CompanySetting]'))
-ALTER TABLE [dbo].[sys_CompanySetting] DROP CONSTRAINT [FK_sys_CompanySetting_sys_User]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_sys_CompanySetting_sys_Setting]') AND parent_object_id = OBJECT_ID(N'[dbo].[sys_CompanySetting]'))
-ALTER TABLE [dbo].[sys_CompanySetting] DROP CONSTRAINT [FK_sys_CompanySetting_sys_Setting]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_sys_CompanySetting_sys_Company]') AND parent_object_id = OBJECT_ID(N'[dbo].[sys_CompanySetting]'))
-ALTER TABLE [dbo].[sys_CompanySetting] DROP CONSTRAINT [FK_sys_CompanySetting_sys_Company]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_sys_Company_sys_User]') AND parent_object_id = OBJECT_ID(N'[dbo].[sys_Company]'))
-ALTER TABLE [dbo].[sys_Company] DROP CONSTRAINT [FK_sys_Company_sys_User]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_sys_Company_mf_Country]') AND parent_object_id = OBJECT_ID(N'[dbo].[sys_Company]'))
-ALTER TABLE [dbo].[sys_Company] DROP CONSTRAINT [FK_sys_Company_mf_Country]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_pr_PayrollEmployeeEarnings_pr_PayrollEmployee]') AND parent_object_id = OBJECT_ID(N'[dbo].[pr_PayrollEmployeeEarnings]'))
-ALTER TABLE [dbo].[pr_PayrollEmployeeEarnings] DROP CONSTRAINT [FK_pr_PayrollEmployeeEarnings_pr_PayrollEmployee]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_pr_PayrollEmployeeEarnings_mf_Allowance]') AND parent_object_id = OBJECT_ID(N'[dbo].[pr_PayrollEmployeeEarnings]'))
-ALTER TABLE [dbo].[pr_PayrollEmployeeEarnings] DROP CONSTRAINT [FK_pr_PayrollEmployeeEarnings_mf_Allowance]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_pr_PayrollEmployeeDeductions_pr_PayrollEmployee]') AND parent_object_id = OBJECT_ID(N'[dbo].[pr_PayrollEmployeeDeductions]'))
-ALTER TABLE [dbo].[pr_PayrollEmployeeDeductions] DROP CONSTRAINT [FK_pr_PayrollEmployeeDeductions_pr_PayrollEmployee]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_pr_PayrollEmployeeDeductions_mf_Deduction]') AND parent_object_id = OBJECT_ID(N'[dbo].[pr_PayrollEmployeeDeductions]'))
-ALTER TABLE [dbo].[pr_PayrollEmployeeDeductions] DROP CONSTRAINT [FK_pr_PayrollEmployeeDeductions_mf_Deduction]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_pr_PayrollEmployee_pr_Payroll]') AND parent_object_id = OBJECT_ID(N'[dbo].[pr_PayrollEmployee]'))
-ALTER TABLE [dbo].[pr_PayrollEmployee] DROP CONSTRAINT [FK_pr_PayrollEmployee_pr_Payroll]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_pr_PayrollEmployee_mf_Employee]') AND parent_object_id = OBJECT_ID(N'[dbo].[pr_PayrollEmployee]'))
-ALTER TABLE [dbo].[pr_PayrollEmployee] DROP CONSTRAINT [FK_pr_PayrollEmployee_mf_Employee]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_pr_Payroll_ta_CutOffAttendance]') AND parent_object_id = OBJECT_ID(N'[dbo].[pr_Payroll]'))
-ALTER TABLE [dbo].[pr_Payroll] DROP CONSTRAINT [FK_pr_Payroll_ta_CutOffAttendance]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_pr_Payroll_sys_User1]') AND parent_object_id = OBJECT_ID(N'[dbo].[pr_Payroll]'))
-ALTER TABLE [dbo].[pr_Payroll] DROP CONSTRAINT [FK_pr_Payroll_sys_User1]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_pr_Payroll_sys_User]') AND parent_object_id = OBJECT_ID(N'[dbo].[pr_Payroll]'))
-ALTER TABLE [dbo].[pr_Payroll] DROP CONSTRAINT [FK_pr_Payroll_sys_User]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_pr_Payroll_sys_Company]') AND parent_object_id = OBJECT_ID(N'[dbo].[pr_Payroll]'))
-ALTER TABLE [dbo].[pr_Payroll] DROP CONSTRAINT [FK_pr_Payroll_sys_Company]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_WorkDays_sys_User]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_WorkDays]'))
-ALTER TABLE [dbo].[mf_WorkDays] DROP CONSTRAINT [FK_mf_WorkDays_sys_User]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_WorkDays_sys_Company]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_WorkDays]'))
-ALTER TABLE [dbo].[mf_WorkDays] DROP CONSTRAINT [FK_mf_WorkDays_sys_Company]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_Position_sys_User]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_Position]'))
-ALTER TABLE [dbo].[mf_Position] DROP CONSTRAINT [FK_mf_Position_sys_User]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_Position_sys_Company]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_Position]'))
-ALTER TABLE [dbo].[mf_Position] DROP CONSTRAINT [FK_mf_Position_sys_Company]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_PenaltyType_sys_User]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_PenaltyType]'))
-ALTER TABLE [dbo].[mf_PenaltyType] DROP CONSTRAINT [FK_mf_PenaltyType_sys_User]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_PenaltyType_sys_Company]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_PenaltyType]'))
-ALTER TABLE [dbo].[mf_PenaltyType] DROP CONSTRAINT [FK_mf_PenaltyType_sys_Company]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_PayrollGroup_sys_User1]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_PayrollGroup]'))
-ALTER TABLE [dbo].[mf_PayrollGroup] DROP CONSTRAINT [FK_mf_PayrollGroup_sys_User1]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_Offense_sys_User]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_Offense]'))
-ALTER TABLE [dbo].[mf_Offense] DROP CONSTRAINT [FK_mf_Offense_sys_User]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_Offense_sys_Company]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_Offense]'))
-ALTER TABLE [dbo].[mf_Offense] DROP CONSTRAINT [FK_mf_Offense_sys_Company]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_HolidayType_sys_User1]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_HolidayType]'))
-ALTER TABLE [dbo].[mf_HolidayType] DROP CONSTRAINT [FK_mf_HolidayType_sys_User1]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_Holidays_sys_User1]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_Holidays]'))
-ALTER TABLE [dbo].[mf_Holidays] DROP CONSTRAINT [FK_mf_Holidays_sys_User1]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_Holidays_mf_HolidayType]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_Holidays]'))
-ALTER TABLE [dbo].[mf_Holidays] DROP CONSTRAINT [FK_mf_Holidays_mf_HolidayType]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_EmploymentType_sys_User]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_EmploymentType]'))
-ALTER TABLE [dbo].[mf_EmploymentType] DROP CONSTRAINT [FK_mf_EmploymentType_sys_User]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_EmploymentStatus_sys_User]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_EmploymentStatus]'))
-ALTER TABLE [dbo].[mf_EmploymentStatus] DROP CONSTRAINT [FK_mf_EmploymentStatus_sys_User]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_EmployeeWorkHistory_sys_User1]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_EmployeeWorkHistory]'))
-ALTER TABLE [dbo].[mf_EmployeeWorkHistory] DROP CONSTRAINT [FK_mf_EmployeeWorkHistory_sys_User1]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_EmployeeWorkHistory_mf_Employee]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_EmployeeWorkHistory]'))
-ALTER TABLE [dbo].[mf_EmployeeWorkHistory] DROP CONSTRAINT [FK_mf_EmployeeWorkHistory_mf_Employee]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_EmployeeWorkDays_sys_User]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_EmployeeWorkDays]'))
-ALTER TABLE [dbo].[mf_EmployeeWorkDays] DROP CONSTRAINT [FK_mf_EmployeeWorkDays_sys_User]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_EmployeeWorkDays_mf_WorkDays]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_EmployeeWorkDays]'))
-ALTER TABLE [dbo].[mf_EmployeeWorkDays] DROP CONSTRAINT [FK_mf_EmployeeWorkDays_mf_WorkDays]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_EmployeeWorkDays_mf_Employee]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_EmployeeWorkDays]'))
-ALTER TABLE [dbo].[mf_EmployeeWorkDays] DROP CONSTRAINT [FK_mf_EmployeeWorkDays_mf_Employee]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_EmployeeTraining_sys_User]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_EmployeeTraining]'))
-ALTER TABLE [dbo].[mf_EmployeeTraining] DROP CONSTRAINT [FK_mf_EmployeeTraining_sys_User]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_EmployeeTraining_mf_Employee]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_EmployeeTraining]'))
-ALTER TABLE [dbo].[mf_EmployeeTraining] DROP CONSTRAINT [FK_mf_EmployeeTraining_mf_Employee]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_EmployeeSkill_sys_User]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_EmployeeSkill]'))
-ALTER TABLE [dbo].[mf_EmployeeSkill] DROP CONSTRAINT [FK_mf_EmployeeSkill_sys_User]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_EmployeeSkill_mf_Employee]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_EmployeeSkill]'))
-ALTER TABLE [dbo].[mf_EmployeeSkill] DROP CONSTRAINT [FK_mf_EmployeeSkill_mf_Employee]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_EmployeeOffense_sys_User]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_EmployeeOffense]'))
-ALTER TABLE [dbo].[mf_EmployeeOffense] DROP CONSTRAINT [FK_mf_EmployeeOffense_sys_User]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_EmployeeOffense_mf_PenaltyType]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_EmployeeOffense]'))
-ALTER TABLE [dbo].[mf_EmployeeOffense] DROP CONSTRAINT [FK_mf_EmployeeOffense_mf_PenaltyType]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_EmployeeOffense_mf_Offense]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_EmployeeOffense]'))
-ALTER TABLE [dbo].[mf_EmployeeOffense] DROP CONSTRAINT [FK_mf_EmployeeOffense_mf_Offense]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_EmployeeOffense_mf_Employee]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_EmployeeOffense]'))
-ALTER TABLE [dbo].[mf_EmployeeOffense] DROP CONSTRAINT [FK_mf_EmployeeOffense_mf_Employee]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_EmployeeIdentificationDocument_sys_User1]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_EmployeeIdentificationDocument]'))
-ALTER TABLE [dbo].[mf_EmployeeIdentificationDocument] DROP CONSTRAINT [FK_mf_EmployeeIdentificationDocument_sys_User1]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_EmployeeIdentificationDocument_sys_IdentificationDocument]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_EmployeeIdentificationDocument]'))
-ALTER TABLE [dbo].[mf_EmployeeIdentificationDocument] DROP CONSTRAINT [FK_mf_EmployeeIdentificationDocument_sys_IdentificationDocument]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_EmployeeIdentificationDocument_mf_Employee1]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_EmployeeIdentificationDocument]'))
-ALTER TABLE [dbo].[mf_EmployeeIdentificationDocument] DROP CONSTRAINT [FK_mf_EmployeeIdentificationDocument_mf_Employee1]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_EmployeeEducation_sys_User]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_EmployeeEducation]'))
-ALTER TABLE [dbo].[mf_EmployeeEducation] DROP CONSTRAINT [FK_mf_EmployeeEducation_sys_User]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_EmployeeEducation_mf_Employee]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_EmployeeEducation]'))
-ALTER TABLE [dbo].[mf_EmployeeEducation] DROP CONSTRAINT [FK_mf_EmployeeEducation_mf_Employee]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_EmployeeDeduction_sys_User]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_EmployeeDeduction]'))
-ALTER TABLE [dbo].[mf_EmployeeDeduction] DROP CONSTRAINT [FK_mf_EmployeeDeduction_sys_User]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_EmployeeDeduction_mf_Employee]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_EmployeeDeduction]'))
-ALTER TABLE [dbo].[mf_EmployeeDeduction] DROP CONSTRAINT [FK_mf_EmployeeDeduction_mf_Employee]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_EmployeeDeduction_mf_Deduction]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_EmployeeDeduction]'))
-ALTER TABLE [dbo].[mf_EmployeeDeduction] DROP CONSTRAINT [FK_mf_EmployeeDeduction_mf_Deduction]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_EmployeeBasicPay_sys_User]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_EmployeeBasicPay]'))
-ALTER TABLE [dbo].[mf_EmployeeBasicPay] DROP CONSTRAINT [FK_mf_EmployeeBasicPay_sys_User]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_EmployeeBasicPay_mf_Employee]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_EmployeeBasicPay]'))
-ALTER TABLE [dbo].[mf_EmployeeBasicPay] DROP CONSTRAINT [FK_mf_EmployeeBasicPay_mf_Employee]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_EmployeeBalanceLeave_sys_User]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_EmployeeBalanceLeave]'))
-ALTER TABLE [dbo].[mf_EmployeeBalanceLeave] DROP CONSTRAINT [FK_mf_EmployeeBalanceLeave_sys_User]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_EmployeeBalanceLeave_mf_Employee]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_EmployeeBalanceLeave]'))
-ALTER TABLE [dbo].[mf_EmployeeBalanceLeave] DROP CONSTRAINT [FK_mf_EmployeeBalanceLeave_mf_Employee]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_EmployeeBalanceLeave_mf_ApplicationRequestType]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_EmployeeBalanceLeave]'))
-ALTER TABLE [dbo].[mf_EmployeeBalanceLeave] DROP CONSTRAINT [FK_mf_EmployeeBalanceLeave_mf_ApplicationRequestType]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_EmployeeAllowance_sys_User]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_EmployeeAllowance]'))
-ALTER TABLE [dbo].[mf_EmployeeAllowance] DROP CONSTRAINT [FK_mf_EmployeeAllowance_sys_User]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_EmployeeAllowance_mf_Employee]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_EmployeeAllowance]'))
-ALTER TABLE [dbo].[mf_EmployeeAllowance] DROP CONSTRAINT [FK_mf_EmployeeAllowance_mf_Employee]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_EmployeeAllowance_mf_Allowance]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_EmployeeAllowance]'))
-ALTER TABLE [dbo].[mf_EmployeeAllowance] DROP CONSTRAINT [FK_mf_EmployeeAllowance_mf_Allowance]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_EmployeeAddress_sys_User]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_EmployeeAddress]'))
-ALTER TABLE [dbo].[mf_EmployeeAddress] DROP CONSTRAINT [FK_mf_EmployeeAddress_sys_User]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_EmployeeAddress_mf_Country]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_EmployeeAddress]'))
-ALTER TABLE [dbo].[mf_EmployeeAddress] DROP CONSTRAINT [FK_mf_EmployeeAddress_mf_Country]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_Employee201_sys_User]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_Employee201]'))
-ALTER TABLE [dbo].[mf_Employee201] DROP CONSTRAINT [FK_mf_Employee201_sys_User]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_Employee201_mf_Position]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_Employee201]'))
-ALTER TABLE [dbo].[mf_Employee201] DROP CONSTRAINT [FK_mf_Employee201_mf_Position]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_Employee201_mf_PayrollGroup]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_Employee201]'))
-ALTER TABLE [dbo].[mf_Employee201] DROP CONSTRAINT [FK_mf_Employee201_mf_PayrollGroup]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_Employee201_mf_EmploymentType]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_Employee201]'))
-ALTER TABLE [dbo].[mf_Employee201] DROP CONSTRAINT [FK_mf_Employee201_mf_EmploymentType]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_Employee201_mf_EmploymentStatus]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_Employee201]'))
-ALTER TABLE [dbo].[mf_Employee201] DROP CONSTRAINT [FK_mf_Employee201_mf_EmploymentStatus]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_Employee201_mf_DepartmentSection]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_Employee201]'))
-ALTER TABLE [dbo].[mf_Employee201] DROP CONSTRAINT [FK_mf_Employee201_mf_DepartmentSection]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_Employee201_mf_Department]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_Employee201]'))
-ALTER TABLE [dbo].[mf_Employee201] DROP CONSTRAINT [FK_mf_Employee201_mf_Department]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_Employee201_mf_Agency]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_Employee201]'))
-ALTER TABLE [dbo].[mf_Employee201] DROP CONSTRAINT [FK_mf_Employee201_mf_Agency]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_Employee_sys_User1]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_Employee]'))
-ALTER TABLE [dbo].[mf_Employee] DROP CONSTRAINT [FK_mf_Employee_sys_User1]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_Employee_sys_Company]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_Employee]'))
-ALTER TABLE [dbo].[mf_Employee] DROP CONSTRAINT [FK_mf_Employee_sys_Company]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_Employee_mf_EmployeeAddress]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_Employee]'))
-ALTER TABLE [dbo].[mf_Employee] DROP CONSTRAINT [FK_mf_Employee_mf_EmployeeAddress]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_Employee_mf_Employee201]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_Employee]'))
-ALTER TABLE [dbo].[mf_Employee] DROP CONSTRAINT [FK_mf_Employee_mf_Employee201]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_DepartmentSectionRequestApprover_sys_User1]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_DepartmentSectionRequestApprover]'))
-ALTER TABLE [dbo].[mf_DepartmentSectionRequestApprover] DROP CONSTRAINT [FK_mf_DepartmentSectionRequestApprover_sys_User1]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_DepartmentSectionRequestApprover_sys_User]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_DepartmentSectionRequestApprover]'))
-ALTER TABLE [dbo].[mf_DepartmentSectionRequestApprover] DROP CONSTRAINT [FK_mf_DepartmentSectionRequestApprover_sys_User]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_DepartmentSectionRequestApprover_mf_DepartmentSection]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_DepartmentSectionRequestApprover]'))
-ALTER TABLE [dbo].[mf_DepartmentSectionRequestApprover] DROP CONSTRAINT [FK_mf_DepartmentSectionRequestApprover_mf_DepartmentSection]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_DepartmentSectionRequestApprover_mf_ApplicationRequestType]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_DepartmentSectionRequestApprover]'))
-ALTER TABLE [dbo].[mf_DepartmentSectionRequestApprover] DROP CONSTRAINT [FK_mf_DepartmentSectionRequestApprover_mf_ApplicationRequestType]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_DepartmentSection_sys_User]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_DepartmentSection]'))
-ALTER TABLE [dbo].[mf_DepartmentSection] DROP CONSTRAINT [FK_mf_DepartmentSection_sys_User]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_DepartmentSection_mf_Department]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_DepartmentSection]'))
-ALTER TABLE [dbo].[mf_DepartmentSection] DROP CONSTRAINT [FK_mf_DepartmentSection_mf_Department]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_Department_sys_User]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_Department]'))
-ALTER TABLE [dbo].[mf_Department] DROP CONSTRAINT [FK_mf_Department_sys_User]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_Department_sys_Company]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_Department]'))
-ALTER TABLE [dbo].[mf_Department] DROP CONSTRAINT [FK_mf_Department_sys_Company]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_Deduction_sys_User]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_Deduction]'))
-ALTER TABLE [dbo].[mf_Deduction] DROP CONSTRAINT [FK_mf_Deduction_sys_User]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_Deduction_sys_Company]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_Deduction]'))
-ALTER TABLE [dbo].[mf_Deduction] DROP CONSTRAINT [FK_mf_Deduction_sys_Company]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_Country_sys_User]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_Country]'))
-ALTER TABLE [dbo].[mf_Country] DROP CONSTRAINT [FK_mf_Country_sys_User]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_ApplicationRequestType_sys_User1]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_ApplicationRequestType]'))
-ALTER TABLE [dbo].[mf_ApplicationRequestType] DROP CONSTRAINT [FK_mf_ApplicationRequestType_sys_User1]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_Allowance_sys_User]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_Allowance]'))
-ALTER TABLE [dbo].[mf_Allowance] DROP CONSTRAINT [FK_mf_Allowance_sys_User]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_Allowance_sys_Company]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_Allowance]'))
-ALTER TABLE [dbo].[mf_Allowance] DROP CONSTRAINT [FK_mf_Allowance_sys_Company]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_Agency_sys_User]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_Agency]'))
-ALTER TABLE [dbo].[mf_Agency] DROP CONSTRAINT [FK_mf_Agency_sys_User]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_mf_Agency_sys_Company]') AND parent_object_id = OBJECT_ID(N'[dbo].[mf_Agency]'))
-ALTER TABLE [dbo].[mf_Agency] DROP CONSTRAINT [FK_mf_Agency_sys_Company]
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_ta_EmployeeAttendance_deleted]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[ta_EmployeeAttendance] DROP CONSTRAINT [DF_ta_EmployeeAttendance_deleted]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_ta_EmployeeAttendance_updatedDate]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[ta_EmployeeAttendance] DROP CONSTRAINT [DF_ta_EmployeeAttendance_updatedDate]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_ta_CutOffAttendanceSummaryDetail_deleted]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[ta_CutOffAttendanceSummaryDetail] DROP CONSTRAINT [DF_ta_CutOffAttendanceSummaryDetail_deleted]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_ta_CutOffAttendanceSummaryDetail_updatedDate]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[ta_CutOffAttendanceSummaryDetail] DROP CONSTRAINT [DF_ta_CutOffAttendanceSummaryDetail_updatedDate]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_ta_CutOffAttendanceSummaryDetail_absent]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[ta_CutOffAttendanceSummaryDetail] DROP CONSTRAINT [DF_ta_CutOffAttendanceSummaryDetail_absent]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_ta_CutOffAttendanceSummary_deleted]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[ta_CutOffAttendanceSummary] DROP CONSTRAINT [DF_ta_CutOffAttendanceSummary_deleted]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_ta_CutOffAttendanceSummary_updatedDate]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[ta_CutOffAttendanceSummary] DROP CONSTRAINT [DF_ta_CutOffAttendanceSummary_updatedDate]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_ta_CutOffAttendance_deleted]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[ta_CutOffAttendance] DROP CONSTRAINT [DF_ta_CutOffAttendance_deleted]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_ta_CutOffAttendance_updatedDate1]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[ta_CutOffAttendance] DROP CONSTRAINT [DF_ta_CutOffAttendance_updatedDate1]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_ta_CutOffAttendance_updatedDate]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[ta_CutOffAttendance] DROP CONSTRAINT [DF_ta_CutOffAttendance_updatedDate]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_ta_CutOffAttendance_generatedDate]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[ta_CutOffAttendance] DROP CONSTRAINT [DF_ta_CutOffAttendance_generatedDate]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_ta_ApplicationRequestLeave_deleted]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[ta_ApplicationRequestLeave] DROP CONSTRAINT [DF_ta_ApplicationRequestLeave_deleted]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_ta_ApplicationRequestGatePass_deleted]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[ta_ApplicationRequestGatePass] DROP CONSTRAINT [DF_ta_ApplicationRequestGatePass_deleted]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_ta_ApplicationRequestApprover_deleted]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[ta_ApplicationRequestApprover] DROP CONSTRAINT [DF_ta_ApplicationRequestApprover_deleted]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_ta_ApplicationRequest_deleted]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[ta_ApplicationRequest] DROP CONSTRAINT [DF_ta_ApplicationRequest_deleted]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_ta_ApplicationRequest_updatedDate]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[ta_ApplicationRequest] DROP CONSTRAINT [DF_ta_ApplicationRequest_updatedDate]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_ta_ApplicationRequest_createdDate]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[ta_ApplicationRequest] DROP CONSTRAINT [DF_ta_ApplicationRequest_createdDate]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_sys_UserSession_deleted]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[sys_UserSession] DROP CONSTRAINT [DF_sys_UserSession_deleted]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_sys_UserRole_deleted]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[sys_UserRole] DROP CONSTRAINT [DF_sys_UserRole_deleted]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_sys_UserRole_updatedDate]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[sys_UserRole] DROP CONSTRAINT [DF_sys_UserRole_updatedDate]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_sys_User_deleted]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[sys_User] DROP CONSTRAINT [DF_sys_User_deleted]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_sys_User_updatedDate]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[sys_User] DROP CONSTRAINT [DF_sys_User_updatedDate]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_sys_Setting_deleted]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[sys_Setting] DROP CONSTRAINT [DF_sys_Setting_deleted]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_sys_RolePermission_deleted]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[sys_RolePermission] DROP CONSTRAINT [DF_sys_RolePermission_deleted]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_sys_RolePermission_updatedDate]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[sys_RolePermission] DROP CONSTRAINT [DF_sys_RolePermission_updatedDate]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_sys_RolePermission_printAccess]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[sys_RolePermission] DROP CONSTRAINT [DF_sys_RolePermission_printAccess]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_sys_RolePermission_deleteAccess]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[sys_RolePermission] DROP CONSTRAINT [DF_sys_RolePermission_deleteAccess]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_sys_RolePermission_updateAccess]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[sys_RolePermission] DROP CONSTRAINT [DF_sys_RolePermission_updateAccess]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_sys_RolePermission_createAccess]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[sys_RolePermission] DROP CONSTRAINT [DF_sys_RolePermission_createAccess]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_sys_RolePermission_viewAccess]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[sys_RolePermission] DROP CONSTRAINT [DF_sys_RolePermission_viewAccess]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_sys_RoleMenu_deleted]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[sys_RoleMenu] DROP CONSTRAINT [DF_sys_RoleMenu_deleted]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_sys_RoleMenu_updatedDate]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[sys_RoleMenu] DROP CONSTRAINT [DF_sys_RoleMenu_updatedDate]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_sys_RoleMenu_displayOrder]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[sys_RoleMenu] DROP CONSTRAINT [DF_sys_RoleMenu_displayOrder]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_sys_Role_deleted]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[sys_Role] DROP CONSTRAINT [DF_sys_Role_deleted]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_sys_Role_updatedDate]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[sys_Role] DROP CONSTRAINT [DF_sys_Role_updatedDate]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_sys_Permission_deleted]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[sys_Permission] DROP CONSTRAINT [DF_sys_Permission_deleted]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_sys_Permission_updatedDate]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[sys_Permission] DROP CONSTRAINT [DF_sys_Permission_updatedDate]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_sys_Menu_deleted]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[sys_Menu] DROP CONSTRAINT [DF_sys_Menu_deleted]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_sys_Menu_updatedDate]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[sys_Menu] DROP CONSTRAINT [DF_sys_Menu_updatedDate]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_sys_Location_deleted]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[sys_Location] DROP CONSTRAINT [DF_sys_Location_deleted]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_sys_Location_updatedDate]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[sys_Location] DROP CONSTRAINT [DF_sys_Location_updatedDate]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_sys_IdentificationDocument_deleted]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[sys_IdentificationDocument] DROP CONSTRAINT [DF_sys_IdentificationDocument_deleted]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_sys_IdentificationDocument_updatedDate]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[sys_IdentificationDocument] DROP CONSTRAINT [DF_sys_IdentificationDocument_updatedDate]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_sys_ErrorLogs_createdDate]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[sys_ErrorLogs] DROP CONSTRAINT [DF_sys_ErrorLogs_createdDate]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_sys_EnumReference_deleted]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[sys_EnumReference] DROP CONSTRAINT [DF_sys_EnumReference_deleted]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_sys_EnumReference_hidden]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[sys_EnumReference] DROP CONSTRAINT [DF_sys_EnumReference_hidden]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_sys_EnumReference_displayOrder]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[sys_EnumReference] DROP CONSTRAINT [DF_sys_EnumReference_displayOrder]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_sys_CompanySetting_deleted]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[sys_CompanySetting] DROP CONSTRAINT [DF_sys_CompanySetting_deleted]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_sys_CompanySetting_updatedDate]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[sys_CompanySetting] DROP CONSTRAINT [DF_sys_CompanySetting_updatedDate]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_sys_Company_deleted]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[sys_Company] DROP CONSTRAINT [DF_sys_Company_deleted]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_sys_Company_updatedDate]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[sys_Company] DROP CONSTRAINT [DF_sys_Company_updatedDate]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_pr_PayrollEmployee_deleted]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[pr_PayrollEmployee] DROP CONSTRAINT [DF_pr_PayrollEmployee_deleted]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_pr_PayrollEmployee_updatedDate]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[pr_PayrollEmployee] DROP CONSTRAINT [DF_pr_PayrollEmployee_updatedDate]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_pr_Payroll_deleted]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[pr_Payroll] DROP CONSTRAINT [DF_pr_Payroll_deleted]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_pr_Payroll_updatedDate]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[pr_Payroll] DROP CONSTRAINT [DF_pr_Payroll_updatedDate]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_pr_Payroll_generatedDate]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[pr_Payroll] DROP CONSTRAINT [DF_pr_Payroll_generatedDate]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_WorkDays_deleted]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_WorkDays] DROP CONSTRAINT [DF_mf_WorkDays_deleted]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_WorkDays_updatedDate]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_WorkDays] DROP CONSTRAINT [DF_mf_WorkDays_updatedDate]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_WorkDays_breakHours]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_WorkDays] DROP CONSTRAINT [DF_mf_WorkDays_breakHours]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_WorkDays_toTimeMinute]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_WorkDays] DROP CONSTRAINT [DF_mf_WorkDays_toTimeMinute]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_WorkDays_toTimeHour]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_WorkDays] DROP CONSTRAINT [DF_mf_WorkDays_toTimeHour]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_WorkDays_fromTimeMinute]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_WorkDays] DROP CONSTRAINT [DF_mf_WorkDays_fromTimeMinute]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_WorkDays_fromTimeHour]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_WorkDays] DROP CONSTRAINT [DF_mf_WorkDays_fromTimeHour]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_WorkDays_sunday]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_WorkDays] DROP CONSTRAINT [DF_mf_WorkDays_sunday]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_WorkDays_saturday]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_WorkDays] DROP CONSTRAINT [DF_mf_WorkDays_saturday]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_WorkDays_friday]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_WorkDays] DROP CONSTRAINT [DF_mf_WorkDays_friday]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_WorkDays_thursday]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_WorkDays] DROP CONSTRAINT [DF_mf_WorkDays_thursday]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_WorkDays_wednesday]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_WorkDays] DROP CONSTRAINT [DF_mf_WorkDays_wednesday]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_WorkDays_tuesday]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_WorkDays] DROP CONSTRAINT [DF_mf_WorkDays_tuesday]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_WorkDays_monday]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_WorkDays] DROP CONSTRAINT [DF_mf_WorkDays_monday]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_Position_deleted]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_Position] DROP CONSTRAINT [DF_mf_Position_deleted]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_Position_updatedDate]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_Position] DROP CONSTRAINT [DF_mf_Position_updatedDate]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_PenaltyType_deleted]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_PenaltyType] DROP CONSTRAINT [DF_mf_PenaltyType_deleted]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_PenaltyType_updatedDate]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_PenaltyType] DROP CONSTRAINT [DF_mf_PenaltyType_updatedDate]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_PayrollGroup_deleted]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_PayrollGroup] DROP CONSTRAINT [DF_mf_PayrollGroup_deleted]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_PayrollGroup_updatedDate]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_PayrollGroup] DROP CONSTRAINT [DF_mf_PayrollGroup_updatedDate]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_Offense_deleted]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_Offense] DROP CONSTRAINT [DF_mf_Offense_deleted]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_Offense_updatedDate]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_Offense] DROP CONSTRAINT [DF_mf_Offense_updatedDate]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_HolidayType_deleted]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_HolidayType] DROP CONSTRAINT [DF_mf_HolidayType_deleted]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_HolidayType_updatedDate]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_HolidayType] DROP CONSTRAINT [DF_mf_HolidayType_updatedDate]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_HolidayType_rateWork]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_HolidayType] DROP CONSTRAINT [DF_mf_HolidayType_rateWork]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_HolidayType_rateNotWork]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_HolidayType] DROP CONSTRAINT [DF_mf_HolidayType_rateNotWork]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_Holidays_deleted]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_Holidays] DROP CONSTRAINT [DF_mf_Holidays_deleted]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_Holidays_updatedDate]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_Holidays] DROP CONSTRAINT [DF_mf_Holidays_updatedDate]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_EmploymentType_deleted]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_EmploymentType] DROP CONSTRAINT [DF_mf_EmploymentType_deleted]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_EmploymentType_updatedDate]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_EmploymentType] DROP CONSTRAINT [DF_mf_EmploymentType_updatedDate]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_EmploymentStatus_deleted]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_EmploymentStatus] DROP CONSTRAINT [DF_mf_EmploymentStatus_deleted]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_EmploymentStatus_updatedDate]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_EmploymentStatus] DROP CONSTRAINT [DF_mf_EmploymentStatus_updatedDate]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_EmploymentStatus_allowProcessPayroll]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_EmploymentStatus] DROP CONSTRAINT [DF_mf_EmploymentStatus_allowProcessPayroll]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_EmployeeWorkHistory_deleted]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_EmployeeWorkHistory] DROP CONSTRAINT [DF_mf_EmployeeWorkHistory_deleted]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_EmployeeWorkHistory_updatedDate]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_EmployeeWorkHistory] DROP CONSTRAINT [DF_mf_EmployeeWorkHistory_updatedDate]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_EmployeeWorkDays_deleted]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_EmployeeWorkDays] DROP CONSTRAINT [DF_mf_EmployeeWorkDays_deleted]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_EmployeeWorkDays_createdDate1]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_EmployeeWorkDays] DROP CONSTRAINT [DF_mf_EmployeeWorkDays_createdDate1]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_EmployeeTraining_deleted]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_EmployeeTraining] DROP CONSTRAINT [DF_mf_EmployeeTraining_deleted]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_EmployeeTraining_updatedDate]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_EmployeeTraining] DROP CONSTRAINT [DF_mf_EmployeeTraining_updatedDate]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_EmployeeSkill_deleted]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_EmployeeSkill] DROP CONSTRAINT [DF_mf_EmployeeSkill_deleted]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_EmployeeSkill_updatedDate]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_EmployeeSkill] DROP CONSTRAINT [DF_mf_EmployeeSkill_updatedDate]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_EmployeeOffense_deleted]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_EmployeeOffense] DROP CONSTRAINT [DF_mf_EmployeeOffense_deleted]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_EmployeeOffense_updatedDate]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_EmployeeOffense] DROP CONSTRAINT [DF_mf_EmployeeOffense_updatedDate]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_EmployeeIdentificationDocument_deleted_1]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_EmployeeIdentificationDocument] DROP CONSTRAINT [DF_mf_EmployeeIdentificationDocument_deleted_1]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_EmployeeIdentificationDocument_updatedDate_1]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_EmployeeIdentificationDocument] DROP CONSTRAINT [DF_mf_EmployeeIdentificationDocument_updatedDate_1]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_EmployeeEducation_deleted]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_EmployeeEducation] DROP CONSTRAINT [DF_mf_EmployeeEducation_deleted]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_EmployeeEducation_updatedDate]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_EmployeeEducation] DROP CONSTRAINT [DF_mf_EmployeeEducation_updatedDate]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_EmployeeEducation_createdDate]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_EmployeeEducation] DROP CONSTRAINT [DF_mf_EmployeeEducation_createdDate]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_EmployeeDeduction_deleted]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_EmployeeDeduction] DROP CONSTRAINT [DF_mf_EmployeeDeduction_deleted]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_EmployeeDeduction_updatedDate]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_EmployeeDeduction] DROP CONSTRAINT [DF_mf_EmployeeDeduction_updatedDate]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_EmployeeBasicPay_deleted]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_EmployeeBasicPay] DROP CONSTRAINT [DF_mf_EmployeeBasicPay_deleted]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_EmployeeBasicPay_updatedDate]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_EmployeeBasicPay] DROP CONSTRAINT [DF_mf_EmployeeBasicPay_updatedDate]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_EmployeeBalanceLeave_deleted]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_EmployeeBalanceLeave] DROP CONSTRAINT [DF_mf_EmployeeBalanceLeave_deleted]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_EmployeeBalanceLeave_updatedDate]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_EmployeeBalanceLeave] DROP CONSTRAINT [DF_mf_EmployeeBalanceLeave_updatedDate]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_EmployeeAllowance_deleted]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_EmployeeAllowance] DROP CONSTRAINT [DF_mf_EmployeeAllowance_deleted]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_EmployeeAllowance_updatedDate]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_EmployeeAllowance] DROP CONSTRAINT [DF_mf_EmployeeAllowance_updatedDate]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_EmployeeAddress_deleted]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_EmployeeAddress] DROP CONSTRAINT [DF_mf_EmployeeAddress_deleted]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_EmployeeAddress_updatedDate]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_EmployeeAddress] DROP CONSTRAINT [DF_mf_EmployeeAddress_updatedDate]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_Employee201_confidential]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_Employee201] DROP CONSTRAINT [DF_mf_Employee201_confidential]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_Employee201_deleted]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_Employee201] DROP CONSTRAINT [DF_mf_Employee201_deleted]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_Employee201_updatedDate]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_Employee201] DROP CONSTRAINT [DF_mf_Employee201_updatedDate]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_Employee201_entitledUnworkSpecialHoliday]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_Employee201] DROP CONSTRAINT [DF_mf_Employee201_entitledUnworkSpecialHoliday]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_Employee201_entitledUnworkRegularHoliday]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_Employee201] DROP CONSTRAINT [DF_mf_Employee201_entitledUnworkRegularHoliday]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_Employee201_timeSheetRequired]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_Employee201] DROP CONSTRAINT [DF_mf_Employee201_timeSheetRequired]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_Employee_deleted]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_Employee] DROP CONSTRAINT [DF_mf_Employee_deleted]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_Employee_updatedDate]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_Employee] DROP CONSTRAINT [DF_mf_Employee_updatedDate]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_DepartmentSectionRequestApprover_deleted]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_DepartmentSectionRequestApprover] DROP CONSTRAINT [DF_mf_DepartmentSectionRequestApprover_deleted]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_DepartmentSectionRequestApprover_updatedDate]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_DepartmentSectionRequestApprover] DROP CONSTRAINT [DF_mf_DepartmentSectionRequestApprover_updatedDate]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_DepartmentSectionRequestApprover_orderNo]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_DepartmentSectionRequestApprover] DROP CONSTRAINT [DF_mf_DepartmentSectionRequestApprover_orderNo]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_DepartmentSection_deleted]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_DepartmentSection] DROP CONSTRAINT [DF_mf_DepartmentSection_deleted]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_DepartmentSection_updatedDate]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_DepartmentSection] DROP CONSTRAINT [DF_mf_DepartmentSection_updatedDate]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_Department_deleted]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_Department] DROP CONSTRAINT [DF_mf_Department_deleted]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_Department_updatedDate]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_Department] DROP CONSTRAINT [DF_mf_Department_updatedDate]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_Deduction_deleted]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_Deduction] DROP CONSTRAINT [DF_mf_Deduction_deleted]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_Deduction_updatedDate]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_Deduction] DROP CONSTRAINT [DF_mf_Deduction_updatedDate]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_Country_deleted]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_Country] DROP CONSTRAINT [DF_mf_Country_deleted]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_Country_updatedDate]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_Country] DROP CONSTRAINT [DF_mf_Country_updatedDate]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_ApplicationRequestType_deleted]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_ApplicationRequestType] DROP CONSTRAINT [DF_mf_ApplicationRequestType_deleted]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_ApplicationRequestType_updatedDate]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_ApplicationRequestType] DROP CONSTRAINT [DF_mf_ApplicationRequestType_updatedDate]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_ApplicationRequestType_hasLeavePoints]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_ApplicationRequestType] DROP CONSTRAINT [DF_mf_ApplicationRequestType_hasLeavePoints]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_Allowance_deleted]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_Allowance] DROP CONSTRAINT [DF_mf_Allowance_deleted]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_Allowance_updatedDate]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_Allowance] DROP CONSTRAINT [DF_mf_Allowance_updatedDate]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_Allowance_isTaxable]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_Allowance] DROP CONSTRAINT [DF_mf_Allowance_isTaxable]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_Agency_deleted]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_Agency] DROP CONSTRAINT [DF_mf_Agency_deleted]
-END
-
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_Agency_updatedDate]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[mf_Agency] DROP CONSTRAINT [DF_mf_Agency_updatedDate]
-END
-
-GO
-/****** Object:  Table [dbo].[ta_EmployeeAttendance]    Script Date: 1/3/2017 4:42:20 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ta_EmployeeAttendance]') AND type in (N'U'))
-DROP TABLE [dbo].[ta_EmployeeAttendance]
+ALTER TABLE [dbo].[ta_EmployeeAttendance] DROP CONSTRAINT IF EXISTS [FK_ta_EmployeeAttendance_sys_User]
 GO
-/****** Object:  Table [dbo].[ta_CutOffAttendanceSummaryDetail]    Script Date: 1/3/2017 4:42:20 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ta_EmployeeAttendance]') AND type in (N'U'))
+ALTER TABLE [dbo].[ta_EmployeeAttendance] DROP CONSTRAINT IF EXISTS [FK_ta_EmployeeAttendance_mf_WorkDays]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ta_EmployeeAttendance]') AND type in (N'U'))
+ALTER TABLE [dbo].[ta_EmployeeAttendance] DROP CONSTRAINT IF EXISTS [FK_ta_EmployeeAttendance_mf_Employee]
+GO
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ta_CutOffAttendanceSummaryDetail]') AND type in (N'U'))
-DROP TABLE [dbo].[ta_CutOffAttendanceSummaryDetail]
+ALTER TABLE [dbo].[ta_CutOffAttendanceSummaryDetail] DROP CONSTRAINT IF EXISTS [FK_ta_CutOffAttendanceSummaryDetail_ta_CutOffAttendanceSummary]
 GO
-/****** Object:  Table [dbo].[ta_CutOffAttendanceSummary]    Script Date: 1/3/2017 4:42:20 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ta_CutOffAttendanceSummaryDetail]') AND type in (N'U'))
+ALTER TABLE [dbo].[ta_CutOffAttendanceSummaryDetail] DROP CONSTRAINT IF EXISTS [FK_ta_CutOffAttendanceSummaryDetail_sys_User]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ta_CutOffAttendanceSummaryDetail]') AND type in (N'U'))
+ALTER TABLE [dbo].[ta_CutOffAttendanceSummaryDetail] DROP CONSTRAINT IF EXISTS [FK_ta_CutOffAttendanceSummaryDetail_mf_HolidayType]
+GO
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ta_CutOffAttendanceSummary]') AND type in (N'U'))
-DROP TABLE [dbo].[ta_CutOffAttendanceSummary]
+ALTER TABLE [dbo].[ta_CutOffAttendanceSummary] DROP CONSTRAINT IF EXISTS [FK_ta_CutOffAttendanceSummary_ta_CutOffAttendance]
 GO
-/****** Object:  Table [dbo].[ta_CutOffAttendance]    Script Date: 1/3/2017 4:42:20 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ta_CutOffAttendanceSummary]') AND type in (N'U'))
+ALTER TABLE [dbo].[ta_CutOffAttendanceSummary] DROP CONSTRAINT IF EXISTS [FK_ta_CutOffAttendanceSummary_sys_User]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ta_CutOffAttendanceSummary]') AND type in (N'U'))
+ALTER TABLE [dbo].[ta_CutOffAttendanceSummary] DROP CONSTRAINT IF EXISTS [FK_ta_CutOffAttendanceSummary_mf_Employee]
+GO
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ta_CutOffAttendance]') AND type in (N'U'))
-DROP TABLE [dbo].[ta_CutOffAttendance]
+ALTER TABLE [dbo].[ta_CutOffAttendance] DROP CONSTRAINT IF EXISTS [FK_ta_CutOffAttendance_sys_User1]
 GO
-/****** Object:  Table [dbo].[ta_ApplicationRequestLeave]    Script Date: 1/3/2017 4:42:20 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ta_CutOffAttendance]') AND type in (N'U'))
+ALTER TABLE [dbo].[ta_CutOffAttendance] DROP CONSTRAINT IF EXISTS [FK_ta_CutOffAttendance_sys_User]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ta_CutOffAttendance]') AND type in (N'U'))
+ALTER TABLE [dbo].[ta_CutOffAttendance] DROP CONSTRAINT IF EXISTS [FK_ta_CutOffAttendance_sys_Company]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ta_CutOffAttendance]') AND type in (N'U'))
+ALTER TABLE [dbo].[ta_CutOffAttendance] DROP CONSTRAINT IF EXISTS [FK_ta_CutOffAttendance_mf_PayrollGroup]
+GO
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ta_ApplicationRequestLeave]') AND type in (N'U'))
-DROP TABLE [dbo].[ta_ApplicationRequestLeave]
+ALTER TABLE [dbo].[ta_ApplicationRequestLeave] DROP CONSTRAINT IF EXISTS [FK_ta_ApplicationRequestLeave_ta_ApplicationRequest]
 GO
-/****** Object:  Table [dbo].[ta_ApplicationRequestGatePass]    Script Date: 1/3/2017 4:42:20 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ta_ApplicationRequestGatePass]') AND type in (N'U'))
-DROP TABLE [dbo].[ta_ApplicationRequestGatePass]
+ALTER TABLE [dbo].[ta_ApplicationRequestGatePass] DROP CONSTRAINT IF EXISTS [FK_ta_ApplicationRequestGatePass_ta_ApplicationRequest]
 GO
-/****** Object:  Table [dbo].[ta_ApplicationRequestApprover]    Script Date: 1/3/2017 4:42:20 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ta_ApplicationRequestApprover]') AND type in (N'U'))
-DROP TABLE [dbo].[ta_ApplicationRequestApprover]
+ALTER TABLE [dbo].[ta_ApplicationRequestApprover] DROP CONSTRAINT IF EXISTS [FK_ta_ApplicationRequestApprover_ta_ApplicationRequest]
 GO
-/****** Object:  Table [dbo].[ta_ApplicationRequest]    Script Date: 1/3/2017 4:42:20 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ta_ApplicationRequestApprover]') AND type in (N'U'))
+ALTER TABLE [dbo].[ta_ApplicationRequestApprover] DROP CONSTRAINT IF EXISTS [FK_ta_ApplicationRequestApprover_sys_User1]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ta_ApplicationRequestApprover]') AND type in (N'U'))
+ALTER TABLE [dbo].[ta_ApplicationRequestApprover] DROP CONSTRAINT IF EXISTS [FK_ta_ApplicationRequestApprover_sys_User]
+GO
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ta_ApplicationRequest]') AND type in (N'U'))
-DROP TABLE [dbo].[ta_ApplicationRequest]
+ALTER TABLE [dbo].[ta_ApplicationRequest] DROP CONSTRAINT IF EXISTS [FK_ta_ApplicationRequest_sys_User2]
 GO
-/****** Object:  Table [dbo].[sys_UserSession]    Script Date: 1/3/2017 4:42:20 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ta_ApplicationRequest]') AND type in (N'U'))
+ALTER TABLE [dbo].[ta_ApplicationRequest] DROP CONSTRAINT IF EXISTS [FK_ta_ApplicationRequest_sys_User1]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ta_ApplicationRequest]') AND type in (N'U'))
+ALTER TABLE [dbo].[ta_ApplicationRequest] DROP CONSTRAINT IF EXISTS [FK_ta_ApplicationRequest_sys_User]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ta_ApplicationRequest]') AND type in (N'U'))
+ALTER TABLE [dbo].[ta_ApplicationRequest] DROP CONSTRAINT IF EXISTS [FK_ta_ApplicationRequest_mf_ApplicationRequestType]
+GO
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_UserSession]') AND type in (N'U'))
-DROP TABLE [dbo].[sys_UserSession]
+ALTER TABLE [dbo].[sys_UserSession] DROP CONSTRAINT IF EXISTS [FK_sys_UserSession_sys_User]
 GO
-/****** Object:  Table [dbo].[sys_UserRole]    Script Date: 1/3/2017 4:42:20 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_UserSession]') AND type in (N'U'))
+ALTER TABLE [dbo].[sys_UserSession] DROP CONSTRAINT IF EXISTS [FK_sys_UserSession_sys_Company]
+GO
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_UserRole]') AND type in (N'U'))
-DROP TABLE [dbo].[sys_UserRole]
+ALTER TABLE [dbo].[sys_UserRole] DROP CONSTRAINT IF EXISTS [FK_sys_UserRole_sys_User2]
 GO
-/****** Object:  Table [dbo].[sys_User]    Script Date: 1/3/2017 4:42:20 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_UserRole]') AND type in (N'U'))
+ALTER TABLE [dbo].[sys_UserRole] DROP CONSTRAINT IF EXISTS [FK_sys_UserRole_sys_User]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_UserRole]') AND type in (N'U'))
+ALTER TABLE [dbo].[sys_UserRole] DROP CONSTRAINT IF EXISTS [FK_sys_UserRole_sys_Role]
+GO
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_User]') AND type in (N'U'))
-DROP TABLE [dbo].[sys_User]
+ALTER TABLE [dbo].[sys_User] DROP CONSTRAINT IF EXISTS [FK_sys_User_sys_User1]
 GO
-/****** Object:  Table [dbo].[sys_Setting]    Script Date: 1/3/2017 4:42:20 PM ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_Setting]') AND type in (N'U'))
-DROP TABLE [dbo].[sys_Setting]
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_User]') AND type in (N'U'))
+ALTER TABLE [dbo].[sys_User] DROP CONSTRAINT IF EXISTS [FK_sys_User_sys_Company]
 GO
-/****** Object:  Table [dbo].[sys_RolePermission]    Script Date: 1/3/2017 4:42:20 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_User]') AND type in (N'U'))
+ALTER TABLE [dbo].[sys_User] DROP CONSTRAINT IF EXISTS [FK_sys_User_mf_Employee]
+GO
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_RolePermission]') AND type in (N'U'))
-DROP TABLE [dbo].[sys_RolePermission]
+ALTER TABLE [dbo].[sys_RolePermission] DROP CONSTRAINT IF EXISTS [FK_sys_RolePermission_sys_User]
 GO
-/****** Object:  Table [dbo].[sys_RoleMenu]    Script Date: 1/3/2017 4:42:20 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_RolePermission]') AND type in (N'U'))
+ALTER TABLE [dbo].[sys_RolePermission] DROP CONSTRAINT IF EXISTS [FK_sys_RolePermission_sys_Role]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_RolePermission]') AND type in (N'U'))
+ALTER TABLE [dbo].[sys_RolePermission] DROP CONSTRAINT IF EXISTS [FK_sys_RolePermission_sys_Permission]
+GO
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_RoleMenu]') AND type in (N'U'))
-DROP TABLE [dbo].[sys_RoleMenu]
+ALTER TABLE [dbo].[sys_RoleMenu] DROP CONSTRAINT IF EXISTS [FK_sys_RoleMenu_sys_User]
 GO
-/****** Object:  Table [dbo].[sys_Role]    Script Date: 1/3/2017 4:42:20 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_RoleMenu]') AND type in (N'U'))
+ALTER TABLE [dbo].[sys_RoleMenu] DROP CONSTRAINT IF EXISTS [FK_sys_RoleMenu_sys_RoleMenu]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_RoleMenu]') AND type in (N'U'))
+ALTER TABLE [dbo].[sys_RoleMenu] DROP CONSTRAINT IF EXISTS [FK_sys_RoleMenu_sys_Role]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_RoleMenu]') AND type in (N'U'))
+ALTER TABLE [dbo].[sys_RoleMenu] DROP CONSTRAINT IF EXISTS [FK_sys_RoleMenu_sys_Menu]
+GO
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_Role]') AND type in (N'U'))
-DROP TABLE [dbo].[sys_Role]
+ALTER TABLE [dbo].[sys_Role] DROP CONSTRAINT IF EXISTS [FK_sys_Role_sys_User1]
 GO
-/****** Object:  Table [dbo].[sys_Permission]    Script Date: 1/3/2017 4:42:20 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_Role]') AND type in (N'U'))
+ALTER TABLE [dbo].[sys_Role] DROP CONSTRAINT IF EXISTS [FK_sys_Role_sys_Company]
+GO
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_Permission]') AND type in (N'U'))
-DROP TABLE [dbo].[sys_Permission]
+ALTER TABLE [dbo].[sys_Permission] DROP CONSTRAINT IF EXISTS [FK_sys_Permission_sys_User1]
 GO
-/****** Object:  Table [dbo].[sys_Menu]    Script Date: 1/3/2017 4:42:20 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_Permission]') AND type in (N'U'))
+ALTER TABLE [dbo].[sys_Permission] DROP CONSTRAINT IF EXISTS [FK_sys_Permission_sys_Company]
+GO
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_Menu]') AND type in (N'U'))
-DROP TABLE [dbo].[sys_Menu]
+ALTER TABLE [dbo].[sys_Menu] DROP CONSTRAINT IF EXISTS [FK_sys_Menu_sys_User]
 GO
-/****** Object:  Table [dbo].[sys_Location]    Script Date: 1/3/2017 4:42:20 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_Log]') AND type in (N'U'))
+ALTER TABLE [dbo].[sys_Log] DROP CONSTRAINT IF EXISTS [FK_sys_Log_sys_User]
+GO
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_Location]') AND type in (N'U'))
-DROP TABLE [dbo].[sys_Location]
+ALTER TABLE [dbo].[sys_Location] DROP CONSTRAINT IF EXISTS [FK_sys_Location_sys_User1]
 GO
-/****** Object:  Table [dbo].[sys_IdentificationDocument]    Script Date: 1/3/2017 4:42:20 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_Location]') AND type in (N'U'))
+ALTER TABLE [dbo].[sys_Location] DROP CONSTRAINT IF EXISTS [FK_sys_Location_sys_Company]
+GO
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_IdentificationDocument]') AND type in (N'U'))
-DROP TABLE [dbo].[sys_IdentificationDocument]
+ALTER TABLE [dbo].[sys_IdentificationDocument] DROP CONSTRAINT IF EXISTS [FK_sys_IdentificationDocument_sys_User]
 GO
-/****** Object:  Table [dbo].[sys_ErrorLogs]    Script Date: 1/3/2017 4:42:20 PM ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_ErrorLogs]') AND type in (N'U'))
-DROP TABLE [dbo].[sys_ErrorLogs]
-GO
-/****** Object:  Table [dbo].[sys_EnumReference]    Script Date: 1/3/2017 4:42:20 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_EnumReference]') AND type in (N'U'))
-DROP TABLE [dbo].[sys_EnumReference]
+ALTER TABLE [dbo].[sys_EnumReference] DROP CONSTRAINT IF EXISTS [FK_sys_EnumReference_sys_Company]
 GO
-/****** Object:  Table [dbo].[sys_CompanySetting]    Script Date: 1/3/2017 4:42:20 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_CompanySetting]') AND type in (N'U'))
-DROP TABLE [dbo].[sys_CompanySetting]
+ALTER TABLE [dbo].[sys_CompanySetting] DROP CONSTRAINT IF EXISTS [FK_sys_CompanySetting_sys_User]
 GO
-/****** Object:  Table [dbo].[sys_Company]    Script Date: 1/3/2017 4:42:20 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_CompanySetting]') AND type in (N'U'))
+ALTER TABLE [dbo].[sys_CompanySetting] DROP CONSTRAINT IF EXISTS [FK_sys_CompanySetting_sys_Setting]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_CompanySetting]') AND type in (N'U'))
+ALTER TABLE [dbo].[sys_CompanySetting] DROP CONSTRAINT IF EXISTS [FK_sys_CompanySetting_sys_Company]
+GO
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_Company]') AND type in (N'U'))
-DROP TABLE [dbo].[sys_Company]
+ALTER TABLE [dbo].[sys_Company] DROP CONSTRAINT IF EXISTS [FK_sys_Company_sys_User]
 GO
-/****** Object:  Table [dbo].[pr_PayrollEmployeeEarnings]    Script Date: 1/3/2017 4:42:20 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_Company]') AND type in (N'U'))
+ALTER TABLE [dbo].[sys_Company] DROP CONSTRAINT IF EXISTS [FK_sys_Company_mf_Country]
+GO
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[pr_PayrollEmployeeEarnings]') AND type in (N'U'))
-DROP TABLE [dbo].[pr_PayrollEmployeeEarnings]
+ALTER TABLE [dbo].[pr_PayrollEmployeeEarnings] DROP CONSTRAINT IF EXISTS [FK_pr_PayrollEmployeeEarnings_pr_PayrollEmployee]
 GO
-/****** Object:  Table [dbo].[pr_PayrollEmployeeDeductions]    Script Date: 1/3/2017 4:42:20 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[pr_PayrollEmployeeEarnings]') AND type in (N'U'))
+ALTER TABLE [dbo].[pr_PayrollEmployeeEarnings] DROP CONSTRAINT IF EXISTS [FK_pr_PayrollEmployeeEarnings_mf_Allowance]
+GO
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[pr_PayrollEmployeeDeductions]') AND type in (N'U'))
-DROP TABLE [dbo].[pr_PayrollEmployeeDeductions]
+ALTER TABLE [dbo].[pr_PayrollEmployeeDeductions] DROP CONSTRAINT IF EXISTS [FK_pr_PayrollEmployeeDeductions_pr_PayrollEmployee]
 GO
-/****** Object:  Table [dbo].[pr_PayrollEmployee]    Script Date: 1/3/2017 4:42:20 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[pr_PayrollEmployeeDeductions]') AND type in (N'U'))
+ALTER TABLE [dbo].[pr_PayrollEmployeeDeductions] DROP CONSTRAINT IF EXISTS [FK_pr_PayrollEmployeeDeductions_mf_Deduction]
+GO
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[pr_PayrollEmployee]') AND type in (N'U'))
-DROP TABLE [dbo].[pr_PayrollEmployee]
+ALTER TABLE [dbo].[pr_PayrollEmployee] DROP CONSTRAINT IF EXISTS [FK_pr_PayrollEmployee_pr_Payroll]
 GO
-/****** Object:  Table [dbo].[pr_Payroll]    Script Date: 1/3/2017 4:42:20 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[pr_PayrollEmployee]') AND type in (N'U'))
+ALTER TABLE [dbo].[pr_PayrollEmployee] DROP CONSTRAINT IF EXISTS [FK_pr_PayrollEmployee_mf_Employee]
+GO
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[pr_Payroll]') AND type in (N'U'))
-DROP TABLE [dbo].[pr_Payroll]
+ALTER TABLE [dbo].[pr_Payroll] DROP CONSTRAINT IF EXISTS [FK_pr_Payroll_ta_CutOffAttendance]
 GO
-/****** Object:  Table [dbo].[mf_WorkDays]    Script Date: 1/3/2017 4:42:20 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[pr_Payroll]') AND type in (N'U'))
+ALTER TABLE [dbo].[pr_Payroll] DROP CONSTRAINT IF EXISTS [FK_pr_Payroll_sys_User1]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[pr_Payroll]') AND type in (N'U'))
+ALTER TABLE [dbo].[pr_Payroll] DROP CONSTRAINT IF EXISTS [FK_pr_Payroll_sys_User]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[pr_Payroll]') AND type in (N'U'))
+ALTER TABLE [dbo].[pr_Payroll] DROP CONSTRAINT IF EXISTS [FK_pr_Payroll_sys_Company]
+GO
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_WorkDays]') AND type in (N'U'))
-DROP TABLE [dbo].[mf_WorkDays]
+ALTER TABLE [dbo].[mf_WorkDays] DROP CONSTRAINT IF EXISTS [FK_mf_WorkDays_sys_User]
 GO
-/****** Object:  Table [dbo].[mf_Position]    Script Date: 1/3/2017 4:42:20 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_WorkDays]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_WorkDays] DROP CONSTRAINT IF EXISTS [FK_mf_WorkDays_sys_Company]
+GO
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_Position]') AND type in (N'U'))
-DROP TABLE [dbo].[mf_Position]
+ALTER TABLE [dbo].[mf_Position] DROP CONSTRAINT IF EXISTS [FK_mf_Position_sys_User]
 GO
-/****** Object:  Table [dbo].[mf_PenaltyType]    Script Date: 1/3/2017 4:42:20 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_Position]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_Position] DROP CONSTRAINT IF EXISTS [FK_mf_Position_sys_Company]
+GO
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_PenaltyType]') AND type in (N'U'))
-DROP TABLE [dbo].[mf_PenaltyType]
+ALTER TABLE [dbo].[mf_PenaltyType] DROP CONSTRAINT IF EXISTS [FK_mf_PenaltyType_sys_User]
 GO
-/****** Object:  Table [dbo].[mf_PayrollGroup]    Script Date: 1/3/2017 4:42:20 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_PenaltyType]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_PenaltyType] DROP CONSTRAINT IF EXISTS [FK_mf_PenaltyType_sys_Company]
+GO
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_PayrollGroup]') AND type in (N'U'))
-DROP TABLE [dbo].[mf_PayrollGroup]
+ALTER TABLE [dbo].[mf_PayrollGroup] DROP CONSTRAINT IF EXISTS [FK_mf_PayrollGroup_sys_User1]
 GO
-/****** Object:  Table [dbo].[mf_Offense]    Script Date: 1/3/2017 4:42:20 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_Offense]') AND type in (N'U'))
-DROP TABLE [dbo].[mf_Offense]
+ALTER TABLE [dbo].[mf_Offense] DROP CONSTRAINT IF EXISTS [FK_mf_Offense_sys_User]
 GO
-/****** Object:  Table [dbo].[mf_HolidayType]    Script Date: 1/3/2017 4:42:20 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_Offense]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_Offense] DROP CONSTRAINT IF EXISTS [FK_mf_Offense_sys_Company]
+GO
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_HolidayType]') AND type in (N'U'))
-DROP TABLE [dbo].[mf_HolidayType]
+ALTER TABLE [dbo].[mf_HolidayType] DROP CONSTRAINT IF EXISTS [FK_mf_HolidayType_sys_User1]
 GO
-/****** Object:  Table [dbo].[mf_Holidays]    Script Date: 1/3/2017 4:42:20 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_Holidays]') AND type in (N'U'))
-DROP TABLE [dbo].[mf_Holidays]
+ALTER TABLE [dbo].[mf_Holidays] DROP CONSTRAINT IF EXISTS [FK_mf_Holidays_sys_User1]
 GO
-/****** Object:  Table [dbo].[mf_EmploymentType]    Script Date: 1/3/2017 4:42:20 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_Holidays]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_Holidays] DROP CONSTRAINT IF EXISTS [FK_mf_Holidays_mf_HolidayType]
+GO
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmploymentType]') AND type in (N'U'))
-DROP TABLE [dbo].[mf_EmploymentType]
+ALTER TABLE [dbo].[mf_EmploymentType] DROP CONSTRAINT IF EXISTS [FK_mf_EmploymentType_sys_User]
 GO
-/****** Object:  Table [dbo].[mf_EmploymentStatus]    Script Date: 1/3/2017 4:42:20 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmploymentStatus]') AND type in (N'U'))
-DROP TABLE [dbo].[mf_EmploymentStatus]
+ALTER TABLE [dbo].[mf_EmploymentStatus] DROP CONSTRAINT IF EXISTS [FK_mf_EmploymentStatus_sys_User]
 GO
-/****** Object:  Table [dbo].[mf_EmployeeWorkHistory]    Script Date: 1/3/2017 4:42:20 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmployeeWorkHistory]') AND type in (N'U'))
-DROP TABLE [dbo].[mf_EmployeeWorkHistory]
+ALTER TABLE [dbo].[mf_EmployeeWorkHistory] DROP CONSTRAINT IF EXISTS [FK_mf_EmployeeWorkHistory_sys_User1]
 GO
-/****** Object:  Table [dbo].[mf_EmployeeWorkDays]    Script Date: 1/3/2017 4:42:20 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmployeeWorkHistory]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_EmployeeWorkHistory] DROP CONSTRAINT IF EXISTS [FK_mf_EmployeeWorkHistory_mf_Employee]
+GO
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmployeeWorkDays]') AND type in (N'U'))
-DROP TABLE [dbo].[mf_EmployeeWorkDays]
+ALTER TABLE [dbo].[mf_EmployeeWorkDays] DROP CONSTRAINT IF EXISTS [FK_mf_EmployeeWorkDays_sys_User]
 GO
-/****** Object:  Table [dbo].[mf_EmployeeTraining]    Script Date: 1/3/2017 4:42:20 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmployeeWorkDays]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_EmployeeWorkDays] DROP CONSTRAINT IF EXISTS [FK_mf_EmployeeWorkDays_mf_WorkDays]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmployeeWorkDays]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_EmployeeWorkDays] DROP CONSTRAINT IF EXISTS [FK_mf_EmployeeWorkDays_mf_Employee]
+GO
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmployeeTraining]') AND type in (N'U'))
-DROP TABLE [dbo].[mf_EmployeeTraining]
+ALTER TABLE [dbo].[mf_EmployeeTraining] DROP CONSTRAINT IF EXISTS [FK_mf_EmployeeTraining_sys_User]
 GO
-/****** Object:  Table [dbo].[mf_EmployeeSkill]    Script Date: 1/3/2017 4:42:20 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmployeeTraining]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_EmployeeTraining] DROP CONSTRAINT IF EXISTS [FK_mf_EmployeeTraining_mf_Employee]
+GO
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmployeeSkill]') AND type in (N'U'))
-DROP TABLE [dbo].[mf_EmployeeSkill]
+ALTER TABLE [dbo].[mf_EmployeeSkill] DROP CONSTRAINT IF EXISTS [FK_mf_EmployeeSkill_sys_User]
 GO
-/****** Object:  Table [dbo].[mf_EmployeeOffense]    Script Date: 1/3/2017 4:42:20 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmployeeSkill]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_EmployeeSkill] DROP CONSTRAINT IF EXISTS [FK_mf_EmployeeSkill_mf_Employee]
+GO
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmployeeOffense]') AND type in (N'U'))
-DROP TABLE [dbo].[mf_EmployeeOffense]
+ALTER TABLE [dbo].[mf_EmployeeOffense] DROP CONSTRAINT IF EXISTS [FK_mf_EmployeeOffense_sys_User]
 GO
-/****** Object:  Table [dbo].[mf_EmployeeIdentificationDocument]    Script Date: 1/3/2017 4:42:20 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmployeeOffense]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_EmployeeOffense] DROP CONSTRAINT IF EXISTS [FK_mf_EmployeeOffense_mf_PenaltyType]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmployeeOffense]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_EmployeeOffense] DROP CONSTRAINT IF EXISTS [FK_mf_EmployeeOffense_mf_Offense]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmployeeOffense]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_EmployeeOffense] DROP CONSTRAINT IF EXISTS [FK_mf_EmployeeOffense_mf_Employee]
+GO
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmployeeIdentificationDocument]') AND type in (N'U'))
-DROP TABLE [dbo].[mf_EmployeeIdentificationDocument]
+ALTER TABLE [dbo].[mf_EmployeeIdentificationDocument] DROP CONSTRAINT IF EXISTS [FK_mf_EmployeeIdentificationDocument_sys_User1]
 GO
-/****** Object:  Table [dbo].[mf_EmployeeEducation]    Script Date: 1/3/2017 4:42:20 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmployeeIdentificationDocument]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_EmployeeIdentificationDocument] DROP CONSTRAINT IF EXISTS [FK_mf_EmployeeIdentificationDocument_sys_IdentificationDocument]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmployeeIdentificationDocument]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_EmployeeIdentificationDocument] DROP CONSTRAINT IF EXISTS [FK_mf_EmployeeIdentificationDocument_mf_Employee1]
+GO
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmployeeEducation]') AND type in (N'U'))
-DROP TABLE [dbo].[mf_EmployeeEducation]
+ALTER TABLE [dbo].[mf_EmployeeEducation] DROP CONSTRAINT IF EXISTS [FK_mf_EmployeeEducation_sys_User]
 GO
-/****** Object:  Table [dbo].[mf_EmployeeDeduction]    Script Date: 1/3/2017 4:42:20 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmployeeEducation]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_EmployeeEducation] DROP CONSTRAINT IF EXISTS [FK_mf_EmployeeEducation_mf_Employee]
+GO
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmployeeDeduction]') AND type in (N'U'))
-DROP TABLE [dbo].[mf_EmployeeDeduction]
+ALTER TABLE [dbo].[mf_EmployeeDeduction] DROP CONSTRAINT IF EXISTS [FK_mf_EmployeeDeduction_sys_User]
 GO
-/****** Object:  Table [dbo].[mf_EmployeeBasicPay]    Script Date: 1/3/2017 4:42:20 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmployeeDeduction]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_EmployeeDeduction] DROP CONSTRAINT IF EXISTS [FK_mf_EmployeeDeduction_mf_Employee]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmployeeDeduction]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_EmployeeDeduction] DROP CONSTRAINT IF EXISTS [FK_mf_EmployeeDeduction_mf_Deduction]
+GO
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmployeeBasicPay]') AND type in (N'U'))
-DROP TABLE [dbo].[mf_EmployeeBasicPay]
+ALTER TABLE [dbo].[mf_EmployeeBasicPay] DROP CONSTRAINT IF EXISTS [FK_mf_EmployeeBasicPay_sys_User]
 GO
-/****** Object:  Table [dbo].[mf_EmployeeBalanceLeave]    Script Date: 1/3/2017 4:42:20 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmployeeBasicPay]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_EmployeeBasicPay] DROP CONSTRAINT IF EXISTS [FK_mf_EmployeeBasicPay_mf_Employee]
+GO
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmployeeBalanceLeave]') AND type in (N'U'))
-DROP TABLE [dbo].[mf_EmployeeBalanceLeave]
+ALTER TABLE [dbo].[mf_EmployeeBalanceLeave] DROP CONSTRAINT IF EXISTS [FK_mf_EmployeeBalanceLeave_sys_User]
 GO
-/****** Object:  Table [dbo].[mf_EmployeeAllowance]    Script Date: 1/3/2017 4:42:20 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmployeeBalanceLeave]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_EmployeeBalanceLeave] DROP CONSTRAINT IF EXISTS [FK_mf_EmployeeBalanceLeave_mf_Employee]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmployeeBalanceLeave]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_EmployeeBalanceLeave] DROP CONSTRAINT IF EXISTS [FK_mf_EmployeeBalanceLeave_mf_ApplicationRequestType]
+GO
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmployeeAllowance]') AND type in (N'U'))
-DROP TABLE [dbo].[mf_EmployeeAllowance]
+ALTER TABLE [dbo].[mf_EmployeeAllowance] DROP CONSTRAINT IF EXISTS [FK_mf_EmployeeAllowance_sys_User]
 GO
-/****** Object:  Table [dbo].[mf_EmployeeAddress]    Script Date: 1/3/2017 4:42:20 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmployeeAllowance]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_EmployeeAllowance] DROP CONSTRAINT IF EXISTS [FK_mf_EmployeeAllowance_mf_Employee]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmployeeAllowance]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_EmployeeAllowance] DROP CONSTRAINT IF EXISTS [FK_mf_EmployeeAllowance_mf_Allowance]
+GO
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmployeeAddress]') AND type in (N'U'))
-DROP TABLE [dbo].[mf_EmployeeAddress]
+ALTER TABLE [dbo].[mf_EmployeeAddress] DROP CONSTRAINT IF EXISTS [FK_mf_EmployeeAddress_sys_User]
 GO
-/****** Object:  Table [dbo].[mf_Employee201]    Script Date: 1/3/2017 4:42:20 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmployeeAddress]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_EmployeeAddress] DROP CONSTRAINT IF EXISTS [FK_mf_EmployeeAddress_mf_Country]
+GO
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_Employee201]') AND type in (N'U'))
-DROP TABLE [dbo].[mf_Employee201]
+ALTER TABLE [dbo].[mf_Employee201] DROP CONSTRAINT IF EXISTS [FK_mf_Employee201_sys_User]
 GO
-/****** Object:  Table [dbo].[mf_Employee]    Script Date: 1/3/2017 4:42:20 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_Employee201]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_Employee201] DROP CONSTRAINT IF EXISTS [FK_mf_Employee201_mf_Position]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_Employee201]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_Employee201] DROP CONSTRAINT IF EXISTS [FK_mf_Employee201_mf_PayrollGroup]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_Employee201]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_Employee201] DROP CONSTRAINT IF EXISTS [FK_mf_Employee201_mf_EmploymentType]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_Employee201]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_Employee201] DROP CONSTRAINT IF EXISTS [FK_mf_Employee201_mf_EmploymentStatus]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_Employee201]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_Employee201] DROP CONSTRAINT IF EXISTS [FK_mf_Employee201_mf_DepartmentSection]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_Employee201]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_Employee201] DROP CONSTRAINT IF EXISTS [FK_mf_Employee201_mf_Department]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_Employee201]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_Employee201] DROP CONSTRAINT IF EXISTS [FK_mf_Employee201_mf_Agency]
+GO
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_Employee]') AND type in (N'U'))
-DROP TABLE [dbo].[mf_Employee]
+ALTER TABLE [dbo].[mf_Employee] DROP CONSTRAINT IF EXISTS [FK_mf_Employee_sys_User1]
 GO
-/****** Object:  Table [dbo].[mf_DepartmentSectionRequestApprover]    Script Date: 1/3/2017 4:42:20 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_Employee]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_Employee] DROP CONSTRAINT IF EXISTS [FK_mf_Employee_sys_Company]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_Employee]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_Employee] DROP CONSTRAINT IF EXISTS [FK_mf_Employee_mf_EmployeeAddress]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_Employee]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_Employee] DROP CONSTRAINT IF EXISTS [FK_mf_Employee_mf_Employee201]
+GO
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_DepartmentSectionRequestApprover]') AND type in (N'U'))
-DROP TABLE [dbo].[mf_DepartmentSectionRequestApprover]
+ALTER TABLE [dbo].[mf_DepartmentSectionRequestApprover] DROP CONSTRAINT IF EXISTS [FK_mf_DepartmentSectionRequestApprover_sys_User1]
 GO
-/****** Object:  Table [dbo].[mf_DepartmentSection]    Script Date: 1/3/2017 4:42:20 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_DepartmentSectionRequestApprover]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_DepartmentSectionRequestApprover] DROP CONSTRAINT IF EXISTS [FK_mf_DepartmentSectionRequestApprover_sys_User]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_DepartmentSectionRequestApprover]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_DepartmentSectionRequestApprover] DROP CONSTRAINT IF EXISTS [FK_mf_DepartmentSectionRequestApprover_mf_DepartmentSection]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_DepartmentSectionRequestApprover]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_DepartmentSectionRequestApprover] DROP CONSTRAINT IF EXISTS [FK_mf_DepartmentSectionRequestApprover_mf_ApplicationRequestType]
+GO
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_DepartmentSection]') AND type in (N'U'))
-DROP TABLE [dbo].[mf_DepartmentSection]
+ALTER TABLE [dbo].[mf_DepartmentSection] DROP CONSTRAINT IF EXISTS [FK_mf_DepartmentSection_sys_User]
 GO
-/****** Object:  Table [dbo].[mf_Department]    Script Date: 1/3/2017 4:42:20 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_DepartmentSection]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_DepartmentSection] DROP CONSTRAINT IF EXISTS [FK_mf_DepartmentSection_mf_Department]
+GO
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_Department]') AND type in (N'U'))
-DROP TABLE [dbo].[mf_Department]
+ALTER TABLE [dbo].[mf_Department] DROP CONSTRAINT IF EXISTS [FK_mf_Department_sys_User]
 GO
-/****** Object:  Table [dbo].[mf_Deduction]    Script Date: 1/3/2017 4:42:20 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_Department]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_Department] DROP CONSTRAINT IF EXISTS [FK_mf_Department_sys_Company]
+GO
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_Deduction]') AND type in (N'U'))
-DROP TABLE [dbo].[mf_Deduction]
+ALTER TABLE [dbo].[mf_Deduction] DROP CONSTRAINT IF EXISTS [FK_mf_Deduction_sys_User]
 GO
-/****** Object:  Table [dbo].[mf_Country]    Script Date: 1/3/2017 4:42:20 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_Deduction]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_Deduction] DROP CONSTRAINT IF EXISTS [FK_mf_Deduction_sys_Company]
+GO
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_Country]') AND type in (N'U'))
-DROP TABLE [dbo].[mf_Country]
+ALTER TABLE [dbo].[mf_Country] DROP CONSTRAINT IF EXISTS [FK_mf_Country_sys_User]
 GO
-/****** Object:  Table [dbo].[mf_ApplicationRequestType]    Script Date: 1/3/2017 4:42:20 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_ApplicationRequestType]') AND type in (N'U'))
-DROP TABLE [dbo].[mf_ApplicationRequestType]
+ALTER TABLE [dbo].[mf_ApplicationRequestType] DROP CONSTRAINT IF EXISTS [FK_mf_ApplicationRequestType_sys_User1]
 GO
-/****** Object:  Table [dbo].[mf_Allowance]    Script Date: 1/3/2017 4:42:20 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_Allowance]') AND type in (N'U'))
-DROP TABLE [dbo].[mf_Allowance]
+ALTER TABLE [dbo].[mf_Allowance] DROP CONSTRAINT IF EXISTS [FK_mf_Allowance_sys_User]
 GO
-/****** Object:  Table [dbo].[mf_Agency]    Script Date: 1/3/2017 4:42:20 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_Allowance]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_Allowance] DROP CONSTRAINT IF EXISTS [FK_mf_Allowance_sys_Company]
+GO
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_Agency]') AND type in (N'U'))
-DROP TABLE [dbo].[mf_Agency]
+ALTER TABLE [dbo].[mf_Agency] DROP CONSTRAINT IF EXISTS [FK_mf_Agency_sys_User]
 GO
-/****** Object:  UserDefinedFunction [dbo].[RemoveSpecialCharacters]    Script Date: 1/3/2017 4:42:20 PM ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RemoveSpecialCharacters]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
-DROP FUNCTION [dbo].[RemoveSpecialCharacters]
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_Agency]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_Agency] DROP CONSTRAINT IF EXISTS [FK_mf_Agency_sys_Company]
 GO
-/****** Object:  UserDefinedFunction [dbo].[RemoveNonAlphaCharacters]    Script Date: 1/3/2017 4:42:20 PM ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RemoveNonAlphaCharacters]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
-DROP FUNCTION [dbo].[RemoveNonAlphaCharacters]
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ta_EmployeeAttendance]') AND type in (N'U'))
+ALTER TABLE [dbo].[ta_EmployeeAttendance] DROP CONSTRAINT IF EXISTS [DF_ta_EmployeeAttendance_deleted]
 GO
-/****** Object:  UserDefinedFunction [dbo].[RemoveNonAlphaCharacters]    Script Date: 1/3/2017 4:42:20 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ta_EmployeeAttendance]') AND type in (N'U'))
+ALTER TABLE [dbo].[ta_EmployeeAttendance] DROP CONSTRAINT IF EXISTS [DF_ta_EmployeeAttendance_updatedDate]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ta_CutOffAttendanceSummaryDetail]') AND type in (N'U'))
+ALTER TABLE [dbo].[ta_CutOffAttendanceSummaryDetail] DROP CONSTRAINT IF EXISTS [DF_ta_CutOffAttendanceSummaryDetail_deleted]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ta_CutOffAttendanceSummaryDetail]') AND type in (N'U'))
+ALTER TABLE [dbo].[ta_CutOffAttendanceSummaryDetail] DROP CONSTRAINT IF EXISTS [DF_ta_CutOffAttendanceSummaryDetail_updatedDate]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ta_CutOffAttendanceSummaryDetail]') AND type in (N'U'))
+ALTER TABLE [dbo].[ta_CutOffAttendanceSummaryDetail] DROP CONSTRAINT IF EXISTS [DF_ta_CutOffAttendanceSummaryDetail_absent]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ta_CutOffAttendanceSummary]') AND type in (N'U'))
+ALTER TABLE [dbo].[ta_CutOffAttendanceSummary] DROP CONSTRAINT IF EXISTS [DF_ta_CutOffAttendanceSummary_deleted]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ta_CutOffAttendanceSummary]') AND type in (N'U'))
+ALTER TABLE [dbo].[ta_CutOffAttendanceSummary] DROP CONSTRAINT IF EXISTS [DF_ta_CutOffAttendanceSummary_updatedDate]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ta_CutOffAttendance]') AND type in (N'U'))
+ALTER TABLE [dbo].[ta_CutOffAttendance] DROP CONSTRAINT IF EXISTS [DF_ta_CutOffAttendance_deleted]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ta_CutOffAttendance]') AND type in (N'U'))
+ALTER TABLE [dbo].[ta_CutOffAttendance] DROP CONSTRAINT IF EXISTS [DF_ta_CutOffAttendance_updatedDate1]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ta_CutOffAttendance]') AND type in (N'U'))
+ALTER TABLE [dbo].[ta_CutOffAttendance] DROP CONSTRAINT IF EXISTS [DF_ta_CutOffAttendance_updatedDate]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ta_CutOffAttendance]') AND type in (N'U'))
+ALTER TABLE [dbo].[ta_CutOffAttendance] DROP CONSTRAINT IF EXISTS [DF_ta_CutOffAttendance_generatedDate]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ta_ApplicationRequestLeave]') AND type in (N'U'))
+ALTER TABLE [dbo].[ta_ApplicationRequestLeave] DROP CONSTRAINT IF EXISTS [DF_ta_ApplicationRequestLeave_deleted]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ta_ApplicationRequestGatePass]') AND type in (N'U'))
+ALTER TABLE [dbo].[ta_ApplicationRequestGatePass] DROP CONSTRAINT IF EXISTS [DF_ta_ApplicationRequestGatePass_deleted]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ta_ApplicationRequestApprover]') AND type in (N'U'))
+ALTER TABLE [dbo].[ta_ApplicationRequestApprover] DROP CONSTRAINT IF EXISTS [DF_ta_ApplicationRequestApprover_deleted]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ta_ApplicationRequest]') AND type in (N'U'))
+ALTER TABLE [dbo].[ta_ApplicationRequest] DROP CONSTRAINT IF EXISTS [DF_ta_ApplicationRequest_deleted]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ta_ApplicationRequest]') AND type in (N'U'))
+ALTER TABLE [dbo].[ta_ApplicationRequest] DROP CONSTRAINT IF EXISTS [DF_ta_ApplicationRequest_updatedDate]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ta_ApplicationRequest]') AND type in (N'U'))
+ALTER TABLE [dbo].[ta_ApplicationRequest] DROP CONSTRAINT IF EXISTS [DF_ta_ApplicationRequest_createdDate]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_UserSession]') AND type in (N'U'))
+ALTER TABLE [dbo].[sys_UserSession] DROP CONSTRAINT IF EXISTS [DF_sys_UserSession_deleted]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_UserRole]') AND type in (N'U'))
+ALTER TABLE [dbo].[sys_UserRole] DROP CONSTRAINT IF EXISTS [DF_sys_UserRole_deleted]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_UserRole]') AND type in (N'U'))
+ALTER TABLE [dbo].[sys_UserRole] DROP CONSTRAINT IF EXISTS [DF_sys_UserRole_updatedDate]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_User]') AND type in (N'U'))
+ALTER TABLE [dbo].[sys_User] DROP CONSTRAINT IF EXISTS [DF_sys_User_deleted]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_User]') AND type in (N'U'))
+ALTER TABLE [dbo].[sys_User] DROP CONSTRAINT IF EXISTS [DF_sys_User_updatedDate]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_Setting]') AND type in (N'U'))
+ALTER TABLE [dbo].[sys_Setting] DROP CONSTRAINT IF EXISTS [DF_sys_Setting_deleted]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_RolePermission]') AND type in (N'U'))
+ALTER TABLE [dbo].[sys_RolePermission] DROP CONSTRAINT IF EXISTS [DF_sys_RolePermission_deleted]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_RolePermission]') AND type in (N'U'))
+ALTER TABLE [dbo].[sys_RolePermission] DROP CONSTRAINT IF EXISTS [DF_sys_RolePermission_updatedDate]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_RolePermission]') AND type in (N'U'))
+ALTER TABLE [dbo].[sys_RolePermission] DROP CONSTRAINT IF EXISTS [DF_sys_RolePermission_printAccess]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_RolePermission]') AND type in (N'U'))
+ALTER TABLE [dbo].[sys_RolePermission] DROP CONSTRAINT IF EXISTS [DF_sys_RolePermission_deleteAccess]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_RolePermission]') AND type in (N'U'))
+ALTER TABLE [dbo].[sys_RolePermission] DROP CONSTRAINT IF EXISTS [DF_sys_RolePermission_updateAccess]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_RolePermission]') AND type in (N'U'))
+ALTER TABLE [dbo].[sys_RolePermission] DROP CONSTRAINT IF EXISTS [DF_sys_RolePermission_createAccess]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_RolePermission]') AND type in (N'U'))
+ALTER TABLE [dbo].[sys_RolePermission] DROP CONSTRAINT IF EXISTS [DF_sys_RolePermission_viewAccess]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_RoleMenu]') AND type in (N'U'))
+ALTER TABLE [dbo].[sys_RoleMenu] DROP CONSTRAINT IF EXISTS [DF_sys_RoleMenu_deleted]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_RoleMenu]') AND type in (N'U'))
+ALTER TABLE [dbo].[sys_RoleMenu] DROP CONSTRAINT IF EXISTS [DF_sys_RoleMenu_updatedDate]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_RoleMenu]') AND type in (N'U'))
+ALTER TABLE [dbo].[sys_RoleMenu] DROP CONSTRAINT IF EXISTS [DF_sys_RoleMenu_displayOrder]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_Role]') AND type in (N'U'))
+ALTER TABLE [dbo].[sys_Role] DROP CONSTRAINT IF EXISTS [DF_sys_Role_deleted]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_Role]') AND type in (N'U'))
+ALTER TABLE [dbo].[sys_Role] DROP CONSTRAINT IF EXISTS [DF_sys_Role_updatedDate]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_Permission]') AND type in (N'U'))
+ALTER TABLE [dbo].[sys_Permission] DROP CONSTRAINT IF EXISTS [DF_sys_Permission_deleted]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_Permission]') AND type in (N'U'))
+ALTER TABLE [dbo].[sys_Permission] DROP CONSTRAINT IF EXISTS [DF_sys_Permission_updatedDate]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_Menu]') AND type in (N'U'))
+ALTER TABLE [dbo].[sys_Menu] DROP CONSTRAINT IF EXISTS [DF_sys_Menu_deleted]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_Menu]') AND type in (N'U'))
+ALTER TABLE [dbo].[sys_Menu] DROP CONSTRAINT IF EXISTS [DF_sys_Menu_updatedDate]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_Log]') AND type in (N'U'))
+ALTER TABLE [dbo].[sys_Log] DROP CONSTRAINT IF EXISTS [DF_sys_Log_createdDate]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_Location]') AND type in (N'U'))
+ALTER TABLE [dbo].[sys_Location] DROP CONSTRAINT IF EXISTS [DF_sys_Location_deleted]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_Location]') AND type in (N'U'))
+ALTER TABLE [dbo].[sys_Location] DROP CONSTRAINT IF EXISTS [DF_sys_Location_updatedDate]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_IdentificationDocument]') AND type in (N'U'))
+ALTER TABLE [dbo].[sys_IdentificationDocument] DROP CONSTRAINT IF EXISTS [DF_sys_IdentificationDocument_deleted]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_IdentificationDocument]') AND type in (N'U'))
+ALTER TABLE [dbo].[sys_IdentificationDocument] DROP CONSTRAINT IF EXISTS [DF_sys_IdentificationDocument_updatedDate]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_EnumReference]') AND type in (N'U'))
+ALTER TABLE [dbo].[sys_EnumReference] DROP CONSTRAINT IF EXISTS [DF_sys_EnumReference_deleted]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_EnumReference]') AND type in (N'U'))
+ALTER TABLE [dbo].[sys_EnumReference] DROP CONSTRAINT IF EXISTS [DF_sys_EnumReference_hidden]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_EnumReference]') AND type in (N'U'))
+ALTER TABLE [dbo].[sys_EnumReference] DROP CONSTRAINT IF EXISTS [DF_sys_EnumReference_displayOrder]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_CompanySetting]') AND type in (N'U'))
+ALTER TABLE [dbo].[sys_CompanySetting] DROP CONSTRAINT IF EXISTS [DF_sys_CompanySetting_deleted]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_CompanySetting]') AND type in (N'U'))
+ALTER TABLE [dbo].[sys_CompanySetting] DROP CONSTRAINT IF EXISTS [DF_sys_CompanySetting_updatedDate]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_Company]') AND type in (N'U'))
+ALTER TABLE [dbo].[sys_Company] DROP CONSTRAINT IF EXISTS [DF_sys_Company_deleted]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_Company]') AND type in (N'U'))
+ALTER TABLE [dbo].[sys_Company] DROP CONSTRAINT IF EXISTS [DF_sys_Company_updatedDate]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[pr_PayrollEmployee]') AND type in (N'U'))
+ALTER TABLE [dbo].[pr_PayrollEmployee] DROP CONSTRAINT IF EXISTS [DF_pr_PayrollEmployee_deleted]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[pr_PayrollEmployee]') AND type in (N'U'))
+ALTER TABLE [dbo].[pr_PayrollEmployee] DROP CONSTRAINT IF EXISTS [DF_pr_PayrollEmployee_updatedDate]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[pr_Payroll]') AND type in (N'U'))
+ALTER TABLE [dbo].[pr_Payroll] DROP CONSTRAINT IF EXISTS [DF_pr_Payroll_deleted]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[pr_Payroll]') AND type in (N'U'))
+ALTER TABLE [dbo].[pr_Payroll] DROP CONSTRAINT IF EXISTS [DF_pr_Payroll_updatedDate]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[pr_Payroll]') AND type in (N'U'))
+ALTER TABLE [dbo].[pr_Payroll] DROP CONSTRAINT IF EXISTS [DF_pr_Payroll_generatedDate]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_WorkDays]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_WorkDays] DROP CONSTRAINT IF EXISTS [DF_mf_WorkDays_deleted]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_WorkDays]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_WorkDays] DROP CONSTRAINT IF EXISTS [DF_mf_WorkDays_updatedDate]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_WorkDays]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_WorkDays] DROP CONSTRAINT IF EXISTS [DF_mf_WorkDays_breakHours]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_WorkDays]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_WorkDays] DROP CONSTRAINT IF EXISTS [DF_mf_WorkDays_toTimeMinute]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_WorkDays]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_WorkDays] DROP CONSTRAINT IF EXISTS [DF_mf_WorkDays_toTimeHour]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_WorkDays]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_WorkDays] DROP CONSTRAINT IF EXISTS [DF_mf_WorkDays_fromTimeMinute]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_WorkDays]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_WorkDays] DROP CONSTRAINT IF EXISTS [DF_mf_WorkDays_fromTimeHour]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_WorkDays]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_WorkDays] DROP CONSTRAINT IF EXISTS [DF_mf_WorkDays_sunday]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_WorkDays]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_WorkDays] DROP CONSTRAINT IF EXISTS [DF_mf_WorkDays_saturday]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_WorkDays]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_WorkDays] DROP CONSTRAINT IF EXISTS [DF_mf_WorkDays_friday]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_WorkDays]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_WorkDays] DROP CONSTRAINT IF EXISTS [DF_mf_WorkDays_thursday]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_WorkDays]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_WorkDays] DROP CONSTRAINT IF EXISTS [DF_mf_WorkDays_wednesday]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_WorkDays]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_WorkDays] DROP CONSTRAINT IF EXISTS [DF_mf_WorkDays_tuesday]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_WorkDays]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_WorkDays] DROP CONSTRAINT IF EXISTS [DF_mf_WorkDays_monday]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_Position]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_Position] DROP CONSTRAINT IF EXISTS [DF_mf_Position_deleted]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_Position]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_Position] DROP CONSTRAINT IF EXISTS [DF_mf_Position_updatedDate]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_PenaltyType]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_PenaltyType] DROP CONSTRAINT IF EXISTS [DF_mf_PenaltyType_deleted]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_PenaltyType]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_PenaltyType] DROP CONSTRAINT IF EXISTS [DF_mf_PenaltyType_updatedDate]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_PayrollGroup]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_PayrollGroup] DROP CONSTRAINT IF EXISTS [DF_mf_PayrollGroup_deleted]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_PayrollGroup]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_PayrollGroup] DROP CONSTRAINT IF EXISTS [DF_mf_PayrollGroup_updatedDate]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_Offense]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_Offense] DROP CONSTRAINT IF EXISTS [DF_mf_Offense_deleted]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_Offense]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_Offense] DROP CONSTRAINT IF EXISTS [DF_mf_Offense_updatedDate]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_HolidayType]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_HolidayType] DROP CONSTRAINT IF EXISTS [DF_mf_HolidayType_deleted]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_HolidayType]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_HolidayType] DROP CONSTRAINT IF EXISTS [DF_mf_HolidayType_updatedDate]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_HolidayType]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_HolidayType] DROP CONSTRAINT IF EXISTS [DF_mf_HolidayType_rateWork]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_HolidayType]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_HolidayType] DROP CONSTRAINT IF EXISTS [DF_mf_HolidayType_rateNotWork]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_Holidays]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_Holidays] DROP CONSTRAINT IF EXISTS [DF_mf_Holidays_deleted]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_Holidays]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_Holidays] DROP CONSTRAINT IF EXISTS [DF_mf_Holidays_updatedDate]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmploymentType]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_EmploymentType] DROP CONSTRAINT IF EXISTS [DF_mf_EmploymentType_deleted]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmploymentType]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_EmploymentType] DROP CONSTRAINT IF EXISTS [DF_mf_EmploymentType_updatedDate]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmploymentStatus]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_EmploymentStatus] DROP CONSTRAINT IF EXISTS [DF_mf_EmploymentStatus_deleted]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmploymentStatus]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_EmploymentStatus] DROP CONSTRAINT IF EXISTS [DF_mf_EmploymentStatus_updatedDate]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmploymentStatus]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_EmploymentStatus] DROP CONSTRAINT IF EXISTS [DF_mf_EmploymentStatus_allowProcessPayroll]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmployeeWorkHistory]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_EmployeeWorkHistory] DROP CONSTRAINT IF EXISTS [DF_mf_EmployeeWorkHistory_deleted]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmployeeWorkHistory]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_EmployeeWorkHistory] DROP CONSTRAINT IF EXISTS [DF_mf_EmployeeWorkHistory_updatedDate]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmployeeWorkDays]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_EmployeeWorkDays] DROP CONSTRAINT IF EXISTS [DF_mf_EmployeeWorkDays_deleted]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmployeeWorkDays]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_EmployeeWorkDays] DROP CONSTRAINT IF EXISTS [DF_mf_EmployeeWorkDays_createdDate1]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmployeeTraining]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_EmployeeTraining] DROP CONSTRAINT IF EXISTS [DF_mf_EmployeeTraining_deleted]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmployeeTraining]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_EmployeeTraining] DROP CONSTRAINT IF EXISTS [DF_mf_EmployeeTraining_updatedDate]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmployeeSkill]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_EmployeeSkill] DROP CONSTRAINT IF EXISTS [DF_mf_EmployeeSkill_deleted]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmployeeSkill]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_EmployeeSkill] DROP CONSTRAINT IF EXISTS [DF_mf_EmployeeSkill_updatedDate]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmployeeOffense]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_EmployeeOffense] DROP CONSTRAINT IF EXISTS [DF_mf_EmployeeOffense_deleted]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmployeeOffense]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_EmployeeOffense] DROP CONSTRAINT IF EXISTS [DF_mf_EmployeeOffense_updatedDate]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmployeeIdentificationDocument]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_EmployeeIdentificationDocument] DROP CONSTRAINT IF EXISTS [DF_mf_EmployeeIdentificationDocument_deleted_1]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmployeeIdentificationDocument]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_EmployeeIdentificationDocument] DROP CONSTRAINT IF EXISTS [DF_mf_EmployeeIdentificationDocument_updatedDate_1]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmployeeEducation]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_EmployeeEducation] DROP CONSTRAINT IF EXISTS [DF_mf_EmployeeEducation_deleted]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmployeeEducation]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_EmployeeEducation] DROP CONSTRAINT IF EXISTS [DF_mf_EmployeeEducation_updatedDate]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmployeeEducation]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_EmployeeEducation] DROP CONSTRAINT IF EXISTS [DF_mf_EmployeeEducation_createdDate]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmployeeDeduction]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_EmployeeDeduction] DROP CONSTRAINT IF EXISTS [DF_mf_EmployeeDeduction_deleted]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmployeeDeduction]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_EmployeeDeduction] DROP CONSTRAINT IF EXISTS [DF_mf_EmployeeDeduction_updatedDate]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmployeeBasicPay]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_EmployeeBasicPay] DROP CONSTRAINT IF EXISTS [DF_mf_EmployeeBasicPay_deleted]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmployeeBasicPay]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_EmployeeBasicPay] DROP CONSTRAINT IF EXISTS [DF_mf_EmployeeBasicPay_updatedDate]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmployeeBalanceLeave]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_EmployeeBalanceLeave] DROP CONSTRAINT IF EXISTS [DF_mf_EmployeeBalanceLeave_deleted]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmployeeBalanceLeave]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_EmployeeBalanceLeave] DROP CONSTRAINT IF EXISTS [DF_mf_EmployeeBalanceLeave_updatedDate]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmployeeAllowance]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_EmployeeAllowance] DROP CONSTRAINT IF EXISTS [DF_mf_EmployeeAllowance_deleted]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmployeeAllowance]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_EmployeeAllowance] DROP CONSTRAINT IF EXISTS [DF_mf_EmployeeAllowance_updatedDate]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmployeeAddress]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_EmployeeAddress] DROP CONSTRAINT IF EXISTS [DF_mf_EmployeeAddress_deleted]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_EmployeeAddress]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_EmployeeAddress] DROP CONSTRAINT IF EXISTS [DF_mf_EmployeeAddress_updatedDate]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_Employee201]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_Employee201] DROP CONSTRAINT IF EXISTS [DF_mf_Employee201_confidential]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_Employee201]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_Employee201] DROP CONSTRAINT IF EXISTS [DF_mf_Employee201_deleted]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_Employee201]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_Employee201] DROP CONSTRAINT IF EXISTS [DF_mf_Employee201_updatedDate]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_Employee201]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_Employee201] DROP CONSTRAINT IF EXISTS [DF_mf_Employee201_entitledUnworkSpecialHoliday]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_Employee201]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_Employee201] DROP CONSTRAINT IF EXISTS [DF_mf_Employee201_entitledUnworkRegularHoliday]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_Employee201]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_Employee201] DROP CONSTRAINT IF EXISTS [DF_mf_Employee201_timeSheetRequired]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_Employee]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_Employee] DROP CONSTRAINT IF EXISTS [DF_mf_Employee_deleted]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_Employee]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_Employee] DROP CONSTRAINT IF EXISTS [DF_mf_Employee_updatedDate]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_DepartmentSectionRequestApprover]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_DepartmentSectionRequestApprover] DROP CONSTRAINT IF EXISTS [DF_mf_DepartmentSectionRequestApprover_deleted]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_DepartmentSectionRequestApprover]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_DepartmentSectionRequestApprover] DROP CONSTRAINT IF EXISTS [DF_mf_DepartmentSectionRequestApprover_updatedDate]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_DepartmentSectionRequestApprover]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_DepartmentSectionRequestApprover] DROP CONSTRAINT IF EXISTS [DF_mf_DepartmentSectionRequestApprover_orderNo]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_DepartmentSection]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_DepartmentSection] DROP CONSTRAINT IF EXISTS [DF_mf_DepartmentSection_deleted]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_DepartmentSection]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_DepartmentSection] DROP CONSTRAINT IF EXISTS [DF_mf_DepartmentSection_updatedDate]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_Department]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_Department] DROP CONSTRAINT IF EXISTS [DF_mf_Department_deleted]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_Department]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_Department] DROP CONSTRAINT IF EXISTS [DF_mf_Department_updatedDate]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_Deduction]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_Deduction] DROP CONSTRAINT IF EXISTS [DF_mf_Deduction_deleted]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_Deduction]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_Deduction] DROP CONSTRAINT IF EXISTS [DF_mf_Deduction_updatedDate]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_Country]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_Country] DROP CONSTRAINT IF EXISTS [DF_mf_Country_deleted]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_Country]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_Country] DROP CONSTRAINT IF EXISTS [DF_mf_Country_updatedDate]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_ApplicationRequestType]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_ApplicationRequestType] DROP CONSTRAINT IF EXISTS [DF_mf_ApplicationRequestType_deleted]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_ApplicationRequestType]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_ApplicationRequestType] DROP CONSTRAINT IF EXISTS [DF_mf_ApplicationRequestType_updatedDate]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_ApplicationRequestType]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_ApplicationRequestType] DROP CONSTRAINT IF EXISTS [DF_mf_ApplicationRequestType_hasLeavePoints]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_Allowance]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_Allowance] DROP CONSTRAINT IF EXISTS [DF_mf_Allowance_deleted]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_Allowance]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_Allowance] DROP CONSTRAINT IF EXISTS [DF_mf_Allowance_updatedDate]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_Allowance]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_Allowance] DROP CONSTRAINT IF EXISTS [DF_mf_Allowance_isTaxable]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_Agency]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_Agency] DROP CONSTRAINT IF EXISTS [DF_mf_Agency_deleted]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_Agency]') AND type in (N'U'))
+ALTER TABLE [dbo].[mf_Agency] DROP CONSTRAINT IF EXISTS [DF_mf_Agency_updatedDate]
+GO
+/****** Object:  Table [dbo].[ta_EmployeeAttendance]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[ta_EmployeeAttendance]
+GO
+/****** Object:  Table [dbo].[ta_CutOffAttendanceSummaryDetail]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[ta_CutOffAttendanceSummaryDetail]
+GO
+/****** Object:  Table [dbo].[ta_CutOffAttendanceSummary]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[ta_CutOffAttendanceSummary]
+GO
+/****** Object:  Table [dbo].[ta_CutOffAttendance]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[ta_CutOffAttendance]
+GO
+/****** Object:  Table [dbo].[ta_ApplicationRequestLeave]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[ta_ApplicationRequestLeave]
+GO
+/****** Object:  Table [dbo].[ta_ApplicationRequestGatePass]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[ta_ApplicationRequestGatePass]
+GO
+/****** Object:  Table [dbo].[ta_ApplicationRequestApprover]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[ta_ApplicationRequestApprover]
+GO
+/****** Object:  Table [dbo].[ta_ApplicationRequest]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[ta_ApplicationRequest]
+GO
+/****** Object:  Table [dbo].[sys_UserSession]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[sys_UserSession]
+GO
+/****** Object:  Table [dbo].[sys_UserRole]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[sys_UserRole]
+GO
+/****** Object:  Table [dbo].[sys_User]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[sys_User]
+GO
+/****** Object:  Table [dbo].[sys_Setting]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[sys_Setting]
+GO
+/****** Object:  Table [dbo].[sys_RolePermission]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[sys_RolePermission]
+GO
+/****** Object:  Table [dbo].[sys_RoleMenu]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[sys_RoleMenu]
+GO
+/****** Object:  Table [dbo].[sys_Role]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[sys_Role]
+GO
+/****** Object:  Table [dbo].[sys_Permission]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[sys_Permission]
+GO
+/****** Object:  Table [dbo].[sys_Menu]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[sys_Menu]
+GO
+/****** Object:  Table [dbo].[sys_Log]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[sys_Log]
+GO
+/****** Object:  Table [dbo].[sys_Location]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[sys_Location]
+GO
+/****** Object:  Table [dbo].[sys_IdentificationDocument]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[sys_IdentificationDocument]
+GO
+/****** Object:  Table [dbo].[sys_EnumReference]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[sys_EnumReference]
+GO
+/****** Object:  Table [dbo].[sys_CompanySetting]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[sys_CompanySetting]
+GO
+/****** Object:  Table [dbo].[sys_Company]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[sys_Company]
+GO
+/****** Object:  Table [dbo].[pr_PayrollEmployeeEarnings]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[pr_PayrollEmployeeEarnings]
+GO
+/****** Object:  Table [dbo].[pr_PayrollEmployeeDeductions]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[pr_PayrollEmployeeDeductions]
+GO
+/****** Object:  Table [dbo].[pr_PayrollEmployee]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[pr_PayrollEmployee]
+GO
+/****** Object:  Table [dbo].[pr_Payroll]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[pr_Payroll]
+GO
+/****** Object:  Table [dbo].[mf_WorkDays]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[mf_WorkDays]
+GO
+/****** Object:  Table [dbo].[mf_Position]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[mf_Position]
+GO
+/****** Object:  Table [dbo].[mf_PenaltyType]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[mf_PenaltyType]
+GO
+/****** Object:  Table [dbo].[mf_PayrollGroup]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[mf_PayrollGroup]
+GO
+/****** Object:  Table [dbo].[mf_Offense]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[mf_Offense]
+GO
+/****** Object:  Table [dbo].[mf_HolidayType]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[mf_HolidayType]
+GO
+/****** Object:  Table [dbo].[mf_Holidays]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[mf_Holidays]
+GO
+/****** Object:  Table [dbo].[mf_EmploymentType]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[mf_EmploymentType]
+GO
+/****** Object:  Table [dbo].[mf_EmploymentStatus]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[mf_EmploymentStatus]
+GO
+/****** Object:  Table [dbo].[mf_EmployeeWorkHistory]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[mf_EmployeeWorkHistory]
+GO
+/****** Object:  Table [dbo].[mf_EmployeeWorkDays]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[mf_EmployeeWorkDays]
+GO
+/****** Object:  Table [dbo].[mf_EmployeeTraining]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[mf_EmployeeTraining]
+GO
+/****** Object:  Table [dbo].[mf_EmployeeSkill]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[mf_EmployeeSkill]
+GO
+/****** Object:  Table [dbo].[mf_EmployeeOffense]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[mf_EmployeeOffense]
+GO
+/****** Object:  Table [dbo].[mf_EmployeeIdentificationDocument]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[mf_EmployeeIdentificationDocument]
+GO
+/****** Object:  Table [dbo].[mf_EmployeeEducation]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[mf_EmployeeEducation]
+GO
+/****** Object:  Table [dbo].[mf_EmployeeDeduction]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[mf_EmployeeDeduction]
+GO
+/****** Object:  Table [dbo].[mf_EmployeeBasicPay]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[mf_EmployeeBasicPay]
+GO
+/****** Object:  Table [dbo].[mf_EmployeeBalanceLeave]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[mf_EmployeeBalanceLeave]
+GO
+/****** Object:  Table [dbo].[mf_EmployeeAllowance]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[mf_EmployeeAllowance]
+GO
+/****** Object:  Table [dbo].[mf_EmployeeAddress]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[mf_EmployeeAddress]
+GO
+/****** Object:  Table [dbo].[mf_Employee201]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[mf_Employee201]
+GO
+/****** Object:  Table [dbo].[mf_Employee]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[mf_Employee]
+GO
+/****** Object:  Table [dbo].[mf_DepartmentSectionRequestApprover]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[mf_DepartmentSectionRequestApprover]
+GO
+/****** Object:  Table [dbo].[mf_DepartmentSection]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[mf_DepartmentSection]
+GO
+/****** Object:  Table [dbo].[mf_Department]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[mf_Department]
+GO
+/****** Object:  Table [dbo].[mf_Deduction]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[mf_Deduction]
+GO
+/****** Object:  Table [dbo].[mf_Country]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[mf_Country]
+GO
+/****** Object:  Table [dbo].[mf_ApplicationRequestType]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[mf_ApplicationRequestType]
+GO
+/****** Object:  Table [dbo].[mf_Allowance]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[mf_Allowance]
+GO
+/****** Object:  Table [dbo].[mf_Agency]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP TABLE IF EXISTS [dbo].[mf_Agency]
+GO
+/****** Object:  UserDefinedFunction [dbo].[RemoveSpecialCharacters]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP FUNCTION IF EXISTS [dbo].[RemoveSpecialCharacters]
+GO
+/****** Object:  UserDefinedFunction [dbo].[RemoveNonAlphaCharacters]    Script Date: 1/6/2017 2:56:30 PM ******/
+DROP FUNCTION IF EXISTS [dbo].[RemoveNonAlphaCharacters]
+GO
+/****** Object:  UserDefinedFunction [dbo].[RemoveNonAlphaCharacters]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1514,7 +1031,7 @@ End
 END
 
 GO
-/****** Object:  UserDefinedFunction [dbo].[RemoveSpecialCharacters]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  UserDefinedFunction [dbo].[RemoveSpecialCharacters]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1537,7 +1054,7 @@ End
 END
 
 GO
-/****** Object:  Table [dbo].[mf_Agency]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[mf_Agency]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1559,7 +1076,7 @@ CREATE TABLE [dbo].[mf_Agency](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_Allowance]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[mf_Allowance]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1582,7 +1099,7 @@ CREATE TABLE [dbo].[mf_Allowance](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_ApplicationRequestType]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[mf_ApplicationRequestType]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1604,7 +1121,7 @@ CREATE TABLE [dbo].[mf_ApplicationRequestType](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_Country]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[mf_Country]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1625,7 +1142,7 @@ CREATE TABLE [dbo].[mf_Country](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_Deduction]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[mf_Deduction]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1647,7 +1164,7 @@ CREATE TABLE [dbo].[mf_Deduction](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_Department]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[mf_Department]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1669,7 +1186,7 @@ CREATE TABLE [dbo].[mf_Department](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_DepartmentSection]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[mf_DepartmentSection]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1691,7 +1208,7 @@ CREATE TABLE [dbo].[mf_DepartmentSection](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_DepartmentSectionRequestApprover]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[mf_DepartmentSectionRequestApprover]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1714,7 +1231,7 @@ CREATE TABLE [dbo].[mf_DepartmentSectionRequestApprover](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_Employee]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[mf_Employee]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1747,7 +1264,7 @@ CREATE TABLE [dbo].[mf_Employee](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_Employee201]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[mf_Employee201]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1785,7 +1302,7 @@ CREATE TABLE [dbo].[mf_Employee201](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_EmployeeAddress]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeAddress]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1810,7 +1327,7 @@ CREATE TABLE [dbo].[mf_EmployeeAddress](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_EmployeeAllowance]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeAllowance]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1832,7 +1349,7 @@ CREATE TABLE [dbo].[mf_EmployeeAllowance](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_EmployeeBalanceLeave]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeBalanceLeave]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1854,7 +1371,7 @@ CREATE TABLE [dbo].[mf_EmployeeBalanceLeave](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_EmployeeBasicPay]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeBasicPay]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1876,7 +1393,7 @@ CREATE TABLE [dbo].[mf_EmployeeBasicPay](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_EmployeeDeduction]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeDeduction]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1898,7 +1415,7 @@ CREATE TABLE [dbo].[mf_EmployeeDeduction](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_EmployeeEducation]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeEducation]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1925,7 +1442,7 @@ CREATE TABLE [dbo].[mf_EmployeeEducation](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_EmployeeIdentificationDocument]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeIdentificationDocument]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1947,7 +1464,7 @@ CREATE TABLE [dbo].[mf_EmployeeIdentificationDocument](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_EmployeeOffense]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeOffense]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1976,7 +1493,7 @@ CREATE TABLE [dbo].[mf_EmployeeOffense](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_EmployeeSkill]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeSkill]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1998,7 +1515,7 @@ CREATE TABLE [dbo].[mf_EmployeeSkill](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_EmployeeTraining]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeTraining]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2023,7 +1540,7 @@ CREATE TABLE [dbo].[mf_EmployeeTraining](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_EmployeeWorkDays]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeWorkDays]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2044,7 +1561,7 @@ CREATE TABLE [dbo].[mf_EmployeeWorkDays](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_EmployeeWorkHistory]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeWorkHistory]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2071,7 +1588,7 @@ CREATE TABLE [dbo].[mf_EmployeeWorkHistory](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_EmploymentStatus]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[mf_EmploymentStatus]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2093,7 +1610,7 @@ CREATE TABLE [dbo].[mf_EmploymentStatus](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_EmploymentType]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[mf_EmploymentType]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2114,7 +1631,7 @@ CREATE TABLE [dbo].[mf_EmploymentType](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_Holidays]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[mf_Holidays]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2136,7 +1653,7 @@ CREATE TABLE [dbo].[mf_Holidays](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_HolidayType]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[mf_HolidayType]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2159,7 +1676,7 @@ CREATE TABLE [dbo].[mf_HolidayType](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_Offense]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[mf_Offense]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2181,7 +1698,7 @@ CREATE TABLE [dbo].[mf_Offense](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_PayrollGroup]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[mf_PayrollGroup]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2202,7 +1719,7 @@ CREATE TABLE [dbo].[mf_PayrollGroup](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_PenaltyType]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[mf_PenaltyType]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2224,7 +1741,7 @@ CREATE TABLE [dbo].[mf_PenaltyType](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_Position]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[mf_Position]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2246,7 +1763,7 @@ CREATE TABLE [dbo].[mf_Position](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_WorkDays]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[mf_WorkDays]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2280,7 +1797,7 @@ CREATE TABLE [dbo].[mf_WorkDays](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[pr_Payroll]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[pr_Payroll]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2305,7 +1822,7 @@ CREATE TABLE [dbo].[pr_Payroll](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[pr_PayrollEmployee]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[pr_PayrollEmployee]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2333,7 +1850,7 @@ CREATE TABLE [dbo].[pr_PayrollEmployee](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[pr_PayrollEmployeeDeductions]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[pr_PayrollEmployeeDeductions]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2353,7 +1870,7 @@ CREATE TABLE [dbo].[pr_PayrollEmployeeDeductions](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[pr_PayrollEmployeeEarnings]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[pr_PayrollEmployeeEarnings]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2373,7 +1890,7 @@ CREATE TABLE [dbo].[pr_PayrollEmployeeEarnings](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[sys_Company]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[sys_Company]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2404,7 +1921,7 @@ CREATE TABLE [dbo].[sys_Company](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[sys_CompanySetting]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[sys_CompanySetting]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2426,7 +1943,7 @@ CREATE TABLE [dbo].[sys_CompanySetting](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[sys_EnumReference]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[sys_EnumReference]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2454,31 +1971,7 @@ CREATE TABLE [dbo].[sys_EnumReference](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[sys_ErrorLogs]    Script Date: 1/3/2017 4:42:20 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_ErrorLogs]') AND type in (N'U'))
-BEGIN
-CREATE TABLE [dbo].[sys_ErrorLogs](
-	[id] [int] IDENTITY(1,1) NOT NULL,
-	[message] [nvarchar](max) NULL,
-	[innerException] [nvarchar](max) NULL,
-	[loggedType] [int] NOT NULL,
-	[controllerName] [nvarchar](250) NULL,
-	[actionName] [nvarchar](250) NULL,
-	[areaName] [nvarchar](250) NULL,
-	[createdBy] [int] NULL,
-	[createdDate] [datetime] NOT NULL,
- CONSTRAINT [PK_sys_ErrorLogs] PRIMARY KEY CLUSTERED 
-(
-	[id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-END
-GO
-/****** Object:  Table [dbo].[sys_IdentificationDocument]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[sys_IdentificationDocument]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2499,7 +1992,7 @@ CREATE TABLE [dbo].[sys_IdentificationDocument](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[sys_Location]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[sys_Location]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2521,7 +2014,29 @@ CREATE TABLE [dbo].[sys_Location](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[sys_Menu]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[sys_Log]    Script Date: 1/6/2017 2:56:30 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sys_Log]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[sys_Log](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[info] [nvarchar](max) NULL,
+	[message] [nvarchar](max) NULL,
+	[otherMessage] [nvarchar](max) NULL,
+	[loggedType] [int] NOT NULL,
+	[createdBy] [int] NULL,
+	[createdDate] [datetime] NOT NULL,
+ CONSTRAINT [PK_sys_Log] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+END
+GO
+/****** Object:  Table [dbo].[sys_Menu]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2545,7 +2060,7 @@ CREATE TABLE [dbo].[sys_Menu](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[sys_Permission]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[sys_Permission]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2567,7 +2082,7 @@ CREATE TABLE [dbo].[sys_Permission](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[sys_Role]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[sys_Role]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2589,7 +2104,7 @@ CREATE TABLE [dbo].[sys_Role](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[sys_RoleMenu]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[sys_RoleMenu]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2613,7 +2128,7 @@ CREATE TABLE [dbo].[sys_RoleMenu](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[sys_RolePermission]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[sys_RolePermission]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2639,7 +2154,7 @@ CREATE TABLE [dbo].[sys_RolePermission](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[sys_Setting]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[sys_Setting]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2658,7 +2173,7 @@ CREATE TABLE [dbo].[sys_Setting](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[sys_User]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[sys_User]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2685,7 +2200,7 @@ CREATE TABLE [dbo].[sys_User](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[sys_UserRole]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[sys_UserRole]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2706,7 +2221,7 @@ CREATE TABLE [dbo].[sys_UserRole](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[sys_UserSession]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[sys_UserSession]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2728,7 +2243,7 @@ CREATE TABLE [dbo].[sys_UserSession](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[ta_ApplicationRequest]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[ta_ApplicationRequest]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2753,7 +2268,7 @@ CREATE TABLE [dbo].[ta_ApplicationRequest](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[ta_ApplicationRequestApprover]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[ta_ApplicationRequestApprover]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2775,7 +2290,7 @@ CREATE TABLE [dbo].[ta_ApplicationRequestApprover](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[ta_ApplicationRequestGatePass]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[ta_ApplicationRequestGatePass]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2795,7 +2310,7 @@ CREATE TABLE [dbo].[ta_ApplicationRequestGatePass](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[ta_ApplicationRequestLeave]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[ta_ApplicationRequestLeave]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2815,7 +2330,7 @@ CREATE TABLE [dbo].[ta_ApplicationRequestLeave](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[ta_CutOffAttendance]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[ta_CutOffAttendance]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2843,7 +2358,7 @@ CREATE TABLE [dbo].[ta_CutOffAttendance](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[ta_CutOffAttendanceSummary]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[ta_CutOffAttendanceSummary]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2864,7 +2379,7 @@ CREATE TABLE [dbo].[ta_CutOffAttendanceSummary](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[ta_CutOffAttendanceSummaryDetail]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[ta_CutOffAttendanceSummaryDetail]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2892,7 +2407,7 @@ CREATE TABLE [dbo].[ta_CutOffAttendanceSummaryDetail](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[ta_EmployeeAttendance]    Script Date: 1/3/2017 4:42:20 PM ******/
+/****** Object:  Table [dbo].[ta_EmployeeAttendance]    Script Date: 1/6/2017 2:56:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -5215,12 +4730,6 @@ ALTER TABLE [dbo].[sys_EnumReference] ADD  CONSTRAINT [DF_sys_EnumReference_dele
 END
 
 GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_sys_ErrorLogs_createdDate]') AND type = 'D')
-BEGIN
-ALTER TABLE [dbo].[sys_ErrorLogs] ADD  CONSTRAINT [DF_sys_ErrorLogs_createdDate]  DEFAULT (getdate()) FOR [createdDate]
-END
-
-GO
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_sys_IdentificationDocument_updatedDate]') AND type = 'D')
 BEGIN
 ALTER TABLE [dbo].[sys_IdentificationDocument] ADD  CONSTRAINT [DF_sys_IdentificationDocument_updatedDate]  DEFAULT (getdate()) FOR [updatedDate]
@@ -5242,6 +4751,12 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_sys_Location_deleted]') AND type = 'D')
 BEGIN
 ALTER TABLE [dbo].[sys_Location] ADD  CONSTRAINT [DF_sys_Location_deleted]  DEFAULT ((0)) FOR [deleted]
+END
+
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_sys_Log_createdDate]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[sys_Log] ADD  CONSTRAINT [DF_sys_Log_createdDate]  DEFAULT (getdate()) FOR [createdDate]
 END
 
 GO
@@ -6114,13 +5629,6 @@ GO
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_sys_EnumReference_sys_Company]') AND parent_object_id = OBJECT_ID(N'[dbo].[sys_EnumReference]'))
 ALTER TABLE [dbo].[sys_EnumReference] CHECK CONSTRAINT [FK_sys_EnumReference_sys_Company]
 GO
-IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_sys_ErrorLogs_sys_User]') AND parent_object_id = OBJECT_ID(N'[dbo].[sys_ErrorLogs]'))
-ALTER TABLE [dbo].[sys_ErrorLogs]  WITH CHECK ADD  CONSTRAINT [FK_sys_ErrorLogs_sys_User] FOREIGN KEY([createdBy])
-REFERENCES [dbo].[sys_User] ([id])
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_sys_ErrorLogs_sys_User]') AND parent_object_id = OBJECT_ID(N'[dbo].[sys_ErrorLogs]'))
-ALTER TABLE [dbo].[sys_ErrorLogs] CHECK CONSTRAINT [FK_sys_ErrorLogs_sys_User]
-GO
 IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_sys_IdentificationDocument_sys_User]') AND parent_object_id = OBJECT_ID(N'[dbo].[sys_IdentificationDocument]'))
 ALTER TABLE [dbo].[sys_IdentificationDocument]  WITH CHECK ADD  CONSTRAINT [FK_sys_IdentificationDocument_sys_User] FOREIGN KEY([updatedBy])
 REFERENCES [dbo].[sys_User] ([id])
@@ -6141,6 +5649,13 @@ REFERENCES [dbo].[sys_User] ([id])
 GO
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_sys_Location_sys_User1]') AND parent_object_id = OBJECT_ID(N'[dbo].[sys_Location]'))
 ALTER TABLE [dbo].[sys_Location] CHECK CONSTRAINT [FK_sys_Location_sys_User1]
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_sys_Log_sys_User]') AND parent_object_id = OBJECT_ID(N'[dbo].[sys_Log]'))
+ALTER TABLE [dbo].[sys_Log]  WITH CHECK ADD  CONSTRAINT [FK_sys_Log_sys_User] FOREIGN KEY([createdBy])
+REFERENCES [dbo].[sys_User] ([id])
+GO
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_sys_Log_sys_User]') AND parent_object_id = OBJECT_ID(N'[dbo].[sys_Log]'))
+ALTER TABLE [dbo].[sys_Log] CHECK CONSTRAINT [FK_sys_Log_sys_User]
 GO
 IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_sys_Menu_sys_User]') AND parent_object_id = OBJECT_ID(N'[dbo].[sys_Menu]'))
 ALTER TABLE [dbo].[sys_Menu]  WITH CHECK ADD  CONSTRAINT [FK_sys_Menu_sys_User] FOREIGN KEY([updatedBy])

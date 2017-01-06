@@ -41,7 +41,7 @@ namespace HRIS.Data
     // Database context
     public partial class HRISContext : Repository.Providers.EntityFramework.DataContext
     {
-        public DbSet<mf_Agency> mf_Agencies { get; set; }        public DbSet<mf_Allowance> mf_Allowances { get; set; }        public DbSet<mf_ApplicationRequestType> mf_ApplicationRequestTypes { get; set; }        public DbSet<mf_Country> mf_Countries { get; set; }        public DbSet<mf_Deduction> mf_Deductions { get; set; }        public DbSet<mf_Department> mf_Departments { get; set; }        public DbSet<mf_DepartmentSection> mf_DepartmentSections { get; set; }        public DbSet<mf_DepartmentSectionRequestApprover> mf_DepartmentSectionRequestApprovers { get; set; }        public DbSet<mf_Employee> mf_Employees { get; set; }        public DbSet<mf_Employee201> mf_Employee201 { get; set; }        public DbSet<mf_EmployeeAddress> mf_EmployeeAddresses { get; set; }        public DbSet<mf_EmployeeAllowance> mf_EmployeeAllowances { get; set; }        public DbSet<mf_EmployeeBalanceLeave> mf_EmployeeBalanceLeaves { get; set; }        public DbSet<mf_EmployeeBasicPay> mf_EmployeeBasicPays { get; set; }        public DbSet<mf_EmployeeDeduction> mf_EmployeeDeductions { get; set; }        public DbSet<mf_EmployeeEducation> mf_EmployeeEducations { get; set; }        public DbSet<mf_EmployeeIdentificationDocument> mf_EmployeeIdentificationDocuments { get; set; }        public DbSet<mf_EmployeeOffense> mf_EmployeeOffenses { get; set; }        public DbSet<mf_EmployeeSkill> mf_EmployeeSkills { get; set; }        public DbSet<mf_EmployeeTraining> mf_EmployeeTrainings { get; set; }        public DbSet<mf_EmployeeWorkDay> mf_EmployeeWorkDays { get; set; }        public DbSet<mf_EmployeeWorkHistory> mf_EmployeeWorkHistories { get; set; }        public DbSet<mf_EmploymentStatu> mf_EmploymentStatus { get; set; }        public DbSet<mf_EmploymentType> mf_EmploymentTypes { get; set; }        public DbSet<mf_Holiday> mf_Holidays { get; set; }        public DbSet<mf_HolidayType> mf_HolidayTypes { get; set; }        public DbSet<mf_Offense> mf_Offenses { get; set; }        public DbSet<mf_PayrollGroup> mf_PayrollGroups { get; set; }        public DbSet<mf_PenaltyType> mf_PenaltyTypes { get; set; }        public DbSet<mf_Position> mf_Positions { get; set; }        public DbSet<mf_WorkDay> mf_WorkDays { get; set; }        public DbSet<pr_Payroll> pr_Payrolls { get; set; }        public DbSet<pr_PayrollEmployee> pr_PayrollEmployees { get; set; }        public DbSet<pr_PayrollEmployeeDeduction> pr_PayrollEmployeeDeductions { get; set; }        public DbSet<pr_PayrollEmployeeEarning> pr_PayrollEmployeeEarnings { get; set; }        public DbSet<sys_Company> sys_Companies { get; set; }        public DbSet<sys_CompanySetting> sys_CompanySettings { get; set; }        public DbSet<sys_EnumReference> sys_EnumReferences { get; set; }        public DbSet<sys_ErrorLog> sys_ErrorLogs { get; set; }        public DbSet<sys_IdentificationDocument> sys_IdentificationDocuments { get; set; }        public DbSet<sys_Location> sys_Locations { get; set; }        public DbSet<sys_Menu> sys_Menus { get; set; }        public DbSet<sys_Permission> sys_Permissions { get; set; }        public DbSet<sys_Role> sys_Roles { get; set; }        public DbSet<sys_RoleMenu> sys_RoleMenus { get; set; }        public DbSet<sys_RolePermission> sys_RolePermissions { get; set; }        public DbSet<sys_Setting> sys_Settings { get; set; }        public DbSet<sys_User> sys_Users { get; set; }        public DbSet<sys_UserRole> sys_UserRoles { get; set; }        public DbSet<sys_UserSession> sys_UserSessions { get; set; }        public DbSet<sysdiagram> sysdiagrams { get; set; }        public DbSet<ta_ApplicationRequest> ta_ApplicationRequests { get; set; }        public DbSet<ta_ApplicationRequestApprover> ta_ApplicationRequestApprovers { get; set; }        public DbSet<ta_ApplicationRequestGatePass> ta_ApplicationRequestGatePasses { get; set; }        public DbSet<ta_ApplicationRequestLeave> ta_ApplicationRequestLeaves { get; set; }        public DbSet<ta_CutOffAttendance> ta_CutOffAttendances { get; set; }        public DbSet<ta_CutOffAttendanceSummary> ta_CutOffAttendanceSummaries { get; set; }        public DbSet<ta_CutOffAttendanceSummaryDetail> ta_CutOffAttendanceSummaryDetails { get; set; }        public DbSet<ta_EmployeeAttendance> ta_EmployeeAttendances { get; set; }
+        public DbSet<mf_Agency> mf_Agencies { get; set; }        public DbSet<mf_Allowance> mf_Allowances { get; set; }        public DbSet<mf_ApplicationRequestType> mf_ApplicationRequestTypes { get; set; }        public DbSet<mf_Country> mf_Countries { get; set; }        public DbSet<mf_Deduction> mf_Deductions { get; set; }        public DbSet<mf_Department> mf_Departments { get; set; }        public DbSet<mf_DepartmentSection> mf_DepartmentSections { get; set; }        public DbSet<mf_DepartmentSectionRequestApprover> mf_DepartmentSectionRequestApprovers { get; set; }        public DbSet<mf_Employee> mf_Employees { get; set; }        public DbSet<mf_Employee201> mf_Employee201 { get; set; }        public DbSet<mf_EmployeeAddress> mf_EmployeeAddresses { get; set; }        public DbSet<mf_EmployeeAllowance> mf_EmployeeAllowances { get; set; }        public DbSet<mf_EmployeeBalanceLeave> mf_EmployeeBalanceLeaves { get; set; }        public DbSet<mf_EmployeeBasicPay> mf_EmployeeBasicPays { get; set; }        public DbSet<mf_EmployeeDeduction> mf_EmployeeDeductions { get; set; }        public DbSet<mf_EmployeeEducation> mf_EmployeeEducations { get; set; }        public DbSet<mf_EmployeeIdentificationDocument> mf_EmployeeIdentificationDocuments { get; set; }        public DbSet<mf_EmployeeOffense> mf_EmployeeOffenses { get; set; }        public DbSet<mf_EmployeeSkill> mf_EmployeeSkills { get; set; }        public DbSet<mf_EmployeeTraining> mf_EmployeeTrainings { get; set; }        public DbSet<mf_EmployeeWorkDay> mf_EmployeeWorkDays { get; set; }        public DbSet<mf_EmployeeWorkHistory> mf_EmployeeWorkHistories { get; set; }        public DbSet<mf_EmploymentStatu> mf_EmploymentStatus { get; set; }        public DbSet<mf_EmploymentType> mf_EmploymentTypes { get; set; }        public DbSet<mf_Holiday> mf_Holidays { get; set; }        public DbSet<mf_HolidayType> mf_HolidayTypes { get; set; }        public DbSet<mf_Offense> mf_Offenses { get; set; }        public DbSet<mf_PayrollGroup> mf_PayrollGroups { get; set; }        public DbSet<mf_PenaltyType> mf_PenaltyTypes { get; set; }        public DbSet<mf_Position> mf_Positions { get; set; }        public DbSet<mf_WorkDay> mf_WorkDays { get; set; }        public DbSet<pr_Payroll> pr_Payrolls { get; set; }        public DbSet<pr_PayrollEmployee> pr_PayrollEmployees { get; set; }        public DbSet<pr_PayrollEmployeeDeduction> pr_PayrollEmployeeDeductions { get; set; }        public DbSet<pr_PayrollEmployeeEarning> pr_PayrollEmployeeEarnings { get; set; }        public DbSet<sys_Company> sys_Companies { get; set; }        public DbSet<sys_CompanySetting> sys_CompanySettings { get; set; }        public DbSet<sys_EnumReference> sys_EnumReferences { get; set; }        public DbSet<sys_IdentificationDocument> sys_IdentificationDocuments { get; set; }        public DbSet<sys_Location> sys_Locations { get; set; }        public DbSet<sys_Log> sys_Logs { get; set; }        public DbSet<sys_Menu> sys_Menus { get; set; }        public DbSet<sys_Permission> sys_Permissions { get; set; }        public DbSet<sys_Role> sys_Roles { get; set; }        public DbSet<sys_RoleMenu> sys_RoleMenus { get; set; }        public DbSet<sys_RolePermission> sys_RolePermissions { get; set; }        public DbSet<sys_Setting> sys_Settings { get; set; }        public DbSet<sys_User> sys_Users { get; set; }        public DbSet<sys_UserRole> sys_UserRoles { get; set; }        public DbSet<sys_UserSession> sys_UserSessions { get; set; }        public DbSet<ta_ApplicationRequest> ta_ApplicationRequests { get; set; }        public DbSet<ta_ApplicationRequestApprover> ta_ApplicationRequestApprovers { get; set; }        public DbSet<ta_ApplicationRequestGatePass> ta_ApplicationRequestGatePasses { get; set; }        public DbSet<ta_ApplicationRequestLeave> ta_ApplicationRequestLeaves { get; set; }        public DbSet<ta_CutOffAttendance> ta_CutOffAttendances { get; set; }        public DbSet<ta_CutOffAttendanceSummary> ta_CutOffAttendanceSummaries { get; set; }        public DbSet<ta_CutOffAttendanceSummaryDetail> ta_CutOffAttendanceSummaryDetails { get; set; }        public DbSet<ta_EmployeeAttendance> ta_EmployeeAttendances { get; set; }
         public HRISContext()
             : base("Name=HRIS")
         {
@@ -95,9 +95,9 @@ namespace HRIS.Data
             modelBuilder.Configurations.Add(new sys_CompanyConfiguration());
             modelBuilder.Configurations.Add(new sys_CompanySettingConfiguration());
             modelBuilder.Configurations.Add(new sys_EnumReferenceConfiguration());
-            modelBuilder.Configurations.Add(new sys_ErrorLogConfiguration());
             modelBuilder.Configurations.Add(new sys_IdentificationDocumentConfiguration());
             modelBuilder.Configurations.Add(new sys_LocationConfiguration());
+            modelBuilder.Configurations.Add(new sys_LogConfiguration());
             modelBuilder.Configurations.Add(new sys_MenuConfiguration());
             modelBuilder.Configurations.Add(new sys_PermissionConfiguration());
             modelBuilder.Configurations.Add(new sys_RoleConfiguration());
@@ -107,7 +107,6 @@ namespace HRIS.Data
             modelBuilder.Configurations.Add(new sys_UserConfiguration());
             modelBuilder.Configurations.Add(new sys_UserRoleConfiguration());
             modelBuilder.Configurations.Add(new sys_UserSessionConfiguration());
-            modelBuilder.Configurations.Add(new sysdiagramConfiguration());
             modelBuilder.Configurations.Add(new ta_ApplicationRequestConfiguration());
             modelBuilder.Configurations.Add(new ta_ApplicationRequestApproverConfiguration());
             modelBuilder.Configurations.Add(new ta_ApplicationRequestGatePassConfiguration());
@@ -160,9 +159,9 @@ namespace HRIS.Data
             modelBuilder.Configurations.Add(new sys_CompanyConfiguration(schema));
             modelBuilder.Configurations.Add(new sys_CompanySettingConfiguration(schema));
             modelBuilder.Configurations.Add(new sys_EnumReferenceConfiguration(schema));
-            modelBuilder.Configurations.Add(new sys_ErrorLogConfiguration(schema));
             modelBuilder.Configurations.Add(new sys_IdentificationDocumentConfiguration(schema));
             modelBuilder.Configurations.Add(new sys_LocationConfiguration(schema));
+            modelBuilder.Configurations.Add(new sys_LogConfiguration(schema));
             modelBuilder.Configurations.Add(new sys_MenuConfiguration(schema));
             modelBuilder.Configurations.Add(new sys_PermissionConfiguration(schema));
             modelBuilder.Configurations.Add(new sys_RoleConfiguration(schema));
@@ -172,7 +171,6 @@ namespace HRIS.Data
             modelBuilder.Configurations.Add(new sys_UserConfiguration(schema));
             modelBuilder.Configurations.Add(new sys_UserRoleConfiguration(schema));
             modelBuilder.Configurations.Add(new sys_UserSessionConfiguration(schema));
-            modelBuilder.Configurations.Add(new sysdiagramConfiguration(schema));
             modelBuilder.Configurations.Add(new ta_ApplicationRequestConfiguration(schema));
             modelBuilder.Configurations.Add(new ta_ApplicationRequestApproverConfiguration(schema));
             modelBuilder.Configurations.Add(new ta_ApplicationRequestGatePassConfiguration(schema));
@@ -1244,28 +1242,6 @@ namespace HRIS.Data
         partial void InitializePartial();
     }
 
-    public partial class sys_ErrorLog: EntityBase
-    {
-        public string message { get; set; }
-        public string innerException { get; set; }
-        public int loggedType { get; set; }
-        public string controllerName { get; set; }
-        public string actionName { get; set; }
-        public string areaName { get; set; }
-        public int? createdBy { get; set; }
-        public DateTime createdDate { get; set; }
-
-        public virtual sys_User sys_User { get; set; }
-        
-        public sys_ErrorLog()
-        {
-            createdDate = System.DateTime.Now;
-            InitializePartial();
-        }
-
-        partial void InitializePartial();
-    }
-
     public partial class sys_IdentificationDocument: EntityBase
     {
         public string code { get; set; }
@@ -1302,6 +1278,26 @@ namespace HRIS.Data
         {
             updatedDate = System.DateTime.Now;
             deleted = false;
+            InitializePartial();
+        }
+
+        partial void InitializePartial();
+    }
+
+    public partial class sys_Log: EntityBase
+    {
+        public string info { get; set; }
+        public string message { get; set; }
+        public string otherMessage { get; set; }
+        public int loggedType { get; set; }
+        public int? createdBy { get; set; }
+        public DateTime createdDate { get; set; }
+
+        public virtual sys_User sys_User { get; set; }
+        
+        public sys_Log()
+        {
+            createdDate = System.DateTime.Now;
             InitializePartial();
         }
 
@@ -1508,9 +1504,9 @@ namespace HRIS.Data
         public virtual ICollection<pr_Payroll> pr_Payrolls_updatedBy { get; set; }
         public virtual ICollection<sys_Company> sys_Companies { get; set; }
         public virtual ICollection<sys_CompanySetting> sys_CompanySettings { get; set; }
-        public virtual ICollection<sys_ErrorLog> sys_ErrorLogs { get; set; }
         public virtual ICollection<sys_IdentificationDocument> sys_IdentificationDocuments { get; set; }
         public virtual ICollection<sys_Location> sys_Locations { get; set; }
+        public virtual ICollection<sys_Log> sys_Logs { get; set; }
         public virtual ICollection<sys_Menu> sys_Menus { get; set; }
         public virtual ICollection<sys_Permission> sys_Permissions { get; set; }
         public virtual ICollection<sys_Role> sys_Roles { get; set; }
@@ -1575,9 +1571,9 @@ namespace HRIS.Data
             pr_Payrolls_updatedBy = new List<pr_Payroll>();
             sys_Companies = new List<sys_Company>();
             sys_CompanySettings = new List<sys_CompanySetting>();
-            sys_ErrorLogs = new List<sys_ErrorLog>();
             sys_IdentificationDocuments = new List<sys_IdentificationDocument>();
             sys_Locations = new List<sys_Location>();
+            sys_Logs = new List<sys_Log>();
             sys_Menus = new List<sys_Menu>();
             sys_Permissions = new List<sys_Permission>();
             sys_Roles = new List<sys_Role>();
@@ -1637,22 +1633,6 @@ namespace HRIS.Data
         public sys_UserSession()
         {
             deleted = false;
-            InitializePartial();
-        }
-
-        partial void InitializePartial();
-    }
-
-    public partial class sysdiagram: EntityBase
-    {
-        public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public int? version { get; set; }
-        public byte[] definition { get; set; }
-        
-        public sysdiagram()
-        {
             InitializePartial();
         }
 
@@ -2985,34 +2965,6 @@ namespace HRIS.Data
         partial void InitializePartial();
     }
 
-    internal partial class sys_ErrorLogConfiguration : EntityTypeConfiguration<sys_ErrorLog>
-    {
-        public sys_ErrorLogConfiguration()
-            : this("dbo")
-        {
-        }
- 
-        public sys_ErrorLogConfiguration(string schema)
-        {
-            ToTable(schema + ".sys_ErrorLogs");
-            HasKey(x => x.id);
-
-            Property(x => x.id).HasColumnName("id").IsRequired().HasColumnType("int").HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            Property(x => x.message).HasColumnName("message").IsOptional().HasColumnType("nvarchar");
-            Property(x => x.innerException).HasColumnName("innerException").IsOptional().HasColumnType("nvarchar");
-            Property(x => x.loggedType).HasColumnName("loggedType").IsRequired().HasColumnType("int");
-            Property(x => x.controllerName).HasColumnName("controllerName").IsOptional().HasColumnType("nvarchar").HasMaxLength(250);
-            Property(x => x.actionName).HasColumnName("actionName").IsOptional().HasColumnType("nvarchar").HasMaxLength(250);
-            Property(x => x.areaName).HasColumnName("areaName").IsOptional().HasColumnType("nvarchar").HasMaxLength(250);
-            Property(x => x.createdBy).HasColumnName("createdBy").IsOptional().HasColumnType("int");
-            Property(x => x.createdDate).HasColumnName("createdDate").IsRequired().HasColumnType("datetime");
-
-            HasOptional(a => a.sys_User).WithMany(b => b.sys_ErrorLogs).HasForeignKey(c => c.createdBy);
-            InitializePartial();
-        }
-        partial void InitializePartial();
-    }
-
     internal partial class sys_IdentificationDocumentConfiguration : EntityTypeConfiguration<sys_IdentificationDocument>
     {
         public sys_IdentificationDocumentConfiguration()
@@ -3060,6 +3012,32 @@ namespace HRIS.Data
 
             HasRequired(a => a.sys_Company).WithMany(b => b.sys_Locations).HasForeignKey(c => c.companyId);
             HasRequired(a => a.sys_User).WithMany(b => b.sys_Locations).HasForeignKey(c => c.updatedBy);
+            InitializePartial();
+        }
+        partial void InitializePartial();
+    }
+
+    internal partial class sys_LogConfiguration : EntityTypeConfiguration<sys_Log>
+    {
+        public sys_LogConfiguration()
+            : this("dbo")
+        {
+        }
+ 
+        public sys_LogConfiguration(string schema)
+        {
+            ToTable(schema + ".sys_Log");
+            HasKey(x => x.id);
+
+            Property(x => x.id).HasColumnName("id").IsRequired().HasColumnType("int").HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            Property(x => x.info).HasColumnName("info").IsOptional().HasColumnType("nvarchar");
+            Property(x => x.message).HasColumnName("message").IsOptional().HasColumnType("nvarchar");
+            Property(x => x.otherMessage).HasColumnName("otherMessage").IsOptional().HasColumnType("nvarchar");
+            Property(x => x.loggedType).HasColumnName("loggedType").IsRequired().HasColumnType("int");
+            Property(x => x.createdBy).HasColumnName("createdBy").IsOptional().HasColumnType("int");
+            Property(x => x.createdDate).HasColumnName("createdDate").IsRequired().HasColumnType("datetime");
+
+            HasOptional(a => a.sys_User).WithMany(b => b.sys_Logs).HasForeignKey(c => c.createdBy);
             InitializePartial();
         }
         partial void InitializePartial();
@@ -3313,28 +3291,6 @@ namespace HRIS.Data
 
             HasRequired(a => a.sys_Company).WithMany(b => b.sys_UserSessions).HasForeignKey(c => c.companyId);
             HasRequired(a => a.sys_User).WithMany(b => b.sys_UserSessions).HasForeignKey(c => c.userId);
-            InitializePartial();
-        }
-        partial void InitializePartial();
-    }
-
-    internal partial class sysdiagramConfiguration : EntityTypeConfiguration<sysdiagram>
-    {
-        public sysdiagramConfiguration()
-            : this("dbo")
-        {
-        }
- 
-        public sysdiagramConfiguration(string schema)
-        {
-            ToTable(schema + ".sysdiagrams");
-            HasKey(x => x.diagram_id);
-
-            Property(x => x.name).HasColumnName("name").IsRequired().HasColumnType("nvarchar").HasMaxLength(128);
-            Property(x => x.principal_id).HasColumnName("principal_id").IsRequired().HasColumnType("int");
-            Property(x => x.diagram_id).HasColumnName("diagram_id").IsRequired().HasColumnType("int").HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            Property(x => x.version).HasColumnName("version").IsOptional().HasColumnType("int");
-            Property(x => x.definition).HasColumnName("definition").IsOptional().HasColumnType("varbinary");
             InitializePartial();
         }
         partial void InitializePartial();

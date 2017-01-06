@@ -147,6 +147,7 @@
     <Compile Include="Sys\IdentificationDocumentModel.cs" />
     <Compile Include="Sys\CompanyModel.cs" />
     <Compile Include="Sys\LocationModel.cs" />
+    <Compile Include="Sys\LoggedType.cs" />
     <Compile Include="Sys\MenuModel.cs" />
     <Compile Include="Sys\PermissionList.cs" />
     <Compile Include="Sys\PermissionModel.cs" />
