@@ -35,6 +35,8 @@ namespace HRIS.Service.Configuration
             int currentUserId = this.GetCurrentUserId();
             var ins = this._repoWorkDay.PrepareEntity(model)
                 .MatchAllDataField()
+                .SetValue(x => x.fromTimeHour, model.FromTimeHour.value)
+                .SetValue(x => x.toTimeHour, model.ToTimeHour.value)
                 .SetCurrentCompany()
                 .SetCurrentUserTo(x => x.updatedBy)
                 .Insert()
@@ -51,7 +53,7 @@ namespace HRIS.Service.Configuration
                 .SetValue(x => x.deleted, true)
                 .SetCurrentUserTo(x => x.updatedBy)
                 .SetCurrentDateTo(x => x.updatedDate);
-               //.Update(); - Deleted by Sem Villar 10/12/2016 - Causes error in updating data due to required fields;    
+            //.Update(); - Deleted by Sem Villar 10/12/2016 - Causes error in updating data due to required fields;    
             this._repoWorkDay.Update(data);
             this._unitOfWork.Save();
         }
@@ -85,7 +87,7 @@ namespace HRIS.Service.Configuration
                            breakHours = wd.breakHours,
                            updatedBy = wd.sys_User.username,
                            updatedDate = wd.updatedDate,
-                            
+
                        };
 
             return data;
@@ -113,7 +115,7 @@ namespace HRIS.Service.Configuration
             upt.sunday = model.sunday;
             upt.fromTimeHour = model.FromTimeHour.value;
             upt.fromTimeMinute = model.fromTimeMinute;
-            
+
             upt.toTimeHour = model.ToTimeHour.value;
             upt.toTimeMinute = model.toTimeMinute;
 

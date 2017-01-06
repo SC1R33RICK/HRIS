@@ -1141,7 +1141,7 @@ namespace HRIS.Data
         public string telephone { get; set; }
         public string mobile { get; set; }
         public string fax { get; set; }
-        public int updatedBy { get; set; }
+        public int? updatedBy { get; set; }
         public DateTime updatedDate { get; set; }
 
         public virtual ICollection<mf_Agency> mf_Agencies { get; set; }
@@ -2894,12 +2894,12 @@ namespace HRIS.Data
             Property(x => x.telephone).HasColumnName("telephone").IsOptional().HasColumnType("nvarchar").HasMaxLength(50);
             Property(x => x.mobile).HasColumnName("mobile").IsOptional().HasColumnType("nvarchar").HasMaxLength(50);
             Property(x => x.fax).HasColumnName("fax").IsOptional().HasColumnType("nvarchar").HasMaxLength(50);
-            Property(x => x.updatedBy).HasColumnName("updatedBy").IsRequired().HasColumnType("int");
+            Property(x => x.updatedBy).HasColumnName("updatedBy").IsOptional().HasColumnType("int");
             Property(x => x.updatedDate).HasColumnName("updatedDate").IsRequired().HasColumnType("datetime");
             Property(x => x.deleted).HasColumnName("deleted").IsRequired().HasColumnType("bit");
 
+            HasOptional(a => a.sys_User).WithMany(b => b.sys_Companies).HasForeignKey(c => c.updatedBy);
             HasRequired(a => a.mf_Country).WithMany(b => b.sys_Companies).HasForeignKey(c => c.countryId);
-            HasRequired(a => a.sys_User).WithMany(b => b.sys_Companies).HasForeignKey(c => c.updatedBy);
             InitializePartial();
         }
         partial void InitializePartial();
@@ -3030,7 +3030,7 @@ namespace HRIS.Data
             HasKey(x => x.id);
 
             Property(x => x.id).HasColumnName("id").IsRequired().HasColumnType("int").HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            Property(x => x.info).HasColumnName("info").IsOptional().HasColumnType("nvarchar");
+            Property(x => x.info).HasColumnName("info").IsOptional().HasColumnType("nvarchar").HasMaxLength(800);
             Property(x => x.message).HasColumnName("message").IsOptional().HasColumnType("nvarchar");
             Property(x => x.otherMessage).HasColumnName("otherMessage").IsOptional().HasColumnType("nvarchar");
             Property(x => x.loggedType).HasColumnName("loggedType").IsRequired().HasColumnType("int");

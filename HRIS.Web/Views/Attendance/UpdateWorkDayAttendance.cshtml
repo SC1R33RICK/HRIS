@@ -3,9 +3,6 @@
 @using HRIS.Service.Attendance;
 @{
     ViewBag.Title = "Update Work Days Attendance";
-
-    var deviceAttendanceService = DependencyResolver.Current.GetService<IDeviceAttendanceService>();
-    var devices = deviceAttendanceService.GetQuery().Select(x => new ReferenceModel() { value = x.id.Value, description = x.description }).ToList();
 }
 
 @section bottom{

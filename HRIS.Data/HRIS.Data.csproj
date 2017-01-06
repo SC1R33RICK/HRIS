@@ -92,6 +92,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HRISContext.cs" />
+    <Compile Include="HRISDBInitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="HRIS_POCO.cs">
       <AutoGen>True</AutoGen>

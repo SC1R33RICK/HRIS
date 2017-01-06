@@ -828,187 +828,187 @@ GO
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[mf_Agency]') AND type in (N'U'))
 ALTER TABLE [dbo].[mf_Agency] DROP CONSTRAINT IF EXISTS [DF_mf_Agency_updatedDate]
 GO
-/****** Object:  Table [dbo].[ta_EmployeeAttendance]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[ta_EmployeeAttendance]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[ta_EmployeeAttendance]
 GO
-/****** Object:  Table [dbo].[ta_CutOffAttendanceSummaryDetail]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[ta_CutOffAttendanceSummaryDetail]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[ta_CutOffAttendanceSummaryDetail]
 GO
-/****** Object:  Table [dbo].[ta_CutOffAttendanceSummary]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[ta_CutOffAttendanceSummary]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[ta_CutOffAttendanceSummary]
 GO
-/****** Object:  Table [dbo].[ta_CutOffAttendance]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[ta_CutOffAttendance]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[ta_CutOffAttendance]
 GO
-/****** Object:  Table [dbo].[ta_ApplicationRequestLeave]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[ta_ApplicationRequestLeave]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[ta_ApplicationRequestLeave]
 GO
-/****** Object:  Table [dbo].[ta_ApplicationRequestGatePass]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[ta_ApplicationRequestGatePass]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[ta_ApplicationRequestGatePass]
 GO
-/****** Object:  Table [dbo].[ta_ApplicationRequestApprover]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[ta_ApplicationRequestApprover]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[ta_ApplicationRequestApprover]
 GO
-/****** Object:  Table [dbo].[ta_ApplicationRequest]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[ta_ApplicationRequest]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[ta_ApplicationRequest]
 GO
-/****** Object:  Table [dbo].[sys_UserSession]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[sys_UserSession]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[sys_UserSession]
 GO
-/****** Object:  Table [dbo].[sys_UserRole]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[sys_UserRole]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[sys_UserRole]
 GO
-/****** Object:  Table [dbo].[sys_User]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[sys_User]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[sys_User]
 GO
-/****** Object:  Table [dbo].[sys_Setting]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[sys_Setting]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[sys_Setting]
 GO
-/****** Object:  Table [dbo].[sys_RolePermission]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[sys_RolePermission]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[sys_RolePermission]
 GO
-/****** Object:  Table [dbo].[sys_RoleMenu]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[sys_RoleMenu]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[sys_RoleMenu]
 GO
-/****** Object:  Table [dbo].[sys_Role]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[sys_Role]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[sys_Role]
 GO
-/****** Object:  Table [dbo].[sys_Permission]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[sys_Permission]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[sys_Permission]
 GO
-/****** Object:  Table [dbo].[sys_Menu]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[sys_Menu]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[sys_Menu]
 GO
-/****** Object:  Table [dbo].[sys_Log]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[sys_Log]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[sys_Log]
 GO
-/****** Object:  Table [dbo].[sys_Location]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[sys_Location]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[sys_Location]
 GO
-/****** Object:  Table [dbo].[sys_IdentificationDocument]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[sys_IdentificationDocument]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[sys_IdentificationDocument]
 GO
-/****** Object:  Table [dbo].[sys_EnumReference]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[sys_EnumReference]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[sys_EnumReference]
 GO
-/****** Object:  Table [dbo].[sys_CompanySetting]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[sys_CompanySetting]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[sys_CompanySetting]
 GO
-/****** Object:  Table [dbo].[sys_Company]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[sys_Company]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[sys_Company]
 GO
-/****** Object:  Table [dbo].[pr_PayrollEmployeeEarnings]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[pr_PayrollEmployeeEarnings]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[pr_PayrollEmployeeEarnings]
 GO
-/****** Object:  Table [dbo].[pr_PayrollEmployeeDeductions]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[pr_PayrollEmployeeDeductions]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[pr_PayrollEmployeeDeductions]
 GO
-/****** Object:  Table [dbo].[pr_PayrollEmployee]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[pr_PayrollEmployee]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[pr_PayrollEmployee]
 GO
-/****** Object:  Table [dbo].[pr_Payroll]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[pr_Payroll]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[pr_Payroll]
 GO
-/****** Object:  Table [dbo].[mf_WorkDays]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_WorkDays]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[mf_WorkDays]
 GO
-/****** Object:  Table [dbo].[mf_Position]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_Position]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[mf_Position]
 GO
-/****** Object:  Table [dbo].[mf_PenaltyType]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_PenaltyType]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[mf_PenaltyType]
 GO
-/****** Object:  Table [dbo].[mf_PayrollGroup]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_PayrollGroup]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[mf_PayrollGroup]
 GO
-/****** Object:  Table [dbo].[mf_Offense]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_Offense]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[mf_Offense]
 GO
-/****** Object:  Table [dbo].[mf_HolidayType]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_HolidayType]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[mf_HolidayType]
 GO
-/****** Object:  Table [dbo].[mf_Holidays]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_Holidays]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[mf_Holidays]
 GO
-/****** Object:  Table [dbo].[mf_EmploymentType]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_EmploymentType]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[mf_EmploymentType]
 GO
-/****** Object:  Table [dbo].[mf_EmploymentStatus]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_EmploymentStatus]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[mf_EmploymentStatus]
 GO
-/****** Object:  Table [dbo].[mf_EmployeeWorkHistory]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeWorkHistory]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[mf_EmployeeWorkHistory]
 GO
-/****** Object:  Table [dbo].[mf_EmployeeWorkDays]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeWorkDays]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[mf_EmployeeWorkDays]
 GO
-/****** Object:  Table [dbo].[mf_EmployeeTraining]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeTraining]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[mf_EmployeeTraining]
 GO
-/****** Object:  Table [dbo].[mf_EmployeeSkill]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeSkill]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[mf_EmployeeSkill]
 GO
-/****** Object:  Table [dbo].[mf_EmployeeOffense]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeOffense]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[mf_EmployeeOffense]
 GO
-/****** Object:  Table [dbo].[mf_EmployeeIdentificationDocument]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeIdentificationDocument]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[mf_EmployeeIdentificationDocument]
 GO
-/****** Object:  Table [dbo].[mf_EmployeeEducation]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeEducation]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[mf_EmployeeEducation]
 GO
-/****** Object:  Table [dbo].[mf_EmployeeDeduction]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeDeduction]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[mf_EmployeeDeduction]
 GO
-/****** Object:  Table [dbo].[mf_EmployeeBasicPay]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeBasicPay]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[mf_EmployeeBasicPay]
 GO
-/****** Object:  Table [dbo].[mf_EmployeeBalanceLeave]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeBalanceLeave]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[mf_EmployeeBalanceLeave]
 GO
-/****** Object:  Table [dbo].[mf_EmployeeAllowance]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeAllowance]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[mf_EmployeeAllowance]
 GO
-/****** Object:  Table [dbo].[mf_EmployeeAddress]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeAddress]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[mf_EmployeeAddress]
 GO
-/****** Object:  Table [dbo].[mf_Employee201]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_Employee201]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[mf_Employee201]
 GO
-/****** Object:  Table [dbo].[mf_Employee]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_Employee]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[mf_Employee]
 GO
-/****** Object:  Table [dbo].[mf_DepartmentSectionRequestApprover]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_DepartmentSectionRequestApprover]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[mf_DepartmentSectionRequestApprover]
 GO
-/****** Object:  Table [dbo].[mf_DepartmentSection]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_DepartmentSection]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[mf_DepartmentSection]
 GO
-/****** Object:  Table [dbo].[mf_Department]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_Department]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[mf_Department]
 GO
-/****** Object:  Table [dbo].[mf_Deduction]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_Deduction]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[mf_Deduction]
 GO
-/****** Object:  Table [dbo].[mf_Country]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_Country]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[mf_Country]
 GO
-/****** Object:  Table [dbo].[mf_ApplicationRequestType]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_ApplicationRequestType]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[mf_ApplicationRequestType]
 GO
-/****** Object:  Table [dbo].[mf_Allowance]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_Allowance]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[mf_Allowance]
 GO
-/****** Object:  Table [dbo].[mf_Agency]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_Agency]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP TABLE IF EXISTS [dbo].[mf_Agency]
 GO
-/****** Object:  UserDefinedFunction [dbo].[RemoveSpecialCharacters]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  UserDefinedFunction [dbo].[RemoveSpecialCharacters]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP FUNCTION IF EXISTS [dbo].[RemoveSpecialCharacters]
 GO
-/****** Object:  UserDefinedFunction [dbo].[RemoveNonAlphaCharacters]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  UserDefinedFunction [dbo].[RemoveNonAlphaCharacters]    Script Date: 1/6/2017 6:18:32 PM ******/
 DROP FUNCTION IF EXISTS [dbo].[RemoveNonAlphaCharacters]
 GO
-/****** Object:  UserDefinedFunction [dbo].[RemoveNonAlphaCharacters]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  UserDefinedFunction [dbo].[RemoveNonAlphaCharacters]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1031,7 +1031,7 @@ End
 END
 
 GO
-/****** Object:  UserDefinedFunction [dbo].[RemoveSpecialCharacters]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  UserDefinedFunction [dbo].[RemoveSpecialCharacters]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1054,7 +1054,7 @@ End
 END
 
 GO
-/****** Object:  Table [dbo].[mf_Agency]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_Agency]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1076,7 +1076,7 @@ CREATE TABLE [dbo].[mf_Agency](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_Allowance]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_Allowance]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1099,7 +1099,7 @@ CREATE TABLE [dbo].[mf_Allowance](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_ApplicationRequestType]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_ApplicationRequestType]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1121,7 +1121,7 @@ CREATE TABLE [dbo].[mf_ApplicationRequestType](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_Country]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_Country]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1142,7 +1142,7 @@ CREATE TABLE [dbo].[mf_Country](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_Deduction]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_Deduction]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1164,7 +1164,7 @@ CREATE TABLE [dbo].[mf_Deduction](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_Department]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_Department]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1186,7 +1186,7 @@ CREATE TABLE [dbo].[mf_Department](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_DepartmentSection]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_DepartmentSection]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1208,7 +1208,7 @@ CREATE TABLE [dbo].[mf_DepartmentSection](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_DepartmentSectionRequestApprover]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_DepartmentSectionRequestApprover]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1231,7 +1231,7 @@ CREATE TABLE [dbo].[mf_DepartmentSectionRequestApprover](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_Employee]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_Employee]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1264,7 +1264,7 @@ CREATE TABLE [dbo].[mf_Employee](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_Employee201]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_Employee201]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1302,7 +1302,7 @@ CREATE TABLE [dbo].[mf_Employee201](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_EmployeeAddress]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeAddress]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1327,7 +1327,7 @@ CREATE TABLE [dbo].[mf_EmployeeAddress](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_EmployeeAllowance]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeAllowance]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1349,7 +1349,7 @@ CREATE TABLE [dbo].[mf_EmployeeAllowance](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_EmployeeBalanceLeave]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeBalanceLeave]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1371,7 +1371,7 @@ CREATE TABLE [dbo].[mf_EmployeeBalanceLeave](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_EmployeeBasicPay]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeBasicPay]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1393,7 +1393,7 @@ CREATE TABLE [dbo].[mf_EmployeeBasicPay](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_EmployeeDeduction]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeDeduction]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1415,7 +1415,7 @@ CREATE TABLE [dbo].[mf_EmployeeDeduction](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_EmployeeEducation]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeEducation]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1442,7 +1442,7 @@ CREATE TABLE [dbo].[mf_EmployeeEducation](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_EmployeeIdentificationDocument]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeIdentificationDocument]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1464,7 +1464,7 @@ CREATE TABLE [dbo].[mf_EmployeeIdentificationDocument](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_EmployeeOffense]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeOffense]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1493,7 +1493,7 @@ CREATE TABLE [dbo].[mf_EmployeeOffense](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_EmployeeSkill]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeSkill]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1515,7 +1515,7 @@ CREATE TABLE [dbo].[mf_EmployeeSkill](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_EmployeeTraining]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeTraining]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1540,7 +1540,7 @@ CREATE TABLE [dbo].[mf_EmployeeTraining](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_EmployeeWorkDays]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeWorkDays]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1561,7 +1561,7 @@ CREATE TABLE [dbo].[mf_EmployeeWorkDays](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_EmployeeWorkHistory]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeWorkHistory]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1588,7 +1588,7 @@ CREATE TABLE [dbo].[mf_EmployeeWorkHistory](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_EmploymentStatus]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_EmploymentStatus]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1610,7 +1610,7 @@ CREATE TABLE [dbo].[mf_EmploymentStatus](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_EmploymentType]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_EmploymentType]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1631,7 +1631,7 @@ CREATE TABLE [dbo].[mf_EmploymentType](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_Holidays]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_Holidays]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1653,7 +1653,7 @@ CREATE TABLE [dbo].[mf_Holidays](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_HolidayType]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_HolidayType]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1676,7 +1676,7 @@ CREATE TABLE [dbo].[mf_HolidayType](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_Offense]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_Offense]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1698,7 +1698,7 @@ CREATE TABLE [dbo].[mf_Offense](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_PayrollGroup]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_PayrollGroup]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1719,7 +1719,7 @@ CREATE TABLE [dbo].[mf_PayrollGroup](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_PenaltyType]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_PenaltyType]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1741,7 +1741,7 @@ CREATE TABLE [dbo].[mf_PenaltyType](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_Position]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_Position]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1763,7 +1763,7 @@ CREATE TABLE [dbo].[mf_Position](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[mf_WorkDays]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[mf_WorkDays]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1797,7 +1797,7 @@ CREATE TABLE [dbo].[mf_WorkDays](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[pr_Payroll]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[pr_Payroll]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1822,7 +1822,7 @@ CREATE TABLE [dbo].[pr_Payroll](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[pr_PayrollEmployee]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[pr_PayrollEmployee]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1850,7 +1850,7 @@ CREATE TABLE [dbo].[pr_PayrollEmployee](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[pr_PayrollEmployeeDeductions]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[pr_PayrollEmployeeDeductions]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1870,7 +1870,7 @@ CREATE TABLE [dbo].[pr_PayrollEmployeeDeductions](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[pr_PayrollEmployeeEarnings]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[pr_PayrollEmployeeEarnings]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1890,7 +1890,7 @@ CREATE TABLE [dbo].[pr_PayrollEmployeeEarnings](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[sys_Company]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[sys_Company]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1911,7 +1911,7 @@ CREATE TABLE [dbo].[sys_Company](
 	[telephone] [nvarchar](50) NULL,
 	[mobile] [nvarchar](50) NULL,
 	[fax] [nvarchar](50) NULL,
-	[updatedBy] [int] NOT NULL,
+	[updatedBy] [int] NULL,
 	[updatedDate] [datetime] NOT NULL,
 	[deleted] [bit] NOT NULL,
  CONSTRAINT [PK_sys_Company] PRIMARY KEY CLUSTERED 
@@ -1921,7 +1921,7 @@ CREATE TABLE [dbo].[sys_Company](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[sys_CompanySetting]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[sys_CompanySetting]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1943,7 +1943,7 @@ CREATE TABLE [dbo].[sys_CompanySetting](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[sys_EnumReference]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[sys_EnumReference]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1971,7 +1971,7 @@ CREATE TABLE [dbo].[sys_EnumReference](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[sys_IdentificationDocument]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[sys_IdentificationDocument]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1992,7 +1992,7 @@ CREATE TABLE [dbo].[sys_IdentificationDocument](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[sys_Location]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[sys_Location]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2014,7 +2014,7 @@ CREATE TABLE [dbo].[sys_Location](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[sys_Log]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[sys_Log]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2023,7 +2023,7 @@ IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sy
 BEGIN
 CREATE TABLE [dbo].[sys_Log](
 	[id] [int] IDENTITY(1,1) NOT NULL,
-	[info] [nvarchar](max) NULL,
+	[info] [nvarchar](800) NULL,
 	[message] [nvarchar](max) NULL,
 	[otherMessage] [nvarchar](max) NULL,
 	[loggedType] [int] NOT NULL,
@@ -2036,7 +2036,7 @@ CREATE TABLE [dbo].[sys_Log](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[sys_Menu]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[sys_Menu]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2060,7 +2060,7 @@ CREATE TABLE [dbo].[sys_Menu](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[sys_Permission]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[sys_Permission]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2082,7 +2082,7 @@ CREATE TABLE [dbo].[sys_Permission](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[sys_Role]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[sys_Role]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2104,7 +2104,7 @@ CREATE TABLE [dbo].[sys_Role](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[sys_RoleMenu]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[sys_RoleMenu]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2128,7 +2128,7 @@ CREATE TABLE [dbo].[sys_RoleMenu](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[sys_RolePermission]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[sys_RolePermission]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2154,7 +2154,7 @@ CREATE TABLE [dbo].[sys_RolePermission](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[sys_Setting]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[sys_Setting]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2173,7 +2173,7 @@ CREATE TABLE [dbo].[sys_Setting](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[sys_User]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[sys_User]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2200,7 +2200,7 @@ CREATE TABLE [dbo].[sys_User](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[sys_UserRole]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[sys_UserRole]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2221,7 +2221,7 @@ CREATE TABLE [dbo].[sys_UserRole](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[sys_UserSession]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[sys_UserSession]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2243,7 +2243,7 @@ CREATE TABLE [dbo].[sys_UserSession](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[ta_ApplicationRequest]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[ta_ApplicationRequest]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2268,7 +2268,7 @@ CREATE TABLE [dbo].[ta_ApplicationRequest](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[ta_ApplicationRequestApprover]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[ta_ApplicationRequestApprover]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2290,7 +2290,7 @@ CREATE TABLE [dbo].[ta_ApplicationRequestApprover](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[ta_ApplicationRequestGatePass]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[ta_ApplicationRequestGatePass]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2310,7 +2310,7 @@ CREATE TABLE [dbo].[ta_ApplicationRequestGatePass](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[ta_ApplicationRequestLeave]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[ta_ApplicationRequestLeave]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2330,7 +2330,7 @@ CREATE TABLE [dbo].[ta_ApplicationRequestLeave](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[ta_CutOffAttendance]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[ta_CutOffAttendance]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2358,7 +2358,7 @@ CREATE TABLE [dbo].[ta_CutOffAttendance](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[ta_CutOffAttendanceSummary]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[ta_CutOffAttendanceSummary]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2379,7 +2379,7 @@ CREATE TABLE [dbo].[ta_CutOffAttendanceSummary](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[ta_CutOffAttendanceSummaryDetail]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[ta_CutOffAttendanceSummaryDetail]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2407,7 +2407,7 @@ CREATE TABLE [dbo].[ta_CutOffAttendanceSummaryDetail](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[ta_EmployeeAttendance]    Script Date: 1/6/2017 2:56:30 PM ******/
+/****** Object:  Table [dbo].[ta_EmployeeAttendance]    Script Date: 1/6/2017 6:18:32 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2946,9 +2946,67 @@ SET IDENTITY_INSERT [dbo].[mf_Deduction] ON
 GO
 INSERT [dbo].[mf_Deduction] ([id], [companyId], [code], [description], [updatedBy], [updatedDate], [deleted]) VALUES (1, 1, N'SSS', N'SSS', 1, CAST(N'2016-10-10T21:47:30.180' AS DateTime), 0)
 GO
-INSERT [dbo].[mf_Deduction] ([id], [companyId], [code], [description], [updatedBy], [updatedDate], [deleted]) VALUES (2, 1, N'TAX', N'TAX', 1, CAST(N'2016-10-10T21:47:34.130' AS DateTime), 0)
+INSERT [dbo].[mf_Deduction] ([id], [companyId], [code], [description], [updatedBy], [updatedDate], [deleted]) VALUES (2, 1, N'PHILHEALTH', N'Phil Health', 1, CAST(N'2016-10-10T21:47:34.130' AS DateTime), 0)
+GO
+INSERT [dbo].[mf_Deduction] ([id], [companyId], [code], [description], [updatedBy], [updatedDate], [deleted]) VALUES (3, 1, N'PAGIBIG', N'Pag Ibig', 1, CAST(N'2016-10-10T21:47:34.130' AS DateTime), 0)
 GO
 SET IDENTITY_INSERT [dbo].[mf_Deduction] OFF
+GO
+SET IDENTITY_INSERT [dbo].[mf_Department] ON 
+
+GO
+INSERT [dbo].[mf_Department] ([id], [companyId], [code], [description], [updatedBy], [updatedDate], [deleted]) VALUES (1, 1, N'DEV', N'Development', 1, CAST(N'2017-01-06T16:23:17.697' AS DateTime), 0)
+GO
+SET IDENTITY_INSERT [dbo].[mf_Department] OFF
+GO
+SET IDENTITY_INSERT [dbo].[mf_DepartmentSection] ON 
+
+GO
+INSERT [dbo].[mf_DepartmentSection] ([id], [departmentId], [code], [description], [updatedBy], [updatedDate], [deleted]) VALUES (1, 1, N'CODER', N'CODER', 1, CAST(N'2017-01-06T16:23:52.930' AS DateTime), 0)
+GO
+SET IDENTITY_INSERT [dbo].[mf_DepartmentSection] OFF
+GO
+SET IDENTITY_INSERT [dbo].[mf_Employee] ON 
+
+GO
+INSERT [dbo].[mf_Employee] ([id], [companyId], [firstName], [lastName], [middleName], [birthDate], [email], [gender], [maritalStatus], [contact1], [contact2], [contact3], [updatedBy], [updatedDate], [deleted], [employeeAddressId], [employee201Id], [pictureExtension]) VALUES (1, 1, N'Jhon Maynard', N'Bolante', N'Edaugal', CAST(N'1985-05-10T00:00:00.000' AS DateTime), N'mynrd.dev@gmail.com', 1, 2, NULL, NULL, NULL, 1, CAST(N'2017-01-06T16:24:40.367' AS DateTime), 0, 1, 1, NULL)
+GO
+SET IDENTITY_INSERT [dbo].[mf_Employee] OFF
+GO
+SET IDENTITY_INSERT [dbo].[mf_Employee201] ON 
+
+GO
+INSERT [dbo].[mf_Employee201] ([id], [employeeCode], [departmentId], [departmentSectionId], [positionId], [email], [employmentTypeId], [employmentStatusId], [positionLevel], [dateHired], [resignedDate], [taxStatus], [timeSheetRequired], [entitledUnworkRegularHoliday], [entitledUnworkSpecialHoliday], [entitledOvertime], [entitledHolidayPay], [payrollGroupId], [agencyId], [updatedBy], [updatedDate], [deleted], [confidential]) VALUES (1, N'1001', 1, 1, 1, N'mynrd@live.com', 1, 1, 3, CAST(N'2017-01-06T00:00:00.000' AS DateTime), NULL, 8, 1, 1, 1, 0, 0, 1, NULL, 1, CAST(N'2017-01-06T16:41:25.000' AS DateTime), 0, 0)
+GO
+SET IDENTITY_INSERT [dbo].[mf_Employee201] OFF
+GO
+SET IDENTITY_INSERT [dbo].[mf_EmployeeAddress] ON 
+
+GO
+INSERT [dbo].[mf_EmployeeAddress] ([id], [address1], [address2], [address3], [countryId], [city], [postalCode], [updatedBy], [updatedDate], [deleted]) VALUES (1, N'Camella Homes', NULL, NULL, 180, N'Ormoc', N'6541', 1, CAST(N'2017-01-06T16:24:40.337' AS DateTime), 0)
+GO
+SET IDENTITY_INSERT [dbo].[mf_EmployeeAddress] OFF
+GO
+SET IDENTITY_INSERT [dbo].[mf_EmployeeBasicPay] ON 
+
+GO
+INSERT [dbo].[mf_EmployeeBasicPay] ([id], [employeeId], [basicPay], [rateType], [updatedBy], [updatedDate], [deleted]) VALUES (1, 1, 20000, 2, 1, CAST(N'2017-01-06T16:27:42.000' AS DateTime), 0)
+GO
+SET IDENTITY_INSERT [dbo].[mf_EmployeeBasicPay] OFF
+GO
+SET IDENTITY_INSERT [dbo].[mf_EmployeeDeduction] ON 
+
+GO
+INSERT [dbo].[mf_EmployeeDeduction] ([id], [employeeId], [deductionId], [amount], [updatedBy], [updatedDate], [deleted]) VALUES (1, 1, 1, 700, 1, CAST(N'2017-01-06T16:30:22.000' AS DateTime), 0)
+GO
+SET IDENTITY_INSERT [dbo].[mf_EmployeeDeduction] OFF
+GO
+SET IDENTITY_INSERT [dbo].[mf_EmployeeWorkDays] ON 
+
+GO
+INSERT [dbo].[mf_EmployeeWorkDays] ([id], [employeeId], [workDayId], [updatedBy], [updatedDate], [deleted]) VALUES (1, 1, 190, 1, CAST(N'2017-01-06T16:27:09.457' AS DateTime), 0)
+GO
+SET IDENTITY_INSERT [dbo].[mf_EmployeeWorkDays] OFF
 GO
 SET IDENTITY_INSERT [dbo].[mf_EmploymentStatus] ON 
 
@@ -2981,305 +3039,33 @@ INSERT [dbo].[mf_HolidayType] ([id], [code], [description], [rateNotWork], [rate
 GO
 SET IDENTITY_INSERT [dbo].[mf_HolidayType] OFF
 GO
+SET IDENTITY_INSERT [dbo].[mf_PayrollGroup] ON 
+
+GO
+INSERT [dbo].[mf_PayrollGroup] ([id], [code], [description], [updatedBy], [updatedDate], [deleted]) VALUES (1, N'PR1', N'Payroll 1', 1, CAST(N'2017-01-06T16:40:52.373' AS DateTime), 0)
+GO
+SET IDENTITY_INSERT [dbo].[mf_PayrollGroup] OFF
+GO
+SET IDENTITY_INSERT [dbo].[mf_Position] ON 
+
+GO
+INSERT [dbo].[mf_Position] ([id], [companyId], [code], [description], [updatedBy], [updatedDate], [deleted]) VALUES (1, 1, N'PROG', N'Programmer', 1, CAST(N'2017-01-06T16:23:03.323' AS DateTime), 0)
+GO
+SET IDENTITY_INSERT [dbo].[mf_Position] OFF
+GO
 SET IDENTITY_INSERT [dbo].[mf_WorkDays] ON 
 
 GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (45, 1, N'001', N'Regular Shift (1:00 PM - 10:00 PM)', 1, 1, 1, 1, 1, 1, 1, 13, 0, 22, 0, 1, 1, CAST(N'2016-10-10T10:41:36.870' AS DateTime), 0)
+INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (190, 1, N'REG', N'Regular Days', 1, 1, 1, 1, 1, 0, 0, 8, 0, 17, 0, 1, 1, CAST(N'2017-01-06T16:52:58.163' AS DateTime), 0)
 GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (46, 1, N'002', N'Regular Shift (1:00 PM - 09:30 PM)', 1, 1, 1, 1, 1, 1, 1, 13, 0, 21, 30, 0, 1, CAST(N'2016-06-18T12:03:33.107' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (47, 1, N'005A', N'Regular Shift (1:00 PM - 06:00 PM)', 1, 1, 1, 1, 1, 1, 1, 13, 0, 18, 0, 0, 1, CAST(N'2016-06-18T17:30:43.187' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (48, 1, N'003', N'Regular Shift (1:00 AM - 10:00 AM)', 1, 1, 1, 1, 1, 1, 1, 1, 0, 10, 0, 0, 1, CAST(N'2016-06-18T17:31:49.693' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (49, 1, N'004', N'Regular Shift (1:00 AM - 9:30 AM)', 1, 1, 1, 1, 1, 1, 1, 1, 0, 9, 30, 0, 1, CAST(N'2016-06-18T17:32:19.773' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (50, 1, N'005B', N'Regular Shift (7:00 PM - 10:00 PM)', 1, 1, 1, 1, 1, 1, 1, 19, 0, 22, 0, 0, 1, CAST(N'2016-06-18T17:32:32.480' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (51, 1, N'006A', N'Regular Shift (01:00 AM - 06:00 AM', 1, 1, 1, 1, 1, 1, 1, 1, 0, 6, 0, 0, 1, CAST(N'2016-06-18T17:36:25.067' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (52, 1, N'006B', N'Regular Shift (07:00 AM - 10:00 AM)', 1, 1, 1, 1, 1, 1, 1, 7, 0, 10, 0, 0, 1, CAST(N'2016-06-18T17:37:47.903' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (53, 1, N'007A', N'Regular Shift (01:00 AM - 06:00 AM)', 1, 1, 1, 1, 1, 1, 1, 1, 0, 6, 0, 0, 1, CAST(N'2016-06-18T17:39:25.650' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (54, 1, N'007B', N'Regular Shift (06:30 AM - 9:30 AM)', 1, 1, 1, 1, 1, 1, 1, 6, 30, 9, 30, 0, 1, CAST(N'2016-06-18T17:40:53.150' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (55, 1, N'008A', N'Regular Shift (01:00 PM - 06:00 PM)', 1, 1, 1, 1, 1, 1, 1, 13, 0, 18, 0, 0, 1, CAST(N'2016-06-18T17:42:16.650' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (56, 1, N'008B', N'Regular Shift (06:30 PM - 09:30 PM)', 1, 1, 1, 1, 1, 1, 1, 18, 30, 21, 30, 0, 1, CAST(N'2016-06-18T17:43:42.100' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (57, 1, N'009', N'Regular Shift (02:00 AM - 10:30 AM)', 1, 1, 1, 1, 1, 1, 1, 2, 0, 10, 30, 0, 1, CAST(N'2016-06-18T17:45:48.070' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (58, 1, N'010', N'Regular Shift (02:00 AM - 11:00 AM)', 1, 1, 1, 1, 1, 1, 1, 2, 0, 11, 0, 0, 1, CAST(N'2016-06-18T17:47:05.353' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (59, 1, N'011', N'Regular Shift (02:00 PM - 10:30 PM)', 1, 1, 1, 1, 1, 1, 1, 14, 0, 22, 30, 0, 1, CAST(N'2016-06-18T17:48:26.327' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (60, 1, N'012', N'Regular Shift (02:00 PM - 11:00 PM)', 1, 1, 1, 1, 1, 1, 1, 14, 0, 23, 0, 0, 1, CAST(N'2016-06-18T17:49:51.350' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (61, 1, N'013A', N'Regular Shift (02:00 AM - 06:00 AM)', 1, 1, 1, 1, 1, 1, 1, 2, 0, 6, 0, 0, 1, CAST(N'2016-06-18T17:51:00.463' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (62, 1, N'013B', N'Regular  Shift (06:30 AM - 10:30 AM)', 1, 1, 1, 1, 1, 1, 1, 6, 30, 10, 30, 0, 1, CAST(N'2016-06-18T17:52:35.550' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (63, 1, N'014A', N'Regular Shift (02:00 AM - 06:00 AM)', 1, 1, 1, 1, 1, 1, 1, 2, 0, 6, 0, 0, 1, CAST(N'2016-06-18T17:53:45.467' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (64, 1, N'014B', N'Regular Shift (07:00 AM - 11:00 AM)', 1, 1, 1, 1, 1, 1, 1, 7, 0, 11, 0, 0, 1, CAST(N'2016-06-18T17:54:46.073' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (65, 1, N'015A', N'Regular Shift (02:00 PM - 06:00 PM)', 1, 1, 1, 1, 1, 1, 1, 14, 0, 18, 0, 0, 1, CAST(N'2016-06-18T17:56:44.043' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (66, 1, N'015B', N'Regular Shift (06:30 PM - 10:30 PM)', 1, 1, 1, 1, 1, 1, 1, 18, 30, 22, 30, 0, 1, CAST(N'2016-06-18T17:58:23.567' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (67, 1, N'016A', N'Regular Shift (02:00 PM - 06:00 PM', 1, 1, 1, 1, 1, 1, 1, 14, 0, 18, 0, 0, 1, CAST(N'2016-06-18T18:00:02.650' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (68, 1, N'016B', N'Regular Shift (07:00 PM - 11:00 PM)', 1, 1, 1, 1, 1, 1, 1, 19, 0, 23, 0, 0, 1, CAST(N'2016-06-18T18:01:17.980' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (69, 1, N'017', N'Regular Shift (03:00 AM - 11:30 AM)', 1, 1, 1, 1, 1, 1, 1, 3, 0, 11, 30, 0, 1, CAST(N'2016-06-18T18:02:44.593' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (70, 1, N'018', N'Regular Shift (03:00 PM - 11:30 PM)', 1, 1, 1, 1, 1, 1, 1, 15, 0, 23, 30, 0, 1, CAST(N'2016-06-18T18:03:49.470' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (71, 1, N'019', N'Regular Shift (03:00 AM - 12:00 PM)', 1, 1, 1, 1, 1, 1, 1, 3, 0, 12, 0, 0, 1, CAST(N'2016-06-18T18:07:18.227' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (72, 1, N'020', N'Regular Shift (03:00 PM - 12:00 AM)', 1, 1, 1, 1, 1, 1, 1, 15, 0, 0, 0, 0, 1, CAST(N'2016-06-18T18:08:22.787' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (73, 1, N'021A', N'Regular Shift (03:00 PM - 07:00 PM)', 1, 1, 1, 1, 1, 1, 1, 15, 0, 19, 0, 0, 1, CAST(N'2016-06-18T18:10:24.117' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (74, 1, N'021B', N'Regular Shift (08:00 PM - 12:00 AM)', 1, 1, 1, 1, 1, 1, 1, 20, 0, 0, 0, 0, 1, CAST(N'2016-06-18T18:11:39.773' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (75, 1, N'022A', N'Regular Shift (03:00 AM - 07:00 AM)', 1, 1, 1, 1, 1, 1, 1, 3, 0, 7, 0, 0, 1, CAST(N'2016-06-18T18:12:40.187' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (76, 1, N'022B', N'Regular Shift (08:00 AM - 12:00 PM)', 1, 1, 1, 1, 1, 1, 1, 8, 0, 12, 0, 0, 1, CAST(N'2016-06-18T18:14:12.520' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (77, 1, N'023A', N'Regular Shift (03:00 PM - 07:00 PM)', 1, 1, 1, 1, 1, 1, 1, 15, 0, 19, 0, 0, 1, CAST(N'2016-06-18T18:15:23.787' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (78, 1, N'023B', N'Regular Shift (07:30 PM - 11:30 PM)', 1, 1, 1, 1, 1, 1, 1, 19, 30, 23, 30, 0, 1, CAST(N'2016-06-18T18:17:44.567' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (79, 1, N'024A', N'Regular Shift (03:00 AM - 07:00 AM)', 1, 1, 1, 1, 1, 1, 1, 3, 0, 7, 0, 0, 1, CAST(N'2016-06-18T18:18:49.187' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (80, 1, N'024B', N'Regular Shift (07:30 AM - 11:30 AM)', 1, 1, 1, 1, 1, 1, 1, 7, 30, 11, 30, 0, 1, CAST(N'2016-06-18T18:20:04.437' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (81, 1, N'025', N'Regular Shift (04:00 AM - 12:30 PM)', 1, 1, 1, 1, 1, 1, 1, 4, 0, 12, 30, 0, 1, CAST(N'2016-06-18T18:21:34.963' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (82, 1, N'026', N'Regular Shift (04:00 AM - 01:00 PM)', 1, 1, 1, 1, 1, 1, 1, 4, 0, 13, 0, 0, 1, CAST(N'2016-06-18T18:22:37.810' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (83, 1, N'027', N'Regular Shift (04:00 PM - 12:30 AM)', 1, 1, 1, 1, 1, 1, 1, 16, 0, 0, 30, 0, 1, CAST(N'2016-06-18T18:23:55.857' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (84, 1, N'028', N'Regular Shift (04:00 PM - 01:00 AM)', 1, 1, 1, 1, 1, 1, 1, 16, 0, 1, 0, 0, 1, CAST(N'2016-06-18T18:24:53.853' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (85, 1, N'029A', N'Regular Shift (04:00 AM - 08:00 AM)', 1, 1, 1, 1, 1, 1, 1, 4, 0, 8, 0, 0, 1, CAST(N'2016-06-18T18:26:09.913' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (86, 1, N'029B', N'Regular Shift (08:30 AM - 12:30 PM)', 1, 1, 1, 1, 1, 1, 1, 8, 30, 12, 30, 0, 1, CAST(N'2016-06-18T18:27:21.083' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (87, 1, N'030A', N'Regular Shift (04:00 AM - 08:00 AM)', 1, 1, 1, 1, 1, 1, 1, 4, 0, 8, 0, 0, 1, CAST(N'2016-06-18T18:28:38.140' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (88, 1, N'030B', N'Regular Shift (09:00 AM - 01:00 PM)', 1, 1, 1, 1, 1, 1, 1, 9, 0, 13, 0, 0, 1, CAST(N'2016-06-18T18:31:07.607' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (89, 1, N'031A', N'Regular Shift (04:00 PM - 08:00 PM)', 1, 1, 1, 1, 1, 1, 1, 16, 0, 20, 0, 0, 1, CAST(N'2016-06-18T18:32:05.727' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (90, 1, N'031B', N'Regular Shift (08:30 PM - 12:30 AM)', 1, 1, 1, 1, 1, 1, 1, 20, 30, 0, 30, 0, 1, CAST(N'2016-06-18T18:35:03.513' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (91, 1, N'032A', N'Regular Shift (04:00 AM - 08:00 AM)', 1, 1, 1, 1, 1, 1, 1, 4, 0, 8, 0, 0, 1, CAST(N'2016-06-18T18:36:28.730' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (92, 1, N'032B', N'Regular Shift (09:00 AM - 01:00 PM)', 1, 1, 1, 1, 1, 1, 1, 9, 0, 13, 0, 0, 1, CAST(N'2016-06-18T18:37:33.027' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (93, 1, N'033', N'Regular Shift (05:00 AM - 01:30 PM)', 1, 1, 1, 1, 1, 1, 1, 5, 0, 13, 30, 0, 1, CAST(N'2016-06-18T18:40:10.557' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (94, 1, N'034', N'Regular Shift (05:00 AM - 02:00 PM)', 1, 1, 1, 1, 1, 1, 1, 5, 0, 14, 0, 0, 1, CAST(N'2016-06-18T18:41:30.337' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (95, 1, N'035', N'Regular Shift (05:00 PM - 01:30 AM)', 1, 1, 1, 1, 1, 1, 1, 17, 0, 1, 30, 0, 1, CAST(N'2016-06-18T18:42:41.967' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (96, 1, N'036', N'Regular Shift (05:00 PM - 02:00 AM)', 1, 1, 1, 1, 1, 1, 1, 17, 0, 2, 0, 0, 1, CAST(N'2016-06-18T18:43:47.673' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (97, 1, N'037A', N'Regular Shift (05:00 AM - 09:00 AM)', 1, 1, 1, 1, 1, 1, 1, 5, 0, 9, 0, 0, 1, CAST(N'2016-06-18T18:45:56.817' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (98, 1, N'037B', N'Regular Shift (09:30 AM - 01:30 PM)', 1, 1, 1, 1, 1, 1, 1, 9, 30, 13, 30, 0, 1, CAST(N'2016-06-18T18:47:02.000' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (99, 1, N'038A', N'Regular Shift (05:00 AM - 09:00 AM)', 1, 1, 1, 1, 1, 1, 1, 5, 0, 9, 0, 0, 1, CAST(N'2016-06-18T18:48:05.180' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (100, 1, N'038B', N'Regular Shift (10:30 AM - 02:00 PM)', 1, 1, 1, 1, 1, 1, 1, 10, 30, 14, 0, 0, 1, CAST(N'2016-06-18T18:49:15.310' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (101, 1, N'039A', N'Regular Shift (05:00 PM - 09:00 PM)', 1, 1, 1, 1, 1, 1, 1, 17, 0, 21, 0, 0, 1, CAST(N'2016-06-18T18:50:24.690' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (102, 1, N'039B', N'Regular Shift (09:30 PM - 01:30 AM)', 1, 1, 1, 1, 1, 1, 1, 21, 30, 1, 30, 0, 1, CAST(N'2016-06-18T18:51:26.367' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (103, 1, N'040A', N'Regular Shift (05:00 PM - 09:00 PM)', 1, 1, 1, 1, 1, 1, 1, 17, 0, 21, 0, 0, 1, CAST(N'2016-06-18T18:52:55.747' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (104, 1, N'040B', N'Regular Shift (10:00 PM - 02:00 AM)', 1, 1, 1, 1, 1, 1, 1, 22, 0, 2, 0, 0, 1, CAST(N'2016-06-18T18:53:51.183' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (105, 1, N'041', N'Regular Shift (06:00 AM - 02:30 PM)', 1, 1, 1, 1, 1, 1, 1, 6, 0, 14, 30, 0, 1, CAST(N'2016-06-18T18:56:27.333' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (106, 1, N'042', N'Regular Shift (06:00 AM - 03:00 PM)', 1, 1, 1, 1, 1, 1, 1, 6, 0, 15, 0, 0, 1, CAST(N'2016-06-18T18:57:24.623' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (107, 1, N'043', N'Regular Shift (06:00 PM - 02:30 AM)', 1, 1, 1, 1, 1, 1, 1, 18, 0, 2, 30, 0, 1, CAST(N'2016-06-18T18:58:29.437' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (108, 1, N'044', N'Regular Shift (06:00 PM - 03:00 AM)', 1, 1, 1, 1, 1, 1, 1, 18, 0, 3, 0, 0, 1, CAST(N'2016-06-18T19:11:14.357' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (109, 1, N'045A', N'Regular Shift (06:00 AM - 10:00 AM)', 1, 1, 1, 1, 1, 1, 1, 6, 0, 10, 0, 0, 1, CAST(N'2016-06-18T19:12:13.257' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (110, 1, N'045B', N'Regular Shift (10:30 AM - 02:30 PM)', 1, 1, 1, 1, 1, 1, 1, 10, 30, 14, 30, 0, 1, CAST(N'2016-06-18T19:13:22.593' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (111, 1, N'046A', N'Regular Shift (06:00 AM - 10:00 AM)', 1, 1, 1, 1, 1, 1, 1, 6, 0, 10, 0, 0, 1, CAST(N'2016-06-18T19:14:19.723' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (112, 1, N'046B', N'Regular Shift (11:00 AM - 03:00 PM)', 1, 1, 1, 1, 1, 1, 1, 1, 0, 15, 0, 0, 1, CAST(N'2016-06-18T19:15:25.930' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (113, 1, N'047A', N'Regular Shift (06:00 PM - 10:00 PM)', 1, 1, 1, 1, 1, 1, 1, 18, 0, 10, 0, 0, 1, CAST(N'2016-06-18T19:17:15.267' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (114, 1, N'047B', N'Regular Shift (10:30 PM - 02:30 AM)', 1, 1, 1, 1, 1, 1, 1, 22, 30, 2, 30, 0, 1, CAST(N'2016-06-18T19:18:18.310' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (115, 1, N'048A', N'Regular Shift (06:00 PM - 10:00 PM)', 1, 1, 1, 1, 1, 1, 1, 18, 0, 22, 0, 0, 1, CAST(N'2016-06-18T19:19:38.633' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (116, 1, N'048B', N'Regular Shift (11:00 PM - 03:00 AM)', 1, 1, 1, 1, 1, 1, 1, 23, 0, 3, 0, 0, 1, CAST(N'2016-06-18T19:20:33.027' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (117, 1, N'049', N'Regular Shift (07:00 AM - 03:30 PM)', 1, 1, 1, 1, 1, 1, 1, 7, 0, 15, 30, 0, 1, CAST(N'2016-06-18T19:21:50.347' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (118, 1, N'050', N'Regular Shift (07:00 AM - 04:00 PM)', 1, 1, 1, 1, 1, 1, 1, 7, 0, 16, 0, 0, 1, CAST(N'2016-06-18T19:23:11.177' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (119, 1, N'051', N'Regular Shift (07:00 PM - 03:30 AM)', 1, 1, 1, 1, 1, 1, 1, 19, 0, 3, 30, 0, 1, CAST(N'2016-06-18T19:24:20.637' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (120, 1, N'052', N'Regular Shift (07:00 PM - 04:00 AM', 1, 1, 1, 1, 1, 1, 1, 19, 0, 4, 0, 0, 1, CAST(N'2016-06-18T19:25:15.037' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (121, 1, N'053A', N'Regular Shift (07:00 AM - 11:00 AM)', 1, 1, 1, 1, 1, 1, 1, 7, 0, 11, 0, 0, 1, CAST(N'2016-06-18T19:26:28.853' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (122, 1, N'053B', N'Regular Shift (11:30 AM - 03:30 PM)', 1, 1, 1, 1, 1, 1, 1, 11, 30, 15, 30, 0, 1, CAST(N'2016-06-18T19:27:21.450' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (123, 1, N'054A', N'Regular Shift (07:00 AM - 11:00 AM)', 1, 1, 1, 1, 1, 1, 1, 7, 0, 11, 0, 0, 1, CAST(N'2016-06-18T19:28:23.713' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (124, 1, N'054B', N'Regular Shift (12:00 PM - 04:00 PM)', 1, 1, 1, 1, 1, 1, 1, 12, 0, 16, 0, 0, 1, CAST(N'2016-06-18T19:29:42.680' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (125, 1, N'055A', N'Regular Shift (07:00 PM - 11:00 PM)', 1, 1, 1, 1, 1, 1, 1, 19, 0, 23, 0, 0, 1, CAST(N'2016-06-18T19:30:49.907' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (126, 1, N'055B', N'Regular Shift (11:30 PM - 03:30 AM)', 1, 1, 1, 1, 1, 1, 1, 23, 30, 3, 30, 0, 1, CAST(N'2016-06-18T19:32:08.900' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (127, 1, N'056A', N'Regular Shift (07:00 PM - 11:00 PM)', 1, 1, 1, 1, 1, 1, 1, 19, 0, 23, 0, 0, 1, CAST(N'2016-06-18T19:33:10.303' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (128, 1, N'056B', N'Regular Shift (12:00 AM - 04:00 AM)', 1, 1, 1, 1, 1, 1, 1, 0, 0, 4, 0, 0, 1, CAST(N'2016-06-18T19:34:03.907' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (129, 1, N'057', N'Regular Shift (08:00 AM - 04:30 PM)', 1, 1, 1, 1, 1, 1, 1, 8, 0, 16, 30, 0, 1, CAST(N'2016-06-18T19:35:10.287' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (130, 1, N'058', N'Regular Shift (08:00 AM - 05:00 PM)', 1, 1, 1, 1, 1, 1, 1, 8, 0, 17, 0, 0, 1, CAST(N'2016-06-18T19:36:11.487' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (131, 1, N'059', N'Regular Shift (08:00 PM - 04:30 AM)', 1, 1, 1, 1, 1, 1, 1, 8, 0, 4, 30, 0, 1, CAST(N'2016-06-18T19:37:23.253' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (132, 1, N'060', N'Regular Shift (08:00 PM - 05:00 AM)', 1, 1, 1, 1, 1, 1, 1, 20, 0, 5, 0, 0, 1, CAST(N'2016-06-18T19:38:18.237' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (133, 1, N'061A', N'Regular Shift (08:00 AM - 12:00 PM)', 1, 1, 1, 1, 1, 1, 1, 8, 0, 12, 0, 0, 1, CAST(N'2016-06-18T19:42:03.587' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (134, 1, N'061B', N'Regular Shift (12:30 PM - 04:30 PM)', 1, 1, 1, 1, 1, 1, 1, 12, 30, 16, 30, 0, 1, CAST(N'2016-06-18T19:43:43.603' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (135, 1, N'062A', N'Regular Shift (08:00 AM - 12:00 PM)', 1, 1, 1, 1, 1, 1, 1, 8, 0, 12, 0, 0, 1, CAST(N'2016-06-18T19:44:55.547' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (136, 1, N'062B', N'Regular Shift (01:00 PM - 05:00 PM)', 1, 1, 1, 1, 1, 1, 1, 13, 0, 17, 0, 0, 1, CAST(N'2016-06-18T19:45:52.037' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (137, 1, N'063A', N'Regular Shift (08:00 PM - 12:00 AM)', 1, 1, 1, 1, 1, 1, 1, 20, 0, 0, 0, 0, 1, CAST(N'2016-06-18T19:46:36.303' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (138, 1, N'063B', N'Regular Shift (12:30 AM - 04:30 AM)', 1, 1, 1, 1, 1, 1, 1, 0, 30, 4, 30, 0, 1, CAST(N'2016-06-18T19:47:41.877' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (139, 1, N'064A', N'Regular Shift (08:00 PM - 12:00 AM)', 1, 1, 1, 1, 1, 1, 1, 20, 0, 0, 0, 0, 1, CAST(N'2016-06-18T19:48:35.513' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (140, 1, N'064B', N'Regular Shift (01:00 AM - 05:00 AM)', 1, 1, 1, 1, 1, 1, 1, 1, 0, 5, 0, 0, 1, CAST(N'2016-06-18T19:49:37.260' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (141, 1, N'065', N'Regular Shift (09:00 AM - 05:30 PM)', 1, 1, 1, 1, 1, 1, 1, 9, 0, 17, 30, 0, 1, CAST(N'2016-06-18T19:50:42.987' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (142, 1, N'066', N'Regular Shift (09:00 AM - 06:00 PM)', 1, 1, 1, 1, 1, 1, 1, 9, 0, 18, 0, 0, 1, CAST(N'2016-06-18T19:51:29.753' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (143, 1, N'067', N'Regular Shift (09:00 PM - 05:30 AM)', 1, 1, 1, 1, 1, 1, 1, 21, 0, 5, 30, 0, 1, CAST(N'2016-06-18T19:52:39.400' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (144, 1, N'068', N'Regular Shift (09:00 PM - 06:00 AM)', 1, 1, 1, 1, 1, 1, 1, 21, 0, 6, 0, 0, 1, CAST(N'2016-06-18T19:53:40.540' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (145, 1, N'069A', N'Regular Shift (09:00 AM - 12:00 PM)', 1, 1, 1, 1, 1, 1, 1, 9, 0, 12, 0, 0, 1, CAST(N'2016-06-18T19:54:39.580' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (146, 1, N'069B', N'Regular Shift (12:30 PM - 05:30 PM)', 1, 1, 1, 1, 1, 1, 1, 12, 30, 17, 30, 0, 1, CAST(N'2016-06-18T19:55:58.957' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (147, 1, N'070A', N'Regular Shift (09:00 AM - 12:00 PM)', 1, 1, 1, 1, 1, 1, 1, 9, 0, 12, 0, 0, 1, CAST(N'2016-06-18T19:57:50.740' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (148, 1, N'070B', N'Regular Shift (01:00 PM - 06:00 PM)', 1, 1, 1, 1, 1, 1, 1, 13, 0, 18, 0, 0, 1, CAST(N'2016-06-18T19:59:03.380' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (149, 1, N'071A', N'Regular Shift (09:00 PM - 12:00 AM)', 1, 1, 1, 1, 1, 1, 1, 21, 0, 0, 0, 0, 1, CAST(N'2016-06-18T20:00:03.167' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (150, 1, N'071B', N'Regular Shift (12:30 AM - 05:30 AM)', 1, 1, 1, 1, 1, 1, 1, 0, 30, 5, 30, 0, 1, CAST(N'2016-06-18T20:01:11.310' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (151, 1, N'072A', N'Regular Shift (09:00 PM - 12:00 AM)', 1, 1, 1, 1, 1, 1, 1, 21, 0, 0, 0, 0, 1, CAST(N'2016-06-18T20:02:02.563' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (152, 1, N'072B', N'Regular Shift (01:00 AM - 06:00 AM)', 1, 1, 1, 1, 1, 1, 1, 1, 0, 6, 0, 0, 1, CAST(N'2016-06-18T20:02:51.203' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (153, 1, N'073', N'Regular Shift (10:00 AM - 06:30 PM)', 1, 1, 1, 1, 1, 1, 1, 10, 0, 18, 30, 0, 1, CAST(N'2016-06-18T20:06:31.880' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (154, 1, N'074', N'Regular Shift (10:00 AM - 07:00 PM)', 1, 1, 1, 1, 1, 1, 1, 10, 0, 19, 0, 0, 1, CAST(N'2016-06-18T20:05:12.867' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (155, 1, N'075', N'Regular Shift (10:00 PM - 06:30 AM)', 1, 1, 1, 1, 1, 1, 1, 22, 0, 6, 30, 0, 1, CAST(N'2016-06-18T20:06:17.797' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (156, 1, N'076', N'Regular Shift (10:00 PM - 07:00 AM)', 1, 1, 1, 1, 1, 1, 1, 22, 0, 7, 0, 0, 1, CAST(N'2016-06-18T20:07:41.520' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (157, 1, N'077A', N'Regular  Shift (10:00 AM - 12:00 PM)', 1, 1, 1, 1, 1, 1, 1, 10, 0, 12, 0, 0, 1, CAST(N'2016-06-18T20:08:49.513' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (158, 1, N'077B', N'Regular Shift (12:30 PM - 06:30 PM)', 1, 1, 1, 1, 1, 1, 1, 12, 30, 18, 30, 0, 1, CAST(N'2016-06-18T20:09:59.790' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (159, 1, N'078A', N'Regular Shift (10:00 AM - 12:00 PM)', 1, 1, 1, 1, 1, 1, 1, 10, 0, 12, 0, 0, 1, CAST(N'2016-06-18T20:11:14.223' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (160, 1, N'078B', N'Regular Shift (01:00 PM - 07:00 PM)', 1, 1, 1, 1, 1, 1, 1, 13, 0, 19, 0, 0, 1, CAST(N'2016-06-18T20:12:34.327' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (161, 1, N'079A', N'Regular Shift (10:00 PM - 12:00 AM)', 1, 1, 1, 1, 1, 1, 1, 22, 0, 0, 0, 0, 1, CAST(N'2016-06-18T20:13:27.303' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (162, 1, N'079B', N'Regular Shift (12:30 AM - 06:30 AM)', 1, 1, 1, 1, 1, 1, 1, 0, 30, 6, 30, 0, 1, CAST(N'2016-06-18T20:14:20.683' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (163, 1, N'080A', N'Regular Shift (10:00 PM - 12:00 AM )', 1, 1, 1, 1, 1, 1, 1, 22, 0, 0, 0, 0, 1, CAST(N'2016-06-18T20:15:28.437' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (164, 1, N'080B', N'Regular Shift (01:00 AM - 07:00 AM)', 1, 1, 1, 1, 1, 1, 1, 1, 0, 7, 0, 0, 1, CAST(N'2016-06-18T20:16:17.403' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (165, 1, N'081', N'Regular Shift (11:00 AM - 07:30 PM)', 1, 1, 1, 1, 1, 1, 1, 11, 0, 19, 30, 0, 1, CAST(N'2016-06-18T20:17:28.870' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (166, 1, N'082', N'Regular Shift (11:00 AM - 08:00 PM)', 1, 1, 1, 1, 1, 1, 1, 11, 0, 20, 0, 0, 1, CAST(N'2016-06-18T20:18:28.387' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (167, 1, N'083', N'Regular Shift (11:00 PM - 07:30 AM)', 1, 1, 1, 1, 1, 1, 1, 23, 0, 7, 30, 0, 1, CAST(N'2016-06-18T20:19:42.900' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (168, 1, N'084', N'Regular Shift (11:00 PM - 08:00 AM)', 1, 1, 1, 1, 1, 1, 1, 23, 0, 8, 0, 0, 1, CAST(N'2016-06-18T20:20:47.260' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (169, 1, N'085A', N'Regular Shift (11:00 AM - 03:00 PM)', 1, 1, 1, 1, 1, 1, 1, 11, 0, 15, 0, 0, 1, CAST(N'2016-06-18T20:22:00.440' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (170, 1, N'085B', N'Regular Shift (03:30 PM - 07:30 PM)', 1, 1, 1, 1, 1, 1, 1, 15, 30, 19, 30, 0, 1, CAST(N'2016-06-18T20:22:55.057' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (171, 1, N'086A', N'Regular Shift (11:00 AM - 03:00 PM', 1, 1, 1, 1, 1, 1, 1, 11, 0, 15, 0, 0, 1, CAST(N'2016-06-18T20:23:54.667' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (172, 1, N'086B', N'Regular Shift (04:00 PM - 08:00 PM)', 1, 1, 1, 1, 1, 1, 1, 16, 0, 20, 0, 0, 1, CAST(N'2016-06-18T20:25:10.860' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (173, 1, N'087A', N'Regular Shift (11:00 PM - 03:00 AM)', 1, 1, 1, 1, 1, 1, 1, 23, 0, 3, 0, 0, 1, CAST(N'2016-06-18T20:25:59.307' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (174, 1, N'087B', N'Regular Shift (03:30 AM - 07:30 AM)', 1, 1, 1, 1, 1, 1, 1, 3, 30, 7, 30, 0, 1, CAST(N'2016-06-18T20:27:01.820' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (175, 1, N'088A', N'Regular Shift (11:00 PM - 03:00 AM)', 1, 1, 1, 1, 1, 1, 1, 23, 0, 3, 0, 0, 1, CAST(N'2016-06-18T20:27:56.163' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (176, 1, N'088B', N'Regular Shift (04:00 AM - 08:00 AM)', 1, 1, 1, 1, 1, 1, 1, 4, 0, 8, 0, 0, 1, CAST(N'2016-06-18T20:28:47.680' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (177, 1, N'089', N'Regular Shift (12:00 PM - 08:30 PM)', 1, 1, 1, 1, 1, 1, 1, 12, 0, 20, 30, 0, 1, CAST(N'2016-06-18T20:30:20.183' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (178, 1, N'090', N'Regular Shift (12:00 PM - 09:00 PM)', 1, 1, 1, 1, 1, 1, 1, 12, 0, 21, 0, 0, 1, CAST(N'2016-06-18T20:31:15.727' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (179, 1, N'091', N'Regular Shift (12:00 AM - 08:30 AM)', 1, 1, 1, 1, 1, 1, 1, 0, 0, 8, 30, 0, 1, CAST(N'2016-06-18T20:32:44.133' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (180, 1, N'092', N'Regular Shift (12:00 AM - 09:00 AM)', 1, 1, 1, 1, 1, 1, 1, 0, 0, 9, 0, 0, 1, CAST(N'2016-06-18T20:33:33.077' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (181, 1, N'093A', N'Regular Shift (12:00 PM - 04:00 PM)', 1, 1, 1, 1, 1, 1, 1, 12, 0, 16, 0, 0, 1, CAST(N'2016-06-18T20:34:38.397' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (182, 1, N'093B', N'Regular Shift (04:30 PM - 08:30 PM)', 1, 1, 1, 1, 1, 1, 1, 16, 30, 20, 30, 0, 1, CAST(N'2016-06-18T20:35:32.520' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (183, 1, N'094A', N'Regular Shift (12:00 PM - 04:00 PM)', 1, 1, 1, 1, 1, 1, 1, 12, 0, 16, 0, 0, 1, CAST(N'2016-06-18T20:37:20.463' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (184, 1, N'094B', N'Regular Shift (05:00 PM - 09:00 PM)', 1, 1, 1, 1, 1, 1, 1, 17, 0, 21, 0, 0, 1, CAST(N'2016-06-18T20:38:24.527' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (185, 1, N'095A', N'Regular Shift (12:00 AM - 04:00 AM)', 1, 1, 1, 1, 1, 1, 1, 0, 0, 4, 0, 0, 1, CAST(N'2016-06-18T20:39:14.977' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (186, 1, N'095B', N'Regular Shift (04:30 AM - 08:30 AM)', 1, 1, 1, 1, 1, 1, 1, 4, 30, 8, 30, 0, 1, CAST(N'2016-06-18T20:40:11.017' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (187, 1, N'096A', N'Regular Shift (12:00 AM - 04:00 AM)', 1, 1, 1, 1, 1, 1, 1, 0, 0, 4, 0, 0, 1, CAST(N'2016-06-18T20:41:07.163' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (188, 1, N'096B', N'Regular Shift (05:00 AM - 09:00 AM)', 1, 1, 1, 1, 1, 1, 1, 5, 0, 9, 0, 0, 1, CAST(N'2016-06-18T20:42:36.903' AS DateTime), 0)
-GO
-INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (189, 1, N'TEST', N'Normal', 1, 1, 1, 1, 1, 0, 0, 8, 30, 17, 30, 1, 1, CAST(N'2016-10-10T11:09:49.367' AS DateTime), 0)
+INSERT [dbo].[mf_WorkDays] ([id], [companyId], [code], [description], [monday], [tuesday], [wednesday], [thursday], [friday], [saturday], [sunday], [fromTimeHour], [fromTimeMinute], [toTimeHour], [toTimeMinute], [breakHours], [updatedBy], [updatedDate], [deleted]) VALUES (191, 1, N'SAT', N'SAT', 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, CAST(N'2017-01-06T16:53:18.930' AS DateTime), 0)
 GO
 SET IDENTITY_INSERT [dbo].[mf_WorkDays] OFF
 GO
 SET IDENTITY_INSERT [dbo].[sys_Company] ON 
 
 GO
-INSERT [dbo].[sys_Company] ([id], [code], [businessName], [address1], [address2], [address3], [countryId], [city], [postalCode], [email], [telephone], [mobile], [fax], [updatedBy], [updatedDate], [deleted]) VALUES (1, N'SIH', N'SARROSA INTERNATIONAL HOTEL & RESIDENTIAL SUITES', N'F. CABAHUG ST. COR. PRES. QUIRINO ST., KASAMBAGAN CEBU CITY', NULL, NULL, 180, N'Cebu City', N'6000', N'reservations@sarrosahote.com', N'(+63)(32)232-5811 to 18 ', N'(+63)(32)919-9316814 and (+63)(32)927-407-1635', N'(+63)(32)232-5819', 1, CAST(N'2016-06-11T13:32:30.000' AS DateTime), 0)
+INSERT [dbo].[sys_Company] ([id], [code], [businessName], [address1], [address2], [address3], [countryId], [city], [postalCode], [email], [telephone], [mobile], [fax], [updatedBy], [updatedDate], [deleted]) VALUES (1, N'DEV', N'Development', N'Cebu', NULL, NULL, 180, N'Cebu City', N'6000', N'test@test.com', N'--', N'--', N'--', 1, CAST(N'2016-06-11T13:32:30.000' AS DateTime), 0)
 GO
 SET IDENTITY_INSERT [dbo].[sys_Company] OFF
 GO
@@ -3593,11 +3379,11 @@ INSERT [dbo].[sys_Permission] ([id], [companyId], [code], [description], [update
 GO
 INSERT [dbo].[sys_Permission] ([id], [companyId], [code], [description], [updatedBy], [updatedDate], [deleted]) VALUES (3, 1, N'VIEW_ADMIN_PANEL', N'View Admin Panel', 1, CAST(N'2016-07-04T14:14:34.853' AS DateTime), 0)
 GO
-INSERT [dbo].[sys_Permission] ([id], [companyId], [code], [description], [updatedBy], [updatedDate], [deleted]) VALUES (4, 1, N'EMPLOYEE_QUICK_UPDATE', N'EMPLOYEE_QUICK_UPDATE', 1, CAST(N'2016-07-12T13:24:02.533' AS DateTime), 0)
+INSERT [dbo].[sys_Permission] ([id], [companyId], [code], [description], [updatedBy], [updatedDate], [deleted]) VALUES (4, 1, N'EMPLOYEE_QUICK_UPDATE', N'Quick Update Employee Maintenance', 1, CAST(N'2016-07-12T13:24:02.533' AS DateTime), 0)
 GO
 INSERT [dbo].[sys_Permission] ([id], [companyId], [code], [description], [updatedBy], [updatedDate], [deleted]) VALUES (5, 1, N'DEVELOPER', N'DEVELOPER', 1, CAST(N'2016-07-12T13:24:02.543' AS DateTime), 0)
 GO
-INSERT [dbo].[sys_Permission] ([id], [companyId], [code], [description], [updatedBy], [updatedDate], [deleted]) VALUES (6, 1, N'EMPLOYEE_MAINTENANCE', N'EMPLOYEE_MAINTENANCE', 1, CAST(N'2016-07-12T13:29:23.923' AS DateTime), 0)
+INSERT [dbo].[sys_Permission] ([id], [companyId], [code], [description], [updatedBy], [updatedDate], [deleted]) VALUES (6, 1, N'EMPLOYEE_MAINTENANCE', N'Employee Maintenance', 1, CAST(N'2016-07-12T13:29:23.923' AS DateTime), 0)
 GO
 SET IDENTITY_INSERT [dbo].[sys_Permission] OFF
 GO
@@ -4146,7 +3932,171 @@ INSERT [dbo].[sys_UserSession] ([id], [userId], [companyId], [loggedDate], [ipAd
 GO
 INSERT [dbo].[sys_UserSession] ([id], [userId], [companyId], [loggedDate], [ipAddress], [expiredDate], [deleted]) VALUES (207, 1, 1, CAST(N'2017-01-03T16:05:58.577' AS DateTime), N'::1', CAST(N'2017-01-03T17:35:38.417' AS DateTime), 0)
 GO
+INSERT [dbo].[sys_UserSession] ([id], [userId], [companyId], [loggedDate], [ipAddress], [expiredDate], [deleted]) VALUES (208, 1, 1, CAST(N'2017-01-06T16:21:07.893' AS DateTime), N'::1', CAST(N'2017-01-06T17:21:53.507' AS DateTime), 0)
+GO
+INSERT [dbo].[sys_UserSession] ([id], [userId], [companyId], [loggedDate], [ipAddress], [expiredDate], [deleted]) VALUES (209, 1, 1, CAST(N'2017-01-06T16:21:56.110' AS DateTime), N'::1', CAST(N'2017-01-06T17:57:38.457' AS DateTime), 0)
+GO
 SET IDENTITY_INSERT [dbo].[sys_UserSession] OFF
+GO
+SET IDENTITY_INSERT [dbo].[ta_CutOffAttendance] ON 
+
+GO
+INSERT [dbo].[ta_CutOffAttendance] ([id], [payrollGroupId], [companyId], [generatedDate], [startDate], [endDate], [status], [remarks], [updatedBy], [updatedDate], [changeStatusBy], [changeStatusDate], [deleted]) VALUES (1, 1, 1, CAST(N'2017-01-06T00:00:00.000' AS DateTime), CAST(N'2017-01-01T00:00:00.000' AS DateTime), CAST(N'2017-01-15T00:00:00.000' AS DateTime), 6, NULL, 1, CAST(N'2017-01-06T16:43:02.350' AS DateTime), 1, CAST(N'2017-01-06T16:41:55.983' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendance] ([id], [payrollGroupId], [companyId], [generatedDate], [startDate], [endDate], [status], [remarks], [updatedBy], [updatedDate], [changeStatusBy], [changeStatusDate], [deleted]) VALUES (2, 1, 1, CAST(N'2017-01-06T00:00:00.000' AS DateTime), CAST(N'2017-01-01T00:00:00.000' AS DateTime), CAST(N'2017-01-15T00:00:00.000' AS DateTime), 1, NULL, 1, CAST(N'2017-01-06T16:43:33.470' AS DateTime), 1, CAST(N'2017-01-06T16:43:33.470' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendance] ([id], [payrollGroupId], [companyId], [generatedDate], [startDate], [endDate], [status], [remarks], [updatedBy], [updatedDate], [changeStatusBy], [changeStatusDate], [deleted]) VALUES (3, 1, 1, CAST(N'2017-01-06T00:00:00.000' AS DateTime), CAST(N'2017-01-01T00:00:00.000' AS DateTime), CAST(N'2017-01-15T00:00:00.000' AS DateTime), 6, NULL, 1, CAST(N'2017-01-06T16:51:45.813' AS DateTime), 1, CAST(N'2017-01-06T16:44:57.133' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendance] ([id], [payrollGroupId], [companyId], [generatedDate], [startDate], [endDate], [status], [remarks], [updatedBy], [updatedDate], [changeStatusBy], [changeStatusDate], [deleted]) VALUES (4, 1, 1, CAST(N'2017-01-06T00:00:00.000' AS DateTime), CAST(N'2017-01-01T00:00:00.000' AS DateTime), CAST(N'2017-01-15T00:00:00.000' AS DateTime), 2, NULL, 1, CAST(N'2017-01-06T16:57:11.343' AS DateTime), 1, CAST(N'2017-01-06T16:52:02.580' AS DateTime), 0)
+GO
+SET IDENTITY_INSERT [dbo].[ta_CutOffAttendance] OFF
+GO
+SET IDENTITY_INSERT [dbo].[ta_CutOffAttendanceSummary] ON 
+
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummary] ([id], [cutOffAttendanceId], [employeeId], [updatedBy], [updatedDate], [deleted]) VALUES (1, 1, 1, 1, CAST(N'2017-01-06T16:41:56.023' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummary] ([id], [cutOffAttendanceId], [employeeId], [updatedBy], [updatedDate], [deleted]) VALUES (2, 2, 1, 1, CAST(N'2017-01-06T16:43:33.480' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummary] ([id], [cutOffAttendanceId], [employeeId], [updatedBy], [updatedDate], [deleted]) VALUES (3, 3, 1, 1, CAST(N'2017-01-06T16:44:57.163' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummary] ([id], [cutOffAttendanceId], [employeeId], [updatedBy], [updatedDate], [deleted]) VALUES (4, 4, 1, 1, CAST(N'2017-01-06T16:52:02.587' AS DateTime), 0)
+GO
+SET IDENTITY_INSERT [dbo].[ta_CutOffAttendanceSummary] OFF
+GO
+SET IDENTITY_INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ON 
+
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (1, 1, CAST(N'2017-01-01T00:00:00.000' AS DateTime), 0, 0, 0, 0, NULL, NULL, 0, 1, CAST(N'2017-01-06T16:41:56.083' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (2, 1, CAST(N'2017-01-02T00:00:00.000' AS DateTime), 0, 0, 0, 0, NULL, NULL, 1, 1, CAST(N'2017-01-06T16:41:56.083' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (3, 1, CAST(N'2017-01-03T00:00:00.000' AS DateTime), 0, 0, 0, 0, NULL, NULL, 1, 1, CAST(N'2017-01-06T16:41:56.083' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (4, 1, CAST(N'2017-01-04T00:00:00.000' AS DateTime), 0, 0, 0, 0, NULL, NULL, 1, 1, CAST(N'2017-01-06T16:41:56.087' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (5, 1, CAST(N'2017-01-05T00:00:00.000' AS DateTime), 0, 0, 0, 0, NULL, NULL, 1, 1, CAST(N'2017-01-06T16:41:56.087' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (6, 1, CAST(N'2017-01-06T00:00:00.000' AS DateTime), -1, 0, 0, 0, NULL, NULL, 0, 1, CAST(N'2017-01-06T16:41:56.087' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (7, 1, CAST(N'2017-01-07T00:00:00.000' AS DateTime), 0, 0, 0, 0, NULL, NULL, 0, 1, CAST(N'2017-01-06T16:41:56.090' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (8, 1, CAST(N'2017-01-08T00:00:00.000' AS DateTime), 0, 0, 0, 0, NULL, NULL, 0, 1, CAST(N'2017-01-06T16:41:56.090' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (9, 1, CAST(N'2017-01-09T00:00:00.000' AS DateTime), 0, 0, 0, 0, NULL, NULL, 1, 1, CAST(N'2017-01-06T16:41:56.090' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (10, 1, CAST(N'2017-01-10T00:00:00.000' AS DateTime), 0, 0, 0, 0, NULL, NULL, 1, 1, CAST(N'2017-01-06T16:41:56.090' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (11, 1, CAST(N'2017-01-11T00:00:00.000' AS DateTime), 0, 0, 0, 0, NULL, NULL, 1, 1, CAST(N'2017-01-06T16:41:56.093' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (12, 1, CAST(N'2017-01-12T00:00:00.000' AS DateTime), 0, 0, 0, 0, NULL, NULL, 1, 1, CAST(N'2017-01-06T16:41:56.093' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (13, 1, CAST(N'2017-01-13T00:00:00.000' AS DateTime), 0, 0, 0, 0, NULL, NULL, 1, 1, CAST(N'2017-01-06T16:41:56.093' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (14, 1, CAST(N'2017-01-14T00:00:00.000' AS DateTime), 0, 0, 0, 0, NULL, NULL, 0, 1, CAST(N'2017-01-06T16:41:56.093' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (15, 1, CAST(N'2017-01-15T00:00:00.000' AS DateTime), 0, 0, 0, 0, NULL, NULL, 0, 1, CAST(N'2017-01-06T16:41:56.097' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (16, 2, CAST(N'2017-01-01T00:00:00.000' AS DateTime), 0, 0, 0, 0, NULL, NULL, 0, 1, CAST(N'2017-01-06T16:43:33.493' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (17, 2, CAST(N'2017-01-02T00:00:00.000' AS DateTime), 0, 0, 0, 0, NULL, NULL, 1, 1, CAST(N'2017-01-06T16:43:33.493' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (18, 2, CAST(N'2017-01-03T00:00:00.000' AS DateTime), 0, 0, 0, 0, NULL, NULL, 1, 1, CAST(N'2017-01-06T16:43:33.497' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (19, 2, CAST(N'2017-01-04T00:00:00.000' AS DateTime), 0, 0, 0, 0, NULL, NULL, 1, 1, CAST(N'2017-01-06T16:43:33.497' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (20, 2, CAST(N'2017-01-05T00:00:00.000' AS DateTime), 0, 0, 0, 0, NULL, NULL, 1, 1, CAST(N'2017-01-06T16:43:33.497' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (21, 2, CAST(N'2017-01-06T00:00:00.000' AS DateTime), -1, 0, 0, 0, NULL, NULL, 0, 1, CAST(N'2017-01-06T16:43:33.497' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (22, 2, CAST(N'2017-01-07T00:00:00.000' AS DateTime), 0, 0, 0, 0, NULL, NULL, 0, 1, CAST(N'2017-01-06T16:43:33.497' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (23, 2, CAST(N'2017-01-08T00:00:00.000' AS DateTime), 0, 0, 0, 0, NULL, NULL, 0, 1, CAST(N'2017-01-06T16:43:33.500' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (24, 2, CAST(N'2017-01-09T00:00:00.000' AS DateTime), 0, 0, 0, 0, NULL, NULL, 1, 1, CAST(N'2017-01-06T16:43:33.500' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (25, 2, CAST(N'2017-01-10T00:00:00.000' AS DateTime), 0, 0, 0, 0, NULL, NULL, 1, 1, CAST(N'2017-01-06T16:43:33.500' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (26, 2, CAST(N'2017-01-11T00:00:00.000' AS DateTime), 0, 0, 0, 0, NULL, NULL, 1, 1, CAST(N'2017-01-06T16:43:33.500' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (27, 2, CAST(N'2017-01-12T00:00:00.000' AS DateTime), 0, 0, 0, 0, NULL, NULL, 1, 1, CAST(N'2017-01-06T16:43:33.500' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (28, 2, CAST(N'2017-01-13T00:00:00.000' AS DateTime), 0, 0, 0, 0, NULL, NULL, 1, 1, CAST(N'2017-01-06T16:43:33.500' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (29, 2, CAST(N'2017-01-14T00:00:00.000' AS DateTime), 0, 0, 0, 0, NULL, NULL, 0, 1, CAST(N'2017-01-06T16:43:33.500' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (30, 2, CAST(N'2017-01-15T00:00:00.000' AS DateTime), 0, 0, 0, 0, NULL, NULL, 0, 1, CAST(N'2017-01-06T16:43:33.503' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (31, 3, CAST(N'2017-01-01T00:00:00.000' AS DateTime), 0, 0, 0, 0, NULL, NULL, 0, 1, CAST(N'2017-01-06T16:46:31.260' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (32, 3, CAST(N'2017-01-02T00:00:00.000' AS DateTime), 0, 0, 0, 0, NULL, NULL, 1, 1, CAST(N'2017-01-06T16:46:33.103' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (33, 3, CAST(N'2017-01-03T00:00:00.000' AS DateTime), 0, 0, 0, 0, NULL, NULL, 1, 1, CAST(N'2017-01-06T16:46:33.570' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (34, 3, CAST(N'2017-01-04T00:00:00.000' AS DateTime), 0, 0, 0, 0, NULL, NULL, 1, 1, CAST(N'2017-01-06T16:46:33.810' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (35, 3, CAST(N'2017-01-05T00:00:00.000' AS DateTime), 0, 0, 0, 0, NULL, NULL, 1, 1, CAST(N'2017-01-06T16:46:36.013' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (36, 3, CAST(N'2017-01-06T00:00:00.000' AS DateTime), -1, 0, 0, 0, NULL, NULL, 0, 1, CAST(N'2017-01-06T16:48:52.637' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (37, 3, CAST(N'2017-01-07T00:00:00.000' AS DateTime), 0, 0, 0, 0, NULL, NULL, 0, 1, CAST(N'2017-01-06T16:48:52.647' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (38, 3, CAST(N'2017-01-08T00:00:00.000' AS DateTime), 0, 0, 0, 0, NULL, NULL, 0, 1, CAST(N'2017-01-06T16:48:52.650' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (39, 3, CAST(N'2017-01-09T00:00:00.000' AS DateTime), 0, 0, 0, 0, NULL, NULL, 1, 1, CAST(N'2017-01-06T16:48:52.650' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (40, 3, CAST(N'2017-01-10T00:00:00.000' AS DateTime), 0, 0, 0, 0, NULL, NULL, 1, 1, CAST(N'2017-01-06T16:48:52.653' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (41, 3, CAST(N'2017-01-11T00:00:00.000' AS DateTime), 0, 0, 0, 0, NULL, NULL, 1, 1, CAST(N'2017-01-06T16:48:52.657' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (42, 3, CAST(N'2017-01-12T00:00:00.000' AS DateTime), 0, 0, 0, 0, NULL, NULL, 1, 1, CAST(N'2017-01-06T16:48:52.660' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (43, 3, CAST(N'2017-01-13T00:00:00.000' AS DateTime), 0, 0, 0, 0, NULL, NULL, 1, 1, CAST(N'2017-01-06T16:48:52.660' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (44, 3, CAST(N'2017-01-14T00:00:00.000' AS DateTime), 0, 0, 0, 0, NULL, NULL, 0, 1, CAST(N'2017-01-06T16:48:52.660' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (45, 3, CAST(N'2017-01-15T00:00:00.000' AS DateTime), 0, 0, 0, 0, NULL, NULL, 0, 1, CAST(N'2017-01-06T16:48:52.667' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (46, 4, CAST(N'2017-01-01T00:00:00.000' AS DateTime), 0, 0, 0, 0, NULL, NULL, 0, 1, CAST(N'2017-01-06T16:52:02.600' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (47, 4, CAST(N'2017-01-02T00:00:00.000' AS DateTime), 0, 0, 0, 0, NULL, NULL, 1, 1, CAST(N'2017-01-06T16:52:02.600' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (48, 4, CAST(N'2017-01-03T00:00:00.000' AS DateTime), 0, 0, 0, 0, NULL, NULL, 1, 1, CAST(N'2017-01-06T16:52:02.603' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (49, 4, CAST(N'2017-01-04T00:00:00.000' AS DateTime), 0, 0, 0, 0, NULL, NULL, 1, 1, CAST(N'2017-01-06T16:52:02.603' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (50, 4, CAST(N'2017-01-05T00:00:00.000' AS DateTime), 0, 0, 0, 0, NULL, NULL, 1, 1, CAST(N'2017-01-06T16:52:02.603' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (51, 4, CAST(N'2017-01-06T00:00:00.000' AS DateTime), 8, 0, 0, 0, NULL, NULL, 0, 1, CAST(N'2017-01-06T16:52:02.603' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (52, 4, CAST(N'2017-01-07T00:00:00.000' AS DateTime), 0, 0, 0, 0, NULL, NULL, 0, 1, CAST(N'2017-01-06T16:52:02.603' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (53, 4, CAST(N'2017-01-08T00:00:00.000' AS DateTime), 0, 0, 0, 0, NULL, NULL, 0, 1, CAST(N'2017-01-06T16:52:02.603' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (54, 4, CAST(N'2017-01-09T00:00:00.000' AS DateTime), 0, 0, 0, 0, NULL, NULL, 1, 1, CAST(N'2017-01-06T16:52:02.607' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (55, 4, CAST(N'2017-01-10T00:00:00.000' AS DateTime), 0, 0, 0, 0, NULL, NULL, 1, 1, CAST(N'2017-01-06T16:52:02.607' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (56, 4, CAST(N'2017-01-11T00:00:00.000' AS DateTime), 0, 0, 0, 0, NULL, NULL, 1, 1, CAST(N'2017-01-06T16:52:02.607' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (57, 4, CAST(N'2017-01-12T00:00:00.000' AS DateTime), 0, 0, 0, 0, NULL, NULL, 1, 1, CAST(N'2017-01-06T16:52:02.607' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (58, 4, CAST(N'2017-01-13T00:00:00.000' AS DateTime), 0, 0, 0, 0, NULL, NULL, 1, 1, CAST(N'2017-01-06T16:52:02.610' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (59, 4, CAST(N'2017-01-14T00:00:00.000' AS DateTime), 0, 0, 0, 0, NULL, NULL, 0, 1, CAST(N'2017-01-06T16:52:02.610' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] ([id], [cutOffAttendanceSummaryId], [workDate], [workHours], [undertimeHours], [lateHours], [overtimeHours], [workHolidayHours], [holidayTypeId], [absent], [updatedBy], [updatedDate], [deleted]) VALUES (60, 4, CAST(N'2017-01-15T00:00:00.000' AS DateTime), 0, 0, 0, 0, NULL, NULL, 0, 1, CAST(N'2017-01-06T16:52:02.610' AS DateTime), 0)
+GO
+SET IDENTITY_INSERT [dbo].[ta_CutOffAttendanceSummaryDetail] OFF
+GO
+SET IDENTITY_INSERT [dbo].[ta_EmployeeAttendance] ON 
+
+GO
+INSERT [dbo].[ta_EmployeeAttendance] ([id], [employeeId], [timeLogType], [workDate], [timeLog], [workDayId], [remarks], [updatedBy], [updatedDate], [deleted]) VALUES (1, 1, 0, CAST(N'2017-01-06T00:00:00.000' AS DateTime), CAST(N'2017-01-06T08:00:00.000' AS DateTime), 190, NULL, 1, CAST(N'2017-01-06T16:50:48.040' AS DateTime), 0)
+GO
+INSERT [dbo].[ta_EmployeeAttendance] ([id], [employeeId], [timeLogType], [workDate], [timeLog], [workDayId], [remarks], [updatedBy], [updatedDate], [deleted]) VALUES (2, 1, 1, CAST(N'2017-01-06T00:00:00.000' AS DateTime), CAST(N'2017-01-06T17:30:00.000' AS DateTime), 190, NULL, 1, CAST(N'2017-01-06T16:50:48.060' AS DateTime), 0)
+GO
+SET IDENTITY_INSERT [dbo].[ta_EmployeeAttendance] OFF
 GO
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_mf_Agency_updatedDate]') AND type = 'D')
 BEGIN
