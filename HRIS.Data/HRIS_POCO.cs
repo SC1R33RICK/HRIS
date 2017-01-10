@@ -41,7 +41,7 @@ namespace HRIS.Data
     // Database context
     public partial class HRISContext : Repository.Providers.EntityFramework.DataContext
     {
-        public DbSet<mf_Agency> mf_Agencies { get; set; }        public DbSet<mf_Allowance> mf_Allowances { get; set; }        public DbSet<mf_ApplicationRequestType> mf_ApplicationRequestTypes { get; set; }        public DbSet<mf_Country> mf_Countries { get; set; }        public DbSet<mf_Deduction> mf_Deductions { get; set; }        public DbSet<mf_Department> mf_Departments { get; set; }        public DbSet<mf_DepartmentSection> mf_DepartmentSections { get; set; }        public DbSet<mf_DepartmentSectionRequestApprover> mf_DepartmentSectionRequestApprovers { get; set; }        public DbSet<mf_Employee> mf_Employees { get; set; }        public DbSet<mf_Employee201> mf_Employee201 { get; set; }        public DbSet<mf_EmployeeAddress> mf_EmployeeAddresses { get; set; }        public DbSet<mf_EmployeeAllowance> mf_EmployeeAllowances { get; set; }        public DbSet<mf_EmployeeBalanceLeave> mf_EmployeeBalanceLeaves { get; set; }        public DbSet<mf_EmployeeBasicPay> mf_EmployeeBasicPays { get; set; }        public DbSet<mf_EmployeeDeduction> mf_EmployeeDeductions { get; set; }        public DbSet<mf_EmployeeEducation> mf_EmployeeEducations { get; set; }        public DbSet<mf_EmployeeIdentificationDocument> mf_EmployeeIdentificationDocuments { get; set; }        public DbSet<mf_EmployeeOffense> mf_EmployeeOffenses { get; set; }        public DbSet<mf_EmployeeSkill> mf_EmployeeSkills { get; set; }        public DbSet<mf_EmployeeTraining> mf_EmployeeTrainings { get; set; }        public DbSet<mf_EmployeeWorkDay> mf_EmployeeWorkDays { get; set; }        public DbSet<mf_EmployeeWorkHistory> mf_EmployeeWorkHistories { get; set; }        public DbSet<mf_EmploymentStatu> mf_EmploymentStatus { get; set; }        public DbSet<mf_EmploymentType> mf_EmploymentTypes { get; set; }        public DbSet<mf_Holiday> mf_Holidays { get; set; }        public DbSet<mf_HolidayType> mf_HolidayTypes { get; set; }        public DbSet<mf_Offense> mf_Offenses { get; set; }        public DbSet<mf_PayrollGroup> mf_PayrollGroups { get; set; }        public DbSet<mf_PenaltyType> mf_PenaltyTypes { get; set; }        public DbSet<mf_Position> mf_Positions { get; set; }        public DbSet<mf_WorkDay> mf_WorkDays { get; set; }        public DbSet<pr_Payroll> pr_Payrolls { get; set; }        public DbSet<pr_PayrollEmployee> pr_PayrollEmployees { get; set; }        public DbSet<pr_PayrollEmployeeDeduction> pr_PayrollEmployeeDeductions { get; set; }        public DbSet<pr_PayrollEmployeeEarning> pr_PayrollEmployeeEarnings { get; set; }        public DbSet<sys_Company> sys_Companies { get; set; }        public DbSet<sys_CompanySetting> sys_CompanySettings { get; set; }        public DbSet<sys_EnumReference> sys_EnumReferences { get; set; }        public DbSet<sys_IdentificationDocument> sys_IdentificationDocuments { get; set; }        public DbSet<sys_Location> sys_Locations { get; set; }        public DbSet<sys_Log> sys_Logs { get; set; }        public DbSet<sys_Menu> sys_Menus { get; set; }        public DbSet<sys_Permission> sys_Permissions { get; set; }        public DbSet<sys_Role> sys_Roles { get; set; }        public DbSet<sys_RoleMenu> sys_RoleMenus { get; set; }        public DbSet<sys_RolePermission> sys_RolePermissions { get; set; }        public DbSet<sys_Setting> sys_Settings { get; set; }        public DbSet<sys_User> sys_Users { get; set; }        public DbSet<sys_UserRole> sys_UserRoles { get; set; }        public DbSet<sys_UserSession> sys_UserSessions { get; set; }        public DbSet<sysdiagram> sysdiagrams { get; set; }        public DbSet<ta_ApplicationRequest> ta_ApplicationRequests { get; set; }        public DbSet<ta_ApplicationRequestApprover> ta_ApplicationRequestApprovers { get; set; }        public DbSet<ta_ApplicationRequestGatePass> ta_ApplicationRequestGatePasses { get; set; }        public DbSet<ta_ApplicationRequestLeave> ta_ApplicationRequestLeaves { get; set; }        public DbSet<ta_CutOffAttendance> ta_CutOffAttendances { get; set; }        public DbSet<ta_CutOffAttendanceSummary> ta_CutOffAttendanceSummaries { get; set; }        public DbSet<ta_CutOffAttendanceSummaryDetail> ta_CutOffAttendanceSummaryDetails { get; set; }        public DbSet<ta_EmployeeAttendance> ta_EmployeeAttendances { get; set; }
+        public DbSet<mf_Agency> mf_Agencies { get; set; }        public DbSet<mf_Allowance> mf_Allowances { get; set; }        public DbSet<mf_ApplicationRequestType> mf_ApplicationRequestTypes { get; set; }        public DbSet<mf_Country> mf_Countries { get; set; }        public DbSet<mf_Deduction> mf_Deductions { get; set; }        public DbSet<mf_Department> mf_Departments { get; set; }        public DbSet<mf_DepartmentSection> mf_DepartmentSections { get; set; }        public DbSet<mf_DepartmentSectionRequestApprover> mf_DepartmentSectionRequestApprovers { get; set; }        public DbSet<mf_Employee> mf_Employees { get; set; }        public DbSet<mf_Employee201> mf_Employee201 { get; set; }        public DbSet<mf_EmployeeAddress> mf_EmployeeAddresses { get; set; }        public DbSet<mf_EmployeeAllowance> mf_EmployeeAllowances { get; set; }        public DbSet<mf_EmployeeBalanceLeave> mf_EmployeeBalanceLeaves { get; set; }        public DbSet<mf_EmployeeBasicPay> mf_EmployeeBasicPays { get; set; }        public DbSet<mf_EmployeeDeduction> mf_EmployeeDeductions { get; set; }        public DbSet<mf_EmployeeEducation> mf_EmployeeEducations { get; set; }        public DbSet<mf_EmployeeIdentificationDocument> mf_EmployeeIdentificationDocuments { get; set; }        public DbSet<mf_EmployeeOffense> mf_EmployeeOffenses { get; set; }        public DbSet<mf_EmployeeSkill> mf_EmployeeSkills { get; set; }        public DbSet<mf_EmployeeTraining> mf_EmployeeTrainings { get; set; }        public DbSet<mf_EmployeeWorkDay> mf_EmployeeWorkDays { get; set; }        public DbSet<mf_EmployeeWorkHistory> mf_EmployeeWorkHistories { get; set; }        public DbSet<mf_EmploymentStatu> mf_EmploymentStatus { get; set; }        public DbSet<mf_EmploymentType> mf_EmploymentTypes { get; set; }        public DbSet<mf_Holiday> mf_Holidays { get; set; }        public DbSet<mf_HolidayType> mf_HolidayTypes { get; set; }        public DbSet<mf_Offense> mf_Offenses { get; set; }        public DbSet<mf_PayrollGroup> mf_PayrollGroups { get; set; }        public DbSet<mf_PenaltyType> mf_PenaltyTypes { get; set; }        public DbSet<mf_Position> mf_Positions { get; set; }        public DbSet<mf_WorkDay> mf_WorkDays { get; set; }        public DbSet<pr_Payroll> pr_Payrolls { get; set; }        public DbSet<pr_PayrollEmployee> pr_PayrollEmployees { get; set; }        public DbSet<pr_PayrollEmployeeDeduction> pr_PayrollEmployeeDeductions { get; set; }        public DbSet<pr_PayrollEmployeeEarning> pr_PayrollEmployeeEarnings { get; set; }        public DbSet<sys_Company> sys_Companies { get; set; }        public DbSet<sys_CompanySetting> sys_CompanySettings { get; set; }        public DbSet<sys_EnumReference> sys_EnumReferences { get; set; }        public DbSet<sys_IdentificationDocument> sys_IdentificationDocuments { get; set; }        public DbSet<sys_Location> sys_Locations { get; set; }        public DbSet<sys_Log> sys_Logs { get; set; }        public DbSet<sys_Menu> sys_Menus { get; set; }        public DbSet<sys_Permission> sys_Permissions { get; set; }        public DbSet<sys_Role> sys_Roles { get; set; }        public DbSet<sys_RoleMenu> sys_RoleMenus { get; set; }        public DbSet<sys_RolePermission> sys_RolePermissions { get; set; }        public DbSet<sys_Setting> sys_Settings { get; set; }        public DbSet<sys_User> sys_Users { get; set; }        public DbSet<sys_UserRole> sys_UserRoles { get; set; }        public DbSet<sys_UserSession> sys_UserSessions { get; set; }        public DbSet<sysdiagram> sysdiagrams { get; set; }        public DbSet<ta_ApplicationRequest> ta_ApplicationRequests { get; set; }        public DbSet<ta_ApplicationRequestApprover> ta_ApplicationRequestApprovers { get; set; }        public DbSet<ta_CutOffAttendance> ta_CutOffAttendances { get; set; }        public DbSet<ta_CutOffAttendanceSummary> ta_CutOffAttendanceSummaries { get; set; }        public DbSet<ta_CutOffAttendanceSummaryDetail> ta_CutOffAttendanceSummaryDetails { get; set; }        public DbSet<ta_EmployeeAttendance> ta_EmployeeAttendances { get; set; }
         public HRISContext()
             : base("Name=HRIS")
         {
@@ -110,8 +110,6 @@ namespace HRIS.Data
             modelBuilder.Configurations.Add(new sysdiagramConfiguration());
             modelBuilder.Configurations.Add(new ta_ApplicationRequestConfiguration());
             modelBuilder.Configurations.Add(new ta_ApplicationRequestApproverConfiguration());
-            modelBuilder.Configurations.Add(new ta_ApplicationRequestGatePassConfiguration());
-            modelBuilder.Configurations.Add(new ta_ApplicationRequestLeaveConfiguration());
             modelBuilder.Configurations.Add(new ta_CutOffAttendanceConfiguration());
             modelBuilder.Configurations.Add(new ta_CutOffAttendanceSummaryConfiguration());
             modelBuilder.Configurations.Add(new ta_CutOffAttendanceSummaryDetailConfiguration());
@@ -175,8 +173,6 @@ namespace HRIS.Data
             modelBuilder.Configurations.Add(new sysdiagramConfiguration(schema));
             modelBuilder.Configurations.Add(new ta_ApplicationRequestConfiguration(schema));
             modelBuilder.Configurations.Add(new ta_ApplicationRequestApproverConfiguration(schema));
-            modelBuilder.Configurations.Add(new ta_ApplicationRequestGatePassConfiguration(schema));
-            modelBuilder.Configurations.Add(new ta_ApplicationRequestLeaveConfiguration(schema));
             modelBuilder.Configurations.Add(new ta_CutOffAttendanceConfiguration(schema));
             modelBuilder.Configurations.Add(new ta_CutOffAttendanceSummaryConfiguration(schema));
             modelBuilder.Configurations.Add(new ta_CutOffAttendanceSummaryDetailConfiguration(schema));
@@ -1666,12 +1662,12 @@ namespace HRIS.Data
         public int assignTo { get; set; }
         public int requestedBy { get; set; }
         public DateTime requestedDate { get; set; }
+        public DateTime startDateTime { get; set; }
+        public DateTime endDateTime { get; set; }
         public int updatedBy { get; set; }
         public DateTime updatedDate { get; set; }
 
         public virtual ICollection<ta_ApplicationRequestApprover> ta_ApplicationRequestApprovers { get; set; }
-        public virtual ICollection<ta_ApplicationRequestGatePass> ta_ApplicationRequestGatePasses { get; set; }
-        public virtual ICollection<ta_ApplicationRequestLeave> ta_ApplicationRequestLeaves { get; set; }
 
         public virtual mf_ApplicationRequestType mf_ApplicationRequestType { get; set; }
         public virtual sys_User sys_User_assignTo { get; set; }
@@ -1684,8 +1680,6 @@ namespace HRIS.Data
             updatedDate = System.DateTime.Now;
             deleted = false;
             ta_ApplicationRequestApprovers = new List<ta_ApplicationRequestApprover>();
-            ta_ApplicationRequestGatePasses = new List<ta_ApplicationRequestGatePass>();
-            ta_ApplicationRequestLeaves = new List<ta_ApplicationRequestLeave>();
             InitializePartial();
         }
 
@@ -1705,40 +1699,6 @@ namespace HRIS.Data
         public virtual ta_ApplicationRequest ta_ApplicationRequest { get; set; }
         
         public ta_ApplicationRequestApprover()
-        {
-            deleted = false;
-            InitializePartial();
-        }
-
-        partial void InitializePartial();
-    }
-
-    public partial class ta_ApplicationRequestGatePass: EntityBase
-    {
-        public int applicationRequestId { get; set; }
-        public DateTime startDateTime { get; set; }
-        public DateTime endDateTime { get; set; }
-
-        public virtual ta_ApplicationRequest ta_ApplicationRequest { get; set; }
-        
-        public ta_ApplicationRequestGatePass()
-        {
-            deleted = false;
-            InitializePartial();
-        }
-
-        partial void InitializePartial();
-    }
-
-    public partial class ta_ApplicationRequestLeave: EntityBase
-    {
-        public int applicationRequestId { get; set; }
-        public DateTime startDate { get; set; }
-        public DateTime endDate { get; set; }
-
-        public virtual ta_ApplicationRequest ta_ApplicationRequest { get; set; }
-        
-        public ta_ApplicationRequestLeave()
         {
             deleted = false;
             InitializePartial();
@@ -3356,6 +3316,8 @@ namespace HRIS.Data
             Property(x => x.assignTo).HasColumnName("assignTo").IsRequired().HasColumnType("int");
             Property(x => x.requestedBy).HasColumnName("requestedBy").IsRequired().HasColumnType("int");
             Property(x => x.requestedDate).HasColumnName("requestedDate").IsRequired().HasColumnType("datetime");
+            Property(x => x.startDateTime).HasColumnName("startDateTime").IsRequired().HasColumnType("datetime");
+            Property(x => x.endDateTime).HasColumnName("endDateTime").IsRequired().HasColumnType("datetime");
             Property(x => x.updatedBy).HasColumnName("updatedBy").IsRequired().HasColumnType("int");
             Property(x => x.updatedDate).HasColumnName("updatedDate").IsRequired().HasColumnType("datetime");
             Property(x => x.deleted).HasColumnName("deleted").IsRequired().HasColumnType("bit");
@@ -3392,54 +3354,6 @@ namespace HRIS.Data
             HasRequired(a => a.sys_User_approverId).WithMany(b => b.ta_ApplicationRequestApprovers_approverId).HasForeignKey(c => c.approverId);
             HasRequired(a => a.sys_User_updatedBy).WithMany(b => b.ta_ApplicationRequestApprovers_updatedBy).HasForeignKey(c => c.updatedBy);
             HasRequired(a => a.ta_ApplicationRequest).WithMany(b => b.ta_ApplicationRequestApprovers).HasForeignKey(c => c.applicationRequestId);
-            InitializePartial();
-        }
-        partial void InitializePartial();
-    }
-
-    internal partial class ta_ApplicationRequestGatePassConfiguration : EntityTypeConfiguration<ta_ApplicationRequestGatePass>
-    {
-        public ta_ApplicationRequestGatePassConfiguration()
-            : this("dbo")
-        {
-        }
- 
-        public ta_ApplicationRequestGatePassConfiguration(string schema)
-        {
-            ToTable(schema + ".ta_ApplicationRequestGatePass");
-            HasKey(x => x.id);
-
-            Property(x => x.id).HasColumnName("id").IsRequired().HasColumnType("int").HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            Property(x => x.applicationRequestId).HasColumnName("applicationRequestId").IsRequired().HasColumnType("int");
-            Property(x => x.startDateTime).HasColumnName("startDateTime").IsRequired().HasColumnType("datetime");
-            Property(x => x.endDateTime).HasColumnName("endDateTime").IsRequired().HasColumnType("datetime");
-            Property(x => x.deleted).HasColumnName("deleted").IsRequired().HasColumnType("bit");
-
-            HasRequired(a => a.ta_ApplicationRequest).WithMany(b => b.ta_ApplicationRequestGatePasses).HasForeignKey(c => c.applicationRequestId);
-            InitializePartial();
-        }
-        partial void InitializePartial();
-    }
-
-    internal partial class ta_ApplicationRequestLeaveConfiguration : EntityTypeConfiguration<ta_ApplicationRequestLeave>
-    {
-        public ta_ApplicationRequestLeaveConfiguration()
-            : this("dbo")
-        {
-        }
- 
-        public ta_ApplicationRequestLeaveConfiguration(string schema)
-        {
-            ToTable(schema + ".ta_ApplicationRequestLeave");
-            HasKey(x => x.id);
-
-            Property(x => x.id).HasColumnName("id").IsRequired().HasColumnType("int").HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            Property(x => x.applicationRequestId).HasColumnName("applicationRequestId").IsRequired().HasColumnType("int");
-            Property(x => x.startDate).HasColumnName("startDate").IsRequired().HasColumnType("datetime");
-            Property(x => x.endDate).HasColumnName("endDate").IsRequired().HasColumnType("datetime");
-            Property(x => x.deleted).HasColumnName("deleted").IsRequired().HasColumnType("bit");
-
-            HasRequired(a => a.ta_ApplicationRequest).WithMany(b => b.ta_ApplicationRequestLeaves).HasForeignKey(c => c.applicationRequestId);
             InitializePartial();
         }
         partial void InitializePartial();

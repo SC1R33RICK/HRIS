@@ -26,10 +26,6 @@ ALTER TABLE [dbo].[ta_CutOffAttendance] DROP CONSTRAINT [FK_ta_CutOffAttendance_
 GO
 ALTER TABLE [dbo].[ta_CutOffAttendance] DROP CONSTRAINT [FK_ta_CutOffAttendance_mf_PayrollGroup]
 GO
-ALTER TABLE [dbo].[ta_ApplicationRequestLeave] DROP CONSTRAINT [FK_ta_ApplicationRequestLeave_ta_ApplicationRequest]
-GO
-ALTER TABLE [dbo].[ta_ApplicationRequestGatePass] DROP CONSTRAINT [FK_ta_ApplicationRequestGatePass_ta_ApplicationRequest]
-GO
 ALTER TABLE [dbo].[ta_ApplicationRequestApprover] DROP CONSTRAINT [FK_ta_ApplicationRequestApprover_ta_ApplicationRequest]
 GO
 ALTER TABLE [dbo].[ta_ApplicationRequestApprover] DROP CONSTRAINT [FK_ta_ApplicationRequestApprover_sys_User1]
@@ -270,10 +266,6 @@ ALTER TABLE [dbo].[mf_Agency] DROP CONSTRAINT [FK_mf_Agency_sys_User]
 GO
 ALTER TABLE [dbo].[mf_Agency] DROP CONSTRAINT [FK_mf_Agency_sys_Company]
 GO
-ALTER TABLE [dbo].[ta_ApplicationRequestLeave] DROP CONSTRAINT [DF_ta_ApplicationRequestLeave_deleted]
-GO
-ALTER TABLE [dbo].[ta_ApplicationRequestGatePass] DROP CONSTRAINT [DF_ta_ApplicationRequestGatePass_deleted]
-GO
 ALTER TABLE [dbo].[ta_ApplicationRequestApprover] DROP CONSTRAINT [DF_ta_ApplicationRequestApprover_deleted]
 GO
 ALTER TABLE [dbo].[ta_ApplicationRequest] DROP CONSTRAINT [DF_ta_ApplicationRequest_deleted]
@@ -340,18 +332,6 @@ ALTER TABLE [dbo].[mf_EmployeeAllowance] DROP CONSTRAINT [DF_mf_EmployeeAllowanc
 GO
 ALTER TABLE [dbo].[mf_EmployeeAllowance] DROP CONSTRAINT [DF_mf_EmployeeAllowance_updatedDate]
 GO
-ALTER TABLE [dbo].[mf_DepartmentSectionRequestApprover] DROP CONSTRAINT [DF_mf_DepartmentSectionRequestApprover_deleted]
-GO
-ALTER TABLE [dbo].[mf_DepartmentSectionRequestApprover] DROP CONSTRAINT [DF_mf_DepartmentSectionRequestApprover_updatedDate]
-GO
-ALTER TABLE [dbo].[mf_DepartmentSectionRequestApprover] DROP CONSTRAINT [DF_mf_DepartmentSectionRequestApprover_orderNo]
-GO
-ALTER TABLE [dbo].[mf_ApplicationRequestType] DROP CONSTRAINT [DF_mf_ApplicationRequestType_deleted]
-GO
-ALTER TABLE [dbo].[mf_ApplicationRequestType] DROP CONSTRAINT [DF_mf_ApplicationRequestType_updatedDate]
-GO
-ALTER TABLE [dbo].[mf_ApplicationRequestType] DROP CONSTRAINT [DF_mf_ApplicationRequestType_hasLeavePoints]
-GO
 ALTER TABLE [dbo].[mf_Allowance] DROP CONSTRAINT [DF_mf_Allowance_deleted]
 GO
 ALTER TABLE [dbo].[mf_Allowance] DROP CONSTRAINT [DF_mf_Allowance_updatedDate]
@@ -362,187 +342,181 @@ ALTER TABLE [dbo].[mf_Agency] DROP CONSTRAINT [DF_mf_Agency_deleted]
 GO
 ALTER TABLE [dbo].[mf_Agency] DROP CONSTRAINT [DF_mf_Agency_updatedDate]
 GO
-/****** Object:  Table [dbo].[ta_EmployeeAttendance]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[ta_EmployeeAttendance]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP TABLE [dbo].[ta_EmployeeAttendance]
 GO
-/****** Object:  Table [dbo].[ta_CutOffAttendanceSummaryDetail]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[ta_CutOffAttendanceSummaryDetail]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP TABLE [dbo].[ta_CutOffAttendanceSummaryDetail]
 GO
-/****** Object:  Table [dbo].[ta_CutOffAttendanceSummary]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[ta_CutOffAttendanceSummary]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP TABLE [dbo].[ta_CutOffAttendanceSummary]
 GO
-/****** Object:  Table [dbo].[ta_CutOffAttendance]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[ta_CutOffAttendance]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP TABLE [dbo].[ta_CutOffAttendance]
 GO
-/****** Object:  Table [dbo].[ta_ApplicationRequestLeave]    Script Date: 10/01/2017 12:05:33 PM ******/
-DROP TABLE [dbo].[ta_ApplicationRequestLeave]
-GO
-/****** Object:  Table [dbo].[ta_ApplicationRequestGatePass]    Script Date: 10/01/2017 12:05:33 PM ******/
-DROP TABLE [dbo].[ta_ApplicationRequestGatePass]
-GO
-/****** Object:  Table [dbo].[ta_ApplicationRequestApprover]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[ta_ApplicationRequestApprover]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP TABLE [dbo].[ta_ApplicationRequestApprover]
 GO
-/****** Object:  Table [dbo].[ta_ApplicationRequest]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[ta_ApplicationRequest]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP TABLE [dbo].[ta_ApplicationRequest]
 GO
-/****** Object:  Table [dbo].[sys_UserSession]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[sys_UserSession]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP TABLE [dbo].[sys_UserSession]
 GO
-/****** Object:  Table [dbo].[sys_UserRole]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[sys_UserRole]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP TABLE [dbo].[sys_UserRole]
 GO
-/****** Object:  Table [dbo].[sys_User]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[sys_User]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP TABLE [dbo].[sys_User]
 GO
-/****** Object:  Table [dbo].[sys_Setting]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[sys_Setting]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP TABLE [dbo].[sys_Setting]
 GO
-/****** Object:  Table [dbo].[sys_RolePermission]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[sys_RolePermission]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP TABLE [dbo].[sys_RolePermission]
 GO
-/****** Object:  Table [dbo].[sys_RoleMenu]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[sys_RoleMenu]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP TABLE [dbo].[sys_RoleMenu]
 GO
-/****** Object:  Table [dbo].[sys_Role]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[sys_Role]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP TABLE [dbo].[sys_Role]
 GO
-/****** Object:  Table [dbo].[sys_Permission]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[sys_Permission]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP TABLE [dbo].[sys_Permission]
 GO
-/****** Object:  Table [dbo].[sys_Menu]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[sys_Menu]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP TABLE [dbo].[sys_Menu]
 GO
-/****** Object:  Table [dbo].[sys_Log]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[sys_Log]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP TABLE [dbo].[sys_Log]
 GO
-/****** Object:  Table [dbo].[sys_Location]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[sys_Location]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP TABLE [dbo].[sys_Location]
 GO
-/****** Object:  Table [dbo].[sys_IdentificationDocument]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[sys_IdentificationDocument]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP TABLE [dbo].[sys_IdentificationDocument]
 GO
-/****** Object:  Table [dbo].[sys_EnumReference]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[sys_EnumReference]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP TABLE [dbo].[sys_EnumReference]
 GO
-/****** Object:  Table [dbo].[sys_CompanySetting]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[sys_CompanySetting]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP TABLE [dbo].[sys_CompanySetting]
 GO
-/****** Object:  Table [dbo].[sys_Company]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[sys_Company]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP TABLE [dbo].[sys_Company]
 GO
-/****** Object:  Table [dbo].[pr_PayrollEmployeeEarnings]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[pr_PayrollEmployeeEarnings]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP TABLE [dbo].[pr_PayrollEmployeeEarnings]
 GO
-/****** Object:  Table [dbo].[pr_PayrollEmployeeDeductions]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[pr_PayrollEmployeeDeductions]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP TABLE [dbo].[pr_PayrollEmployeeDeductions]
 GO
-/****** Object:  Table [dbo].[pr_PayrollEmployee]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[pr_PayrollEmployee]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP TABLE [dbo].[pr_PayrollEmployee]
 GO
-/****** Object:  Table [dbo].[pr_Payroll]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[pr_Payroll]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP TABLE [dbo].[pr_Payroll]
 GO
-/****** Object:  Table [dbo].[mf_WorkDays]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_WorkDays]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP TABLE [dbo].[mf_WorkDays]
 GO
-/****** Object:  Table [dbo].[mf_Position]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_Position]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP TABLE [dbo].[mf_Position]
 GO
-/****** Object:  Table [dbo].[mf_PenaltyType]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_PenaltyType]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP TABLE [dbo].[mf_PenaltyType]
 GO
-/****** Object:  Table [dbo].[mf_PayrollGroup]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_PayrollGroup]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP TABLE [dbo].[mf_PayrollGroup]
 GO
-/****** Object:  Table [dbo].[mf_Offense]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_Offense]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP TABLE [dbo].[mf_Offense]
 GO
-/****** Object:  Table [dbo].[mf_HolidayType]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_HolidayType]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP TABLE [dbo].[mf_HolidayType]
 GO
-/****** Object:  Table [dbo].[mf_Holidays]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_Holidays]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP TABLE [dbo].[mf_Holidays]
 GO
-/****** Object:  Table [dbo].[mf_EmploymentType]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_EmploymentType]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP TABLE [dbo].[mf_EmploymentType]
 GO
-/****** Object:  Table [dbo].[mf_EmploymentStatus]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_EmploymentStatus]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP TABLE [dbo].[mf_EmploymentStatus]
 GO
-/****** Object:  Table [dbo].[mf_EmployeeWorkHistory]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeWorkHistory]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP TABLE [dbo].[mf_EmployeeWorkHistory]
 GO
-/****** Object:  Table [dbo].[mf_EmployeeWorkDays]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeWorkDays]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP TABLE [dbo].[mf_EmployeeWorkDays]
 GO
-/****** Object:  Table [dbo].[mf_EmployeeTraining]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeTraining]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP TABLE [dbo].[mf_EmployeeTraining]
 GO
-/****** Object:  Table [dbo].[mf_EmployeeSkill]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeSkill]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP TABLE [dbo].[mf_EmployeeSkill]
 GO
-/****** Object:  Table [dbo].[mf_EmployeeOffense]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeOffense]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP TABLE [dbo].[mf_EmployeeOffense]
 GO
-/****** Object:  Table [dbo].[mf_EmployeeIdentificationDocument]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeIdentificationDocument]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP TABLE [dbo].[mf_EmployeeIdentificationDocument]
 GO
-/****** Object:  Table [dbo].[mf_EmployeeEducation]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeEducation]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP TABLE [dbo].[mf_EmployeeEducation]
 GO
-/****** Object:  Table [dbo].[mf_EmployeeDeduction]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeDeduction]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP TABLE [dbo].[mf_EmployeeDeduction]
 GO
-/****** Object:  Table [dbo].[mf_EmployeeBasicPay]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeBasicPay]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP TABLE [dbo].[mf_EmployeeBasicPay]
 GO
-/****** Object:  Table [dbo].[mf_EmployeeBalanceLeave]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeBalanceLeave]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP TABLE [dbo].[mf_EmployeeBalanceLeave]
 GO
-/****** Object:  Table [dbo].[mf_EmployeeAllowance]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeAllowance]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP TABLE [dbo].[mf_EmployeeAllowance]
 GO
-/****** Object:  Table [dbo].[mf_EmployeeAddress]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeAddress]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP TABLE [dbo].[mf_EmployeeAddress]
 GO
-/****** Object:  Table [dbo].[mf_Employee201]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_Employee201]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP TABLE [dbo].[mf_Employee201]
 GO
-/****** Object:  Table [dbo].[mf_Employee]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_Employee]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP TABLE [dbo].[mf_Employee]
 GO
-/****** Object:  Table [dbo].[mf_DepartmentSectionRequestApprover]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_DepartmentSectionRequestApprover]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP TABLE [dbo].[mf_DepartmentSectionRequestApprover]
 GO
-/****** Object:  Table [dbo].[mf_DepartmentSection]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_DepartmentSection]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP TABLE [dbo].[mf_DepartmentSection]
 GO
-/****** Object:  Table [dbo].[mf_Department]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_Department]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP TABLE [dbo].[mf_Department]
 GO
-/****** Object:  Table [dbo].[mf_Deduction]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_Deduction]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP TABLE [dbo].[mf_Deduction]
 GO
-/****** Object:  Table [dbo].[mf_Country]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_Country]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP TABLE [dbo].[mf_Country]
 GO
-/****** Object:  Table [dbo].[mf_ApplicationRequestType]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_ApplicationRequestType]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP TABLE [dbo].[mf_ApplicationRequestType]
 GO
-/****** Object:  Table [dbo].[mf_Allowance]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_Allowance]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP TABLE [dbo].[mf_Allowance]
 GO
-/****** Object:  Table [dbo].[mf_Agency]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_Agency]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP TABLE [dbo].[mf_Agency]
 GO
-/****** Object:  UserDefinedFunction [dbo].[RemoveSpecialCharacters]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  UserDefinedFunction [dbo].[RemoveSpecialCharacters]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP FUNCTION [dbo].[RemoveSpecialCharacters]
 GO
-/****** Object:  UserDefinedFunction [dbo].[RemoveNonAlphaCharacters]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  UserDefinedFunction [dbo].[RemoveNonAlphaCharacters]    Script Date: 10/01/2017 8:58:42 PM ******/
 DROP FUNCTION [dbo].[RemoveNonAlphaCharacters]
 GO
-/****** Object:  UserDefinedFunction [dbo].[RemoveNonAlphaCharacters]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  UserDefinedFunction [dbo].[RemoveNonAlphaCharacters]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -561,7 +535,7 @@ Begin
 End
 
 GO
-/****** Object:  UserDefinedFunction [dbo].[RemoveSpecialCharacters]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  UserDefinedFunction [dbo].[RemoveSpecialCharacters]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -580,7 +554,7 @@ Begin
 End
 
 GO
-/****** Object:  Table [dbo].[mf_Agency]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_Agency]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -600,7 +574,7 @@ CREATE TABLE [dbo].[mf_Agency](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[mf_Allowance]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_Allowance]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -621,7 +595,7 @@ CREATE TABLE [dbo].[mf_Allowance](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[mf_ApplicationRequestType]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_ApplicationRequestType]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -630,10 +604,10 @@ CREATE TABLE [dbo].[mf_ApplicationRequestType](
 	[id] [int] IDENTITY(1,1) NOT NULL,
 	[code] [nvarchar](50) NOT NULL,
 	[description] [nvarchar](250) NOT NULL,
-	[requiredLeavePoints] [bit] NOT NULL,
+	[requiredLeavePoints] [bit] NOT NULL CONSTRAINT [DF_mf_ApplicationRequestType_hasLeavePoints]  DEFAULT ((0)),
 	[updatedBy] [int] NOT NULL,
-	[updatedDate] [datetime] NOT NULL,
-	[deleted] [bit] NOT NULL,
+	[updatedDate] [datetime] NOT NULL CONSTRAINT [DF_mf_ApplicationRequestType_updatedDate]  DEFAULT (getdate()),
+	[deleted] [bit] NOT NULL CONSTRAINT [DF_mf_ApplicationRequestType_deleted]  DEFAULT ((0)),
  CONSTRAINT [PK_mf_ApplicationRequestType] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
@@ -641,7 +615,7 @@ CREATE TABLE [dbo].[mf_ApplicationRequestType](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[mf_Country]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_Country]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -660,7 +634,7 @@ CREATE TABLE [dbo].[mf_Country](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[mf_Deduction]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_Deduction]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -680,7 +654,7 @@ CREATE TABLE [dbo].[mf_Deduction](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[mf_Department]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_Department]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -700,7 +674,7 @@ CREATE TABLE [dbo].[mf_Department](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[mf_DepartmentSection]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_DepartmentSection]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -720,7 +694,7 @@ CREATE TABLE [dbo].[mf_DepartmentSection](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[mf_DepartmentSectionRequestApprover]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_DepartmentSectionRequestApprover]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -730,10 +704,10 @@ CREATE TABLE [dbo].[mf_DepartmentSectionRequestApprover](
 	[approverId] [int] NOT NULL,
 	[departmentSectionId] [int] NOT NULL,
 	[applicationRequestTypeId] [int] NOT NULL,
-	[orderNo] [int] NOT NULL,
+	[orderNo] [int] NOT NULL CONSTRAINT [DF_mf_DepartmentSectionRequestApprover_orderNo]  DEFAULT ((0)),
 	[updatedBy] [int] NOT NULL,
-	[updatedDate] [datetime] NOT NULL,
-	[deleted] [bit] NOT NULL,
+	[updatedDate] [datetime] NOT NULL CONSTRAINT [DF_mf_DepartmentSectionRequestApprover_updatedDate]  DEFAULT (getdate()),
+	[deleted] [bit] NOT NULL CONSTRAINT [DF_mf_DepartmentSectionRequestApprover_deleted]  DEFAULT ((0)),
  CONSTRAINT [PK_mf_DepartmentSectionRequestApprover] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
@@ -741,7 +715,7 @@ CREATE TABLE [dbo].[mf_DepartmentSectionRequestApprover](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[mf_Employee]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_Employee]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -772,7 +746,7 @@ CREATE TABLE [dbo].[mf_Employee](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[mf_Employee201]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_Employee201]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -808,7 +782,7 @@ CREATE TABLE [dbo].[mf_Employee201](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[mf_EmployeeAddress]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeAddress]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -831,7 +805,7 @@ CREATE TABLE [dbo].[mf_EmployeeAddress](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[mf_EmployeeAllowance]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeAllowance]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -851,7 +825,7 @@ CREATE TABLE [dbo].[mf_EmployeeAllowance](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[mf_EmployeeBalanceLeave]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeBalanceLeave]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -871,7 +845,7 @@ CREATE TABLE [dbo].[mf_EmployeeBalanceLeave](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[mf_EmployeeBasicPay]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeBasicPay]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -891,7 +865,7 @@ CREATE TABLE [dbo].[mf_EmployeeBasicPay](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[mf_EmployeeDeduction]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeDeduction]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -911,7 +885,7 @@ CREATE TABLE [dbo].[mf_EmployeeDeduction](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[mf_EmployeeEducation]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeEducation]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -936,7 +910,7 @@ CREATE TABLE [dbo].[mf_EmployeeEducation](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[mf_EmployeeIdentificationDocument]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeIdentificationDocument]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -956,7 +930,7 @@ CREATE TABLE [dbo].[mf_EmployeeIdentificationDocument](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[mf_EmployeeOffense]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeOffense]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -983,7 +957,7 @@ CREATE TABLE [dbo].[mf_EmployeeOffense](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[mf_EmployeeSkill]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeSkill]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1003,7 +977,7 @@ CREATE TABLE [dbo].[mf_EmployeeSkill](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[mf_EmployeeTraining]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeTraining]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1026,7 +1000,7 @@ CREATE TABLE [dbo].[mf_EmployeeTraining](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[mf_EmployeeWorkDays]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeWorkDays]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1045,7 +1019,7 @@ CREATE TABLE [dbo].[mf_EmployeeWorkDays](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[mf_EmployeeWorkHistory]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_EmployeeWorkHistory]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1070,7 +1044,7 @@ CREATE TABLE [dbo].[mf_EmployeeWorkHistory](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[mf_EmploymentStatus]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_EmploymentStatus]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1090,7 +1064,7 @@ CREATE TABLE [dbo].[mf_EmploymentStatus](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[mf_EmploymentType]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_EmploymentType]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1109,7 +1083,7 @@ CREATE TABLE [dbo].[mf_EmploymentType](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[mf_Holidays]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_Holidays]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1129,7 +1103,7 @@ CREATE TABLE [dbo].[mf_Holidays](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[mf_HolidayType]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_HolidayType]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1150,7 +1124,7 @@ CREATE TABLE [dbo].[mf_HolidayType](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[mf_Offense]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_Offense]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1170,7 +1144,7 @@ CREATE TABLE [dbo].[mf_Offense](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[mf_PayrollGroup]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_PayrollGroup]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1189,7 +1163,7 @@ CREATE TABLE [dbo].[mf_PayrollGroup](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[mf_PenaltyType]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_PenaltyType]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1209,7 +1183,7 @@ CREATE TABLE [dbo].[mf_PenaltyType](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[mf_Position]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_Position]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1229,7 +1203,7 @@ CREATE TABLE [dbo].[mf_Position](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[mf_WorkDays]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[mf_WorkDays]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1261,7 +1235,7 @@ CREATE TABLE [dbo].[mf_WorkDays](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[pr_Payroll]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[pr_Payroll]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1284,7 +1258,7 @@ CREATE TABLE [dbo].[pr_Payroll](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[pr_PayrollEmployee]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[pr_PayrollEmployee]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1310,7 +1284,7 @@ CREATE TABLE [dbo].[pr_PayrollEmployee](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[pr_PayrollEmployeeDeductions]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[pr_PayrollEmployeeDeductions]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1328,7 +1302,7 @@ CREATE TABLE [dbo].[pr_PayrollEmployeeDeductions](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[pr_PayrollEmployeeEarnings]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[pr_PayrollEmployeeEarnings]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1346,7 +1320,7 @@ CREATE TABLE [dbo].[pr_PayrollEmployeeEarnings](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[sys_Company]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[sys_Company]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1375,7 +1349,7 @@ CREATE TABLE [dbo].[sys_Company](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[sys_CompanySetting]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[sys_CompanySetting]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1395,7 +1369,7 @@ CREATE TABLE [dbo].[sys_CompanySetting](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[sys_EnumReference]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[sys_EnumReference]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1421,7 +1395,7 @@ CREATE TABLE [dbo].[sys_EnumReference](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[sys_IdentificationDocument]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[sys_IdentificationDocument]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1440,7 +1414,7 @@ CREATE TABLE [dbo].[sys_IdentificationDocument](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[sys_Location]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[sys_Location]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1460,7 +1434,7 @@ CREATE TABLE [dbo].[sys_Location](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[sys_Log]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[sys_Log]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1480,7 +1454,7 @@ CREATE TABLE [dbo].[sys_Log](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[sys_Menu]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[sys_Menu]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1502,7 +1476,7 @@ CREATE TABLE [dbo].[sys_Menu](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[sys_Permission]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[sys_Permission]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1522,7 +1496,7 @@ CREATE TABLE [dbo].[sys_Permission](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[sys_Role]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[sys_Role]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1542,7 +1516,7 @@ CREATE TABLE [dbo].[sys_Role](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[sys_RoleMenu]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[sys_RoleMenu]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1564,7 +1538,7 @@ CREATE TABLE [dbo].[sys_RoleMenu](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[sys_RolePermission]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[sys_RolePermission]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1588,7 +1562,7 @@ CREATE TABLE [dbo].[sys_RolePermission](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[sys_Setting]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[sys_Setting]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1605,14 +1579,14 @@ CREATE TABLE [dbo].[sys_Setting](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[sys_User]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[sys_User]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[sys_User](
 	[id] [int] IDENTITY(1,1) NOT NULL,
-	[companyId] [int] NOT NULL,
+	[companyId] [int] NULL,
 	[username] [nvarchar](50) NOT NULL,
 	[password] [nvarchar](max) NULL,
 	[hashKey] [nvarchar](max) NULL,
@@ -1630,7 +1604,7 @@ CREATE TABLE [dbo].[sys_User](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[sys_UserRole]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[sys_UserRole]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1649,7 +1623,7 @@ CREATE TABLE [dbo].[sys_UserRole](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[sys_UserSession]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[sys_UserSession]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1669,7 +1643,7 @@ CREATE TABLE [dbo].[sys_UserSession](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[ta_ApplicationRequest]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[ta_ApplicationRequest]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1682,6 +1656,8 @@ CREATE TABLE [dbo].[ta_ApplicationRequest](
 	[assignTo] [int] NOT NULL,
 	[requestedBy] [int] NOT NULL,
 	[requestedDate] [datetime] NOT NULL,
+	[startDateTime] [datetime] NOT NULL,
+	[endDateTime] [datetime] NOT NULL,
 	[updatedBy] [int] NOT NULL,
 	[updatedDate] [datetime] NOT NULL,
 	[deleted] [bit] NOT NULL,
@@ -1692,7 +1668,7 @@ CREATE TABLE [dbo].[ta_ApplicationRequest](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[ta_ApplicationRequestApprover]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[ta_ApplicationRequestApprover]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1712,43 +1688,7 @@ CREATE TABLE [dbo].[ta_ApplicationRequestApprover](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[ta_ApplicationRequestGatePass]    Script Date: 10/01/2017 12:05:33 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[ta_ApplicationRequestGatePass](
-	[id] [int] IDENTITY(1,1) NOT NULL,
-	[applicationRequestId] [int] NOT NULL,
-	[startDateTime] [datetime] NOT NULL,
-	[endDateTime] [datetime] NOT NULL,
-	[deleted] [bit] NOT NULL,
- CONSTRAINT [PK_ta_ApplicationRequestGatePass] PRIMARY KEY CLUSTERED 
-(
-	[id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-
-GO
-/****** Object:  Table [dbo].[ta_ApplicationRequestLeave]    Script Date: 10/01/2017 12:05:33 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[ta_ApplicationRequestLeave](
-	[id] [int] IDENTITY(1,1) NOT NULL,
-	[applicationRequestId] [int] NOT NULL,
-	[startDate] [datetime] NOT NULL,
-	[endDate] [datetime] NOT NULL,
-	[deleted] [bit] NOT NULL,
- CONSTRAINT [PK_ta_ApplicationRequestLeave] PRIMARY KEY CLUSTERED 
-(
-	[id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-
-GO
-/****** Object:  Table [dbo].[ta_CutOffAttendance]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[ta_CutOffAttendance]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1774,7 +1714,7 @@ CREATE TABLE [dbo].[ta_CutOffAttendance](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[ta_CutOffAttendanceSummary]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[ta_CutOffAttendanceSummary]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1793,7 +1733,7 @@ CREATE TABLE [dbo].[ta_CutOffAttendanceSummary](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[ta_CutOffAttendanceSummaryDetail]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[ta_CutOffAttendanceSummaryDetail]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1819,7 +1759,7 @@ CREATE TABLE [dbo].[ta_CutOffAttendanceSummaryDetail](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[ta_EmployeeAttendance]    Script Date: 10/01/2017 12:05:33 PM ******/
+/****** Object:  Table [dbo].[ta_EmployeeAttendance]    Script Date: 10/01/2017 8:58:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1841,6 +1781,17 @@ CREATE TABLE [dbo].[ta_EmployeeAttendance](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
+GO
+SET IDENTITY_INSERT [dbo].[mf_ApplicationRequestType] ON 
+
+GO
+INSERT [dbo].[mf_ApplicationRequestType] ([id], [code], [description], [requiredLeavePoints], [updatedBy], [updatedDate], [deleted]) VALUES (1, N'VL', N'Vacation Leave', 1, 1, CAST(N'2017-01-10 00:00:00.000' AS DateTime), 0)
+GO
+INSERT [dbo].[mf_ApplicationRequestType] ([id], [code], [description], [requiredLeavePoints], [updatedBy], [updatedDate], [deleted]) VALUES (2, N'SL', N'Sick Leave', 1, 1, CAST(N'2017-01-10 00:00:00.000' AS DateTime), 0)
+GO
+INSERT [dbo].[mf_ApplicationRequestType] ([id], [code], [description], [requiredLeavePoints], [updatedBy], [updatedDate], [deleted]) VALUES (3, N'GP', N'Gate Pass', 0, 1, CAST(N'2017-01-10 00:00:00.000' AS DateTime), 0)
+GO
+SET IDENTITY_INSERT [dbo].[mf_ApplicationRequestType] OFF
 GO
 SET IDENTITY_INSERT [dbo].[mf_Country] ON 
 
@@ -2376,6 +2327,17 @@ INSERT [dbo].[mf_DepartmentSection] ([id], [departmentId], [code], [description]
 GO
 SET IDENTITY_INSERT [dbo].[mf_DepartmentSection] OFF
 GO
+SET IDENTITY_INSERT [dbo].[mf_DepartmentSectionRequestApprover] ON 
+
+GO
+INSERT [dbo].[mf_DepartmentSectionRequestApprover] ([id], [approverId], [departmentSectionId], [applicationRequestTypeId], [orderNo], [updatedBy], [updatedDate], [deleted]) VALUES (1, 1, 1, 1, 3, 1, CAST(N'2017-01-10 20:14:03.170' AS DateTime), 0)
+GO
+INSERT [dbo].[mf_DepartmentSectionRequestApprover] ([id], [approverId], [departmentSectionId], [applicationRequestTypeId], [orderNo], [updatedBy], [updatedDate], [deleted]) VALUES (2, 1, 1, 1, 1, 1, CAST(N'2017-01-10 20:14:11.820' AS DateTime), 0)
+GO
+INSERT [dbo].[mf_DepartmentSectionRequestApprover] ([id], [approverId], [departmentSectionId], [applicationRequestTypeId], [orderNo], [updatedBy], [updatedDate], [deleted]) VALUES (3, 2, 1, 1, 2, 1, CAST(N'2017-01-10 20:14:11.820' AS DateTime), 0)
+GO
+SET IDENTITY_INSERT [dbo].[mf_DepartmentSectionRequestApprover] OFF
+GO
 SET IDENTITY_INSERT [dbo].[mf_Employee] ON 
 
 GO
@@ -2795,12 +2757,16 @@ INSERT [dbo].[sys_Permission] ([id], [companyId], [code], [description], [update
 GO
 INSERT [dbo].[sys_Permission] ([id], [companyId], [code], [description], [updatedBy], [updatedDate], [deleted]) VALUES (6, 1, N'EMPLOYEE_MAINTENANCE', N'Employee Maintenance', 1, CAST(N'2016-07-12 13:29:23.923' AS DateTime), 0)
 GO
+INSERT [dbo].[sys_Permission] ([id], [companyId], [code], [description], [updatedBy], [updatedDate], [deleted]) VALUES (7, 1, N'AR_ALLOW_ASSIGNTO', N'Application Request - Allow to change Assign To" ', 1, CAST(N'2017-01-10 20:32:22.010' AS DateTime), 0)
+GO
 SET IDENTITY_INSERT [dbo].[sys_Permission] OFF
 GO
 SET IDENTITY_INSERT [dbo].[sys_Role] ON 
 
 GO
 INSERT [dbo].[sys_Role] ([id], [companyId], [code], [description], [updatedBy], [updatedDate], [deleted]) VALUES (1, 1, N'ADMIN', N'Administrators', 1, CAST(N'2016-04-29 21:23:23.217' AS DateTime), 0)
+GO
+INSERT [dbo].[sys_Role] ([id], [companyId], [code], [description], [updatedBy], [updatedDate], [deleted]) VALUES (2, 1, N'DEPT_HEAD', N'Department Head', 1, CAST(N'2017-01-10 20:30:58.557' AS DateTime), 0)
 GO
 SET IDENTITY_INSERT [dbo].[sys_Role] OFF
 GO
@@ -3346,6 +3312,10 @@ INSERT [dbo].[sys_UserSession] ([id], [userId], [companyId], [loggedDate], [ipAd
 GO
 INSERT [dbo].[sys_UserSession] ([id], [userId], [companyId], [loggedDate], [ipAddress], [expiredDate], [deleted]) VALUES (209, 1, 1, CAST(N'2017-01-06 16:21:56.110' AS DateTime), N'::1', CAST(N'2017-01-06 17:57:38.457' AS DateTime), 0)
 GO
+INSERT [dbo].[sys_UserSession] ([id], [userId], [companyId], [loggedDate], [ipAddress], [expiredDate], [deleted]) VALUES (210, 1, 1, CAST(N'2017-01-10 12:20:10.117' AS DateTime), N'::1', CAST(N'2017-01-10 13:22:58.307' AS DateTime), 0)
+GO
+INSERT [dbo].[sys_UserSession] ([id], [userId], [companyId], [loggedDate], [ipAddress], [expiredDate], [deleted]) VALUES (211, 1, 1, CAST(N'2017-01-10 20:10:15.823' AS DateTime), N'::1', CAST(N'2017-01-10 21:32:22.000' AS DateTime), 0)
+GO
 SET IDENTITY_INSERT [dbo].[sys_UserSession] OFF
 GO
 SET IDENTITY_INSERT [dbo].[ta_CutOffAttendance] ON 
@@ -3518,18 +3488,6 @@ ALTER TABLE [dbo].[mf_Allowance] ADD  CONSTRAINT [DF_mf_Allowance_updatedDate]  
 GO
 ALTER TABLE [dbo].[mf_Allowance] ADD  CONSTRAINT [DF_mf_Allowance_deleted]  DEFAULT ((0)) FOR [deleted]
 GO
-ALTER TABLE [dbo].[mf_ApplicationRequestType] ADD  CONSTRAINT [DF_mf_ApplicationRequestType_hasLeavePoints]  DEFAULT ((0)) FOR [requiredLeavePoints]
-GO
-ALTER TABLE [dbo].[mf_ApplicationRequestType] ADD  CONSTRAINT [DF_mf_ApplicationRequestType_updatedDate]  DEFAULT (getdate()) FOR [updatedDate]
-GO
-ALTER TABLE [dbo].[mf_ApplicationRequestType] ADD  CONSTRAINT [DF_mf_ApplicationRequestType_deleted]  DEFAULT ((0)) FOR [deleted]
-GO
-ALTER TABLE [dbo].[mf_DepartmentSectionRequestApprover] ADD  CONSTRAINT [DF_mf_DepartmentSectionRequestApprover_orderNo]  DEFAULT ((0)) FOR [orderNo]
-GO
-ALTER TABLE [dbo].[mf_DepartmentSectionRequestApprover] ADD  CONSTRAINT [DF_mf_DepartmentSectionRequestApprover_updatedDate]  DEFAULT (getdate()) FOR [updatedDate]
-GO
-ALTER TABLE [dbo].[mf_DepartmentSectionRequestApprover] ADD  CONSTRAINT [DF_mf_DepartmentSectionRequestApprover_deleted]  DEFAULT ((0)) FOR [deleted]
-GO
 ALTER TABLE [dbo].[mf_EmployeeAllowance] ADD  CONSTRAINT [DF_mf_EmployeeAllowance_updatedDate]  DEFAULT (getdate()) FOR [updatedDate]
 GO
 ALTER TABLE [dbo].[mf_EmployeeAllowance] ADD  CONSTRAINT [DF_mf_EmployeeAllowance_deleted]  DEFAULT ((0)) FOR [deleted]
@@ -3595,10 +3553,6 @@ GO
 ALTER TABLE [dbo].[ta_ApplicationRequest] ADD  CONSTRAINT [DF_ta_ApplicationRequest_deleted]  DEFAULT ((0)) FOR [deleted]
 GO
 ALTER TABLE [dbo].[ta_ApplicationRequestApprover] ADD  CONSTRAINT [DF_ta_ApplicationRequestApprover_deleted]  DEFAULT ((0)) FOR [deleted]
-GO
-ALTER TABLE [dbo].[ta_ApplicationRequestGatePass] ADD  CONSTRAINT [DF_ta_ApplicationRequestGatePass_deleted]  DEFAULT ((0)) FOR [deleted]
-GO
-ALTER TABLE [dbo].[ta_ApplicationRequestLeave] ADD  CONSTRAINT [DF_ta_ApplicationRequestLeave_deleted]  DEFAULT ((0)) FOR [deleted]
 GO
 ALTER TABLE [dbo].[mf_Agency]  WITH CHECK ADD  CONSTRAINT [FK_mf_Agency_sys_Company] FOREIGN KEY([companyId])
 REFERENCES [dbo].[sys_Company] ([id])
@@ -4211,16 +4165,6 @@ ALTER TABLE [dbo].[ta_ApplicationRequestApprover]  WITH CHECK ADD  CONSTRAINT [F
 REFERENCES [dbo].[ta_ApplicationRequest] ([id])
 GO
 ALTER TABLE [dbo].[ta_ApplicationRequestApprover] CHECK CONSTRAINT [FK_ta_ApplicationRequestApprover_ta_ApplicationRequest]
-GO
-ALTER TABLE [dbo].[ta_ApplicationRequestGatePass]  WITH CHECK ADD  CONSTRAINT [FK_ta_ApplicationRequestGatePass_ta_ApplicationRequest] FOREIGN KEY([applicationRequestId])
-REFERENCES [dbo].[ta_ApplicationRequest] ([id])
-GO
-ALTER TABLE [dbo].[ta_ApplicationRequestGatePass] CHECK CONSTRAINT [FK_ta_ApplicationRequestGatePass_ta_ApplicationRequest]
-GO
-ALTER TABLE [dbo].[ta_ApplicationRequestLeave]  WITH CHECK ADD  CONSTRAINT [FK_ta_ApplicationRequestLeave_ta_ApplicationRequest] FOREIGN KEY([applicationRequestId])
-REFERENCES [dbo].[ta_ApplicationRequest] ([id])
-GO
-ALTER TABLE [dbo].[ta_ApplicationRequestLeave] CHECK CONSTRAINT [FK_ta_ApplicationRequestLeave_ta_ApplicationRequest]
 GO
 ALTER TABLE [dbo].[ta_CutOffAttendance]  WITH CHECK ADD  CONSTRAINT [FK_ta_CutOffAttendance_mf_PayrollGroup] FOREIGN KEY([payrollGroupId])
 REFERENCES [dbo].[mf_PayrollGroup] ([id])
