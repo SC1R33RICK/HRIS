@@ -3045,14 +3045,12 @@
     <None Include="connections.Debug.config">
       <DependentUpon>connections.config</DependentUpon>
       <IsTransformFile>True</IsTransformFile>
+      <SubType>Designer</SubType>
     </None>
     <None Include="connections.Release.config">
       <DependentUpon>connections.config</DependentUpon>
       <IsTransformFile>True</IsTransformFile>
     </None>
-    <None Include="Properties\PublishProfiles\Local.pubxml" />
-    <None Include="Properties\PublishProfiles\mynrdhris - Web Deploy.pubxml" />
-    <None Include="Properties\PublishProfiles\SARROSA.pubxml" />
     <Content Include="Properties\SlowCheetah\SlowCheetah.Transforms.targets" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -3328,6 +3326,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Properties\PublishProfiles\" />
     <Folder Include="Views\Payroll\" />
   </ItemGroup>
   <PropertyGroup>
